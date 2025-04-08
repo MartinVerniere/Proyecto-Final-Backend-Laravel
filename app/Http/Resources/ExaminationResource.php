@@ -4,6 +4,9 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\AnthropogenicalExaminationResource;
+use App\Http\Resources\AnthropometricalExaminationResource;
+use App\Http\Resources\FisicalConditionExaminationResource;
 
 class ExaminationResource extends JsonResource
 {
