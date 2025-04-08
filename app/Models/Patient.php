@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Patient extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'nombre',
+        'apellido',
+        'genero',
+        'DNI',
+        'fecha_nacimiento'
+    ];
+
+    public function examinations() {
+        return $this->hasMany(Examination::class);
+    }
+
+    public function index() {
+        return Patient::orderBy('apellido')->paginate(10);
+    }
+
+    public function agregarPaciente($request) 
+    {
+        $patient = new Patient();
+
+        $patient->nombre = $request->input('nombre');
+        $patient->apellido = $request->input('apellido');
+        $patient->genero = $request->input('genero');
+        $patient->DNI = $request->input('DNI');
+        $patient->fecha_nacimiento = $request->input('fecha_nacimiento');
+
+        $patient->save();
+    }
+
+    public function quitarPaciente($request) 
+    {
+        $patient = $request->Paciente;
+        $patientElem = Patient::find($id);
+        $patientElem->delete();
+    }
+
+}
