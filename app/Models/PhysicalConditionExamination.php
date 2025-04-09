@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Examination;
 
-class FisicalConditionExamination extends Model
+class PhysicalConditionExamination extends Model
 {
     use HasFactory;
 
@@ -28,7 +28,7 @@ class FisicalConditionExamination extends Model
     }
 
     public function añadirExaminacionFisica($request) {
-        $examination = new FisicalConditionExamination();
+        $examination = new PhysicalConditionExamination();
 
         $examination->id_paciente = $request->input('id_paciente');
         $examination->fecha_realizacion = $request->input('fecha_realizacion');
@@ -47,7 +47,7 @@ class FisicalConditionExamination extends Model
 
     public function quitarExaminacionFisica($request) {
         $examination = $request->ExaminacionFisica;
-        $examinationElem = FisicalConditionExamination::find($id);
+        $examinationElem = PhysicalConditionExamination::find($id);
         $examinationElem->delete();
     }
 }

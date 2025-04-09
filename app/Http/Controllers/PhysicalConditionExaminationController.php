@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\FisicalConditionExamination;
+use App\Models\PhysicalConditionExamination;
 
-class FisicalConditionExaminationController extends Controller
+class PhysicalConditionExaminationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $examinaciones_fisicas = FisicalConditionExamination::all();
+        $examinaciones_fisicas = PhysicalConditionExamination::all();
         return view('examinacionesFisicas.index', compact('examinaciones_fisicas'));
     }
 
@@ -27,7 +27,7 @@ class FisicalConditionExaminationController extends Controller
      */
     public function store(Request $request)
     {
-        return FisicalConditionExamination::añadirExaminacionFisica($request);
+        return PhysicalConditionExamination::añadirExaminacionFisica($request);
     }
 
     /**
