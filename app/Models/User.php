@@ -21,7 +21,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'rol'
     ];
 
     /**
@@ -48,7 +47,6 @@ class User extends Authenticatable
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->rol = "MEDICO";
         $user->save();
     }
 }

@@ -32,13 +32,13 @@ return new class extends Migration
             $table->float('perimetro_pantorrilla');
 
             $table->float('valor_indice_cintura_cadera');
-            $table->enum('categoria_indice_cintura_cadera', ['']);
+            $table->enum('categoria_indice_cintura_cadera', ['Bajo','Moderado','Alto','Muy alto']);
 
             $table->float('valor_indice_masa_grasa');
-            $table->enum('categoria_indice_masa_grasa', ['']);
+            $table->enum('categoria_indice_masa_grasa', ['Muy bajo','Bajo','Medio','Alto','Muy alto']);
 
             $table->float('valor_indice_masa_muscular');
-            $table->enum('categoria_indice_masa_muscular', ['']);
+            $table->enum('categoria_indice_masa_muscular', ['Bajo','Moderado','Alto']);
 
             $table->integer('suma_pliegues');
         });

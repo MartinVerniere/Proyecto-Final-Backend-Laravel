@@ -26,22 +26,21 @@ return new class extends Migration
             $table->float('talla_falta_crecer');
 
             $table->float('valor_IRMI');
-            $table->enum('categoria_IRMI', ['']);
+            $table->enum('categoria_IRMI', ['0','1','2']);
 
             $table->float('valor_indice_cormico');
-            $table->enum('categoria_indice_cormico', ['']);
+            $table->enum('categoria_indice_cormico', ['Corto','Medio','Largo']);
 
             $table->float('valor_indice_masa_corporal');
-            $table->enum('categoria_indice_masa_corporal', ['']);
+            $table->enum('categoria_indice_masa_corporal', ['Peso insuficiente','Normopeso','Sobrepeso tipo I','Sobrepeso tipo II','Obesidad tipo I','Obesidad tipo II','Obesidad tipo III']);
 
             $table->float('valor_estadio_tanner');
-            $table->enum('categoria_estadio_tanner', ['']);
+            $table->enum('categoria_estadio_tanner', ['I','II','III','IV','V']);
 
-            $table->float('valor_PHV');
-            $table->enum('categoria_PHV', ['']);
+            $table->float('valor_indice_madurativo');
             
             $table->float('valor_edad_PHV');
-            $table->enum('categoria_edad_PHV', ['']);
+            $table->enum('categoria_PHV', ['Temprano','Normal','Tardio']);
         });
     }
 

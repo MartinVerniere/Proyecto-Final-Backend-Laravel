@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\AntropogenicalExamination;
 use App\Models\AnthropometricalExamination;
-use App\Models\FisicalConditionExamination;
+use App\Models\PhysicalConditionExamination;
 use App\Models\Patient;
 
 
@@ -20,23 +20,21 @@ class Examination extends Model
         'talla'
     ];
 
-    public function antropogenicalExaminations() {
-        return $this->hasMany(AntropogenicalExamination::class);
+    public function antropogenicalExamination() {
+        return $this->hasOne(AntropogenicalExamination::class);
     }
 
-    public function anthropometricalExaminations() {
-        return $this->hasMany(AnthropometricalExamination::class);
+    public function anthropometricalExamination() {
+        return $this->hasOne(AnthropometricalExamination::class);
     }
 
-    public function fisicalConditionExamination() {
-        return $this->hasMany(FisicalConditionExamination::class);
+    public function physicalConditionExamination() {
+        return $this->hasOne(PhysicalConditionExamination::class);
     }
 
     public function patient() {
-        return $this->belongsTo(Patient::class);
+        return $this->belongsTo(Patient::class); 
     }
-
-
 
     public function index() {
         return Examination::orderBy('id')->paginate(10);
@@ -56,5 +54,9 @@ class Examination extends Model
         $examination = $request->Examinacion;
         $examinationElem = Examination::find($id);
         $examinationElem->delete();
+    }
+
+    public function getNombrePaciente() {
+        return $this->patient->nombre . ' ' . $this->patient->apellido;
     }
 }

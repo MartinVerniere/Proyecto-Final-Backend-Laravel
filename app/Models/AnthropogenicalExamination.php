@@ -26,8 +26,7 @@ class AnthropogenicalExamination extends Model
         'categoria_indice_masa_corporal',
         'valor_estadio_tanner',
         'categoria_estadio_tanner',
-        'valor_PHV',
-        'categoria_PHV',
+        'valor_indice_madurativo',
         'valor_edad_PHV',
         'categoria_edad_PHV'
     ];
@@ -55,8 +54,7 @@ class AnthropogenicalExamination extends Model
         $examination->categoria_indice_masa_corporal = $request->input('categoria_indice_masa_corporal');
         $examination->valor_estadio_tanner = $request->input('valor_estadio_tanner');
         $examination->categoria_estadio_tanner = $request->input('categoria_estadio_tanner');
-        $examination->valor_PHV = $request->input('valor_PHV');
-        $examination->categoria_PHV = $request->input('categoria_PHV');
+        $examination->valor_indice_madurativo = $request->input('valor_indice_madurativo');
         $examination->valor_edad_PHV = $request->input('valor_edad_PHV');
         $examination->categoria_edad_PHV = $request->input('categoria_edad_PHV');
 
