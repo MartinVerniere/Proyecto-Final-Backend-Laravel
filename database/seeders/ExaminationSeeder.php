@@ -4,6 +4,11 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Examination;
+use App\Models\AnthropogenicalExamination;
+use App\Models\AnthropometricalExamination;
+use App\Models\PhysicalConditionExamination;
+use Illuminate\Support\Facades\DB;
 
 class ExaminationSeeder extends Seeder
 {

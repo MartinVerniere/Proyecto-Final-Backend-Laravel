@@ -18,13 +18,13 @@ class PhysicalConditionExaminationFactory extends Factory
     {
         return [
             'valor_fuerza_presion_manual' => $this->faker->randomFloat(1, 0, 10),
-            'categoria_fuerza_presion_manual' => $this->faker->randomElement(['Baja', 'Media', 'Alta']),
+            'categoria_fuerza_presion_manual' => $this->faker->randomElement(['Muy bajo','Bajo','Medio','Alto','Muy alto']),
 
             'valor_fuerza_explosiva' => $this->faker->randomFloat(1, 0, 10),
-            'categoria_fuerza_explosiva' => $this->faker->randomElement(['Baja', 'Media', 'Alta']),
+            'categoria_fuerza_explosiva' => $this->faker->randomElement(['Muy bajo','Bajo','Medio','Alto','Muy alto']),
 
             'valor_mobilidad_tobillo' => $this->faker->randomFloat(1, 0, 10),
-            'categoria_mobilidad_tobillo' => $this->faker->randomElement(['Baja', 'Media', 'Alta']),
+            'categoria_mobilidad_tobillo' => $this->faker->randomElement(['Rigidez','Bien']),
         ];
     }
 }
