@@ -36,7 +36,7 @@ class Examination extends Model
     }
 
     public static function index() {
-        return Examination::orderByDesc('id')->paginate(10);
+        return Examination::orderBy('id')->paginate(10);
     }
 
     public function agregarExaminacion($request) {
