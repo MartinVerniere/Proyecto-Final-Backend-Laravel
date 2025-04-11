@@ -45,8 +45,8 @@ Route::middleware('auth')->group(function () {
         ->name('examinaciones.examinacionFisicaAsociada');
     Route::get('examinaciones/examinacionAntropogenicaAsociada/{id}', [ExaminationController::class, 'examinacionAntropogenicaAsociada'])
         ->name('examinaciones.examinacionAntropogenicaAsociada');
-    Route::get('examinaciones/examinacionAntropologicaAsociada/{id}', [ExaminationController::class, 'examinacionAntropologicaAsociada'])
-        ->name('examinaciones.examinacionAntropologicaAsociada');
+    Route::get('examinaciones/examinacionAntropometricaAsociada/{id}', [ExaminationController::class, 'examinacionAntropometricaAsociada'])
+        ->name('examinaciones.examinacionAntropometricaAsociada');
 
     Route::resource('examinacionesAntropometricas', AnthropometricalExaminationController::class);
     Route::resource('examinacionesAntropogenicas', AnthropogenicalExaminationController::class);
