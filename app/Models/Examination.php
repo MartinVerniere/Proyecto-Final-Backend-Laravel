@@ -9,7 +9,6 @@ use App\Models\AnthropometricalExamination;
 use App\Models\PhysicalConditionExamination;
 use App\Models\Patient;
 
-
 class Examination extends Model
 {
     use HasFactory;
@@ -33,11 +32,11 @@ class Examination extends Model
     }
 
     public function patient() {
-        return $this->belongsTo(Patient::class); 
+        return $this->belongsTo(Patient::class, 'id_paciente');
     }
 
-    public function index() {
-        return Examination::orderBy('id')->paginate(10);
+    public static function index() {
+        return Examination::orderByDesc('id')->paginate(10);
     }
 
     public function agregarExaminacion($request) {

@@ -13,7 +13,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $pacientes = Patient::all();
+        $pacientes = Patient::index();
         return view('pacientes.index', compact('pacientes'));
     }
 
@@ -49,4 +49,10 @@ class PatientController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id){}
+
+    public function examinacionesAsociadas($id){
+        $paciente = Patient::find($id);
+        $examinaciones = $paciente->examinations;
+        return view('examinaciones.index', compact('examinaciones'));
+    }
 }

@@ -13,7 +13,7 @@ class ExaminationController extends Controller
      */
     public function index()
     {
-        $examinaciones = Examination::all();
+        $examinaciones = Examination::index();
         return view('examinaciones.index', compact('examinaciones'));
     }
 
@@ -63,5 +63,23 @@ class ExaminationController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function examinacionFisicaAsociada($id){
+        $examinacion = Examination::find($id);
+        $examinacionFisica = $examinacion->examinacionFisica;
+        return view('examinacionesFisicas.show', compact('examinacionFisica'));
+    }
+
+    public function examinacionAntropogenicAsociadas($id){
+        $examinacion = Examination::find($id);
+        $examinacionAntropogenica = $examinacion->examinacionesAntropogenicas;
+        return view('examinacionesAntropogenicas.index', compact('examinacionAntropogenica'));
+    }
+
+    public function examinacionAntropometricaAsociadas($id){
+        $examinacion = Examination::find($id);
+        $examinacionAntropologica = $examinacion->examinacionesAntropometricas;
+        return view('examinacionesAntropometricas.index', compact('examinacionAntropologica'));
     }
 }

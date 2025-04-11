@@ -21,8 +21,8 @@ class Patient extends Model
         return $this->hasMany(Examination::class);
     }
 
-    public function index() {
-        return Patient::orderBy('apellido')->paginate(10);
+    public static function index() {
+        return Patient::orderBy('id')->paginate(10);
     }
 
     public function agregarPaciente($request) 
