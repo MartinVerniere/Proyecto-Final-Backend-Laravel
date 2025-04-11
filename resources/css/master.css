@@ -77,3 +77,122 @@
     color: white;
     text-transform: uppercase;
 }
+
+.content-table{
+    margin: 10px;
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+.table-acciones-list{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1%;
+}
+
+.examinacionesFisicas-container{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-left: 5%;
+    width: 80%;
+}
+
+.examinacionesFisicas-container-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    gap: 10px;
+}
+
+.examinacionesFisicas-container-row-title{
+    font-weight: bold;
+    text-align: left;
+    width: 50%;
+}
+
+.examinacionesFisicas-container-row-content{
+    text-align: left;
+    width: 50%;
+}
+
+.examinacionesAntropometricas-container{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-left: 5%;
+    width: 80%;
+}
+
+.examinacionesAntropometricas-container-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    gap: 10px;
+}
+
+.examinacionesAntropometricas-container-row-title{
+    font-weight: bold;
+    text-align: left;
+    width: 50%;
+}
+
+.examinacionesAntropometricas-container-row-content{
+    text-align: left;
+    width: 50%;
+}
+
+.examinacionesAntropogenicas-container{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-left: 5%;
+    width: 80%;
+}
+
+.examinacionesAntropometricas-container-column{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-left: 5%;
+}
+
+.examinacionesAntropogenicas-container-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    gap: 10px;
+}
+
+.examinacionesAntropogenicas-container-row-title{
+    font-weight: bold;
+    text-align: left;
+    width: 50%;
+}
+
+.examinacionesAntropogenicas-container-row-content{
+    text-align: left;
+    width: 50%;
+}
+
+
+.readonly-field {
+    background-color: #f2f2f2;
+    padding: 10px 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    min-height: 38px;
+    width: 60%;
+    box-sizing: border-box;
+    text-align: center;
+}

@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<div class="examinaciones">
+<div class="container mt-2">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -8,7 +8,7 @@
             </div>
         </div>
     </div>
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped content-table">
         <thead class="table-dark">
             <tr>
                 <th>ID</th>
@@ -23,7 +23,7 @@
                     <td>{{ $examinacion->id }}</td>
                     <td>{{ $examinacion->getNombrePaciente() }}</td>
                     <td>{{ $examinacion->fecha_realizacion }}</td>
-                    <td class="examinaciones.acciones">
+                    <td class="table-acciones-list">
                         <form action="{{ route('examinaciones.examinacionFisicaAsociada', $examinacion->id) }}" method="get">
                             @csrf
                             <button type="submit" class="btn btn-primary">Examinacion Fisica</button>
@@ -32,9 +32,9 @@
                             @csrf
                             <button type="submit" class="btn btn-primary">Examinacion Antropogenica</button>
                         </form>
-                        <form action="{{ route('examinaciones.examinacionAntropologicaAsociada', $examinacion->id) }}" method="get">
+                        <form action="{{ route('examinaciones.examinacionAntropometricaAsociada', $examinacion->id) }}" method="get">
                             @csrf
-                            <button type="submit" class="btn btn-primary">Examinacion Antropologica</button>
+                            <button type="submit" class="btn btn-primary">Examinacion Antropometrica</button>
                         </form>
                     </td>
                 </tr>

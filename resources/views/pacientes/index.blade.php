@@ -8,7 +8,7 @@
             </div>
         </div>
     </div>
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped margin:10px">
         <thead class="table-dark">
             <tr>
                 <th>ID</th>
@@ -27,11 +27,11 @@
                     <td>{{ $paciente->apellido }}</td>
                     <td>{{ $paciente->genero }}</td>
                     <td>{{ $paciente->DNI }}</td>
-                    <td>
+                    <td class="table-acciones-list">
                         <form action="{{ route('pacientes.examinacionesAsociadas', $paciente->id) }}" method="get">
                             <button type="submit" class="btn btn-primary">Ver examinaciones realizadas</button>
-                        </form>
-                        
+                        </form> 
+                    </td>
                 </tr>
             @endforeach
         </tbody>
