@@ -67,19 +67,19 @@ class ExaminationController extends Controller
 
     public function examinacionFisicaAsociada($id){
         $examinacion = Examination::find($id);
-        $examinacionFisica = $examinacion->examinacionFisica;
+        $examinacionFisica = $examinacion->physicalConditionExamination;
         return view('examinacionesFisicas.show', compact('examinacionFisica'));
     }
 
-    public function examinacionAntropogenicAsociadas($id){
+    public function examinacionAntropogenicaAsociada($id){
         $examinacion = Examination::find($id);
-        $examinacionAntropogenica = $examinacion->examinacionesAntropogenicas;
-        return view('examinacionesAntropogenicas.index', compact('examinacionAntropogenica'));
+        $examinacionAntropogenica = $examinacion->anthropogenicalExamination;
+        return view('examinacionesAntropogenicas.show', compact('examinacionAntropogenica'));
     }
 
-    public function examinacionAntropometricaAsociadas($id){
+    public function examinacionAntropometricaAsociada($id){
         $examinacion = Examination::find($id);
-        $examinacionAntropologica = $examinacion->examinacionesAntropometricas;
-        return view('examinacionesAntropometricas.index', compact('examinacionAntropologica'));
+        $examinacionAntropometrica = $examinacion->anthropometricalExamination;
+        return view('examinacionesAntropometricas.show', compact('examinacionAntropometrica'));
     }
 }

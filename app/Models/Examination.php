@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\AntropogenicalExamination;
+use App\Models\AnthropogenicalExamination;
 use App\Models\AnthropometricalExamination;
 use App\Models\PhysicalConditionExamination;
 use App\Models\Patient;
@@ -19,8 +19,8 @@ class Examination extends Model
         'talla'
     ];
 
-    public function antropogenicalExamination() {
-        return $this->hasOne(AntropogenicalExamination::class);
+    public function anthropogenicalExamination() {
+        return $this->hasOne(AnthropogenicalExamination::class);
     }
 
     public function anthropometricalExamination() {

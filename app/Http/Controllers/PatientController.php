@@ -52,7 +52,7 @@ class PatientController extends Controller
 
     public function examinacionesAsociadas($id){
         $paciente = Patient::find($id);
-        $examinaciones = $paciente->examinations;
+        $examinaciones = $paciente->examinations()->orderBy('fecha_realizacion', 'desc')->get();
         return view('examinaciones.index', compact('examinaciones'));
     }
 }
