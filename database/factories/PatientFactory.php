@@ -18,10 +18,10 @@ class PatientFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' => fake()->name(),
-            'apellido' => fake()->name(), 
-            'genero' => fake()->randomElement(['masculino', 'femenino']),
-            'DNI' => fake()->randomNumber(8),
+            'nombre' => fake()->firstName(),
+            'apellido' => fake()->lastName(), 
+            'genero' => fake()->randomElement(['MASCULINO', 'FEMENINO']),
+            'DNI' => fake()->randomNumber(8, true),
             'fecha_nacimiento' => fake()->date(),
         ];
     }

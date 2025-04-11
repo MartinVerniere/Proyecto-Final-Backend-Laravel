@@ -17,9 +17,9 @@ return new class extends Migration
 
             $table->string('nombre');
             $table->string('apellido');
-            $table->string('genero');
-            $table->integer('DNI');
-            $table->dateTime('fecha_nacimiento');
+            $table->enum('genero', ['MASCULINO', 'FEMENINO']);
+            $table->unsignedBigInteger('DNI')->unique();
+            $table->date('fecha_nacimiento');
         });
     }
 
