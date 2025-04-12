@@ -1,40 +1,41 @@
 .body{
     margin: 0;
+    height: 100vh;
 }
 
 .main{
-    display: flexbox;
+    display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
     margin: 0;
-    background-color: #f8f9fa;
+    background-color: #ffffff;
 }
+
+/*NAVBAR-----------------------------------------------------------------------------*/
 
 .main-navbar{
     display: flex;
     width: 100%;
-    height: 6vh;
+    height: 6%;
     background-color: darkslateblue;
     justify-content: space-between;
-    padding-left: 1%;
-}
-
-.main-content{
-    flex: 1;
-    height: 94vh;
-    display: flex;
-    padding-top: 2%;
-    overflow-y: scroll;
 }
 
 .navbar-buttons-list{
     display: flex;
 }
 
+.navbar-buttons-list:first-child{
+    margin-left: 2%;
+}
+
 .navbar-user-info{
     display: flex;
     align-items: center;
+}
+
+.navbar-user-info:last-child{
     margin-right: 2%;
 }
 
@@ -73,10 +74,17 @@
 .navbar-user-name{
     font-size: 1.25rem;
     padding: 10px;
-    margin-right: 20px;
     align-items: center;
     color: white;
     text-transform: uppercase;
+}
+
+/*CONTENT-----------------------------------------------------------------------------*/
+
+.main-content{
+    height: 94%;
+    padding: 3%;
+    overflow-y: scroll;
 }
 
 .content-table{
@@ -92,11 +100,7 @@
 }
 
 .examination-container{
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    margin-left: 5%;
-    width: 80%;
+    display: grid;
 }
 
 .examination-row{
@@ -115,22 +119,29 @@
     width: 50%;
 }
 
-.row-subtitle {
+.row-subtitle{
     font-weight: 600;
+    text-align: center;
     width: 50%;
-    text-align: left;
 }
 
 .row-content{
-    text-align: left;
+    text-align: center;
     width: 50%;
 }
 
 .examination-column{
     display: flex;
     flex-direction: column;
-    align-items: left;
-    margin-left: 5%;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.column-table{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 10px 14px;
 }
 
 .column-row{
@@ -140,6 +151,7 @@
     margin-top: 0.5%;
     margin-bottom: 0.5%;
     gap: 10px;
+    width: 100%;
 }
 
 .readonly-field {
@@ -149,7 +161,7 @@
     border: 1px solid #ccc;
     font-size: 16px;
     min-height: 38px;
-    width: 60%;
+    width: 100%;
     box-sizing: border-box;
     text-align: center;
 }

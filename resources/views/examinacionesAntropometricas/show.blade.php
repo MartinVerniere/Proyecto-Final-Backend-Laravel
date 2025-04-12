@@ -22,7 +22,7 @@
     </div>
     <div class="examination-row">
         <div class="row-title">Pliegues</div>
-        <div class="examination-column">
+        <div class="examination-column column-table">
             <div class="column-row">
                 <div class="row-subtitle">Triceps:</div>
                 <div class="row-content">{{$examinacionAntropometrica->pliegues_triceps}}</div>
@@ -51,7 +51,7 @@
     </div>
     <div class="examination-row">
         <div class="row-title">Perimetros</div>
-        <div class="examination-column">
+        <div class="examination-column column-table">
             <div class="column-row">
                 <div class="row-subtitle">Brazo Relajado:</div>
                 <div class="row-content">{{$examinacionAntropometrica->perimetro_brazo_relajado}}</div>
