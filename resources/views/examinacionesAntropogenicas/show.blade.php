@@ -1,71 +1,76 @@
 @extends('master')
 @section('content')
-<div class="examinacionesAntropogenicas-container">
+<div class="examination-container">
     <h1>Examinacion Antropogenica</h1>
-    <div class="examinacionesAntropogenicas-container-row">
-        <div class="examinacionesAntropogenicas-container-row-title">ID:</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->id}}</div>
+    <div class="examination-row">
+        <div class="row-title">ID:</div>
+        <div class="row-content readonly-field">{{$examinacionAntropogenica->id}}</div>
     </div>
-    <div class="examinacionesAntropogenicas-container-row">
-        <div class="examinacionesAntropogenicas-container-row-title">Paciente:</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{ $examinacionAntropogenica->examination->getNombrePaciente() }}</div>
+    <div class="examination-row">
+        <div class="row-title">Paciente:</div>
+        <div class="row-content readonly-field">{{ $examinacionAntropogenica->examination->getNombrePaciente() }}</div>
     </div>
-    <div class="examinacionesAntropogenicas-container-row">
-        <div class="examinacionesAntropogenicas-container-row-title">Fecha Realizacion:</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->examination->fecha_realizacion}}</div>
+    <div class="examination-row">
+        <div class="row-title">Fecha Realizacion:</div>
+        <div class="row-content readonly-field">{{$examinacionAntropogenica->examination->fecha_realizacion}}</div>
     </div>
-    <div class="examinacionesAntropogenicas-container-row">
-        <div class="examinacionesAntropogenicas-container-row-title">Longitud pierna:</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->longitud_pierna}}</div>
+    <div class="examination-row">
+        <div class="row-title">Longitud pierna:</div>
+        <div class="row-content readonly-field">{{$examinacionAntropogenica->longitud_pierna}}</div>
     </div>    
-    <div class="examinacionesAntropogenicas-container-row">
-        <div class="examinacionesAntropogenicas-container-row-title">Talla padre:</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->talla_padre}}</div>
+    <div class="examination-row">
+        <div class="row-title">Talla padre:</div>
+        <div class="row-content readonly-field">{{$examinacionAntropogenica->talla_padre}}</div>
     </div>
-    <div class="examinacionesAntropogenicas-container-row">
-        <div class="examinacionesAntropogenicas-container-row-title">Talla madre:</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->talla_madre}}</div>
+    <div class="examination-row">
+        <div class="row-title">Talla madre:</div>
+        <div class="row-content readonly-field">{{$examinacionAntropogenica->talla_madre}}</div>
     </div>
-    <div class="examinacionesAntropogenicas-container-row">
-        <div class="examinacionesAntropogenicas-container-row-title">Talla adulta:</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->talla_adulta}}</div>
+    <div class="examination-row">
+        <div class="row-title">Talla adulta:</div>
+        <div class="row-content readonly-field">{{$examinacionAntropogenica->talla_adulta}}</div>
     </div>
-    <div class="examinacionesAntropogenicas-container-row">
-        <div class="examinacionesAntropogenicas-container-row-title">Talla objetiva genetica:</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->talla_objetiva_genetica}}</div>
+    <div class="examination-row">
+        <div class="row-title">Talla objetiva genetica:</div>
+        <div class="row-content readonly-field">{{$examinacionAntropogenica->talla_objetiva_genetica}}</div>
     </div>
-    <div class="examinacionesAntropogenicas-container-row">
-        <div class="examinacionesAntropogenicas-container-row-title">Talla falta crecer:</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->talla_falta_crecer}}</div>
+    <div class="examination-row">
+        <div class="row-title">Talla falta crecer:</div>
+        <div class="row-content readonly-field">{{$examinacionAntropogenica->talla_falta_crecer}}</div>
     </div>
-    <div class="examinacionesAntropogenicas-container-row">
-        <div class="examinacionesAntropogenicas-container-row-title">IRMI:</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->valor_IRMI}}</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->categoria_IRMI}}</div>
+    <div class="examination-row">
+        <div class="row-title">IRMI:</div>
+        <div class="row-content readonly-field">
+            {{$examinacionAntropogenica->valor_IRMI}} - {{$examinacionAntropogenica->categoria_IRMI}}
+        </div>
     </div>
-    <div class="examinacionesAntropogenicas-container-row">
-        <div class="examinacionesAntropogenicas-container-row-title">Indice cormico:</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->valor_indice_cormico}}</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->categoria_indice_cormico}}</div>
+    <div class="examination-row">
+        <div class="row-title">Indice cormico:</div>
+        <div class="row-content readonly-field">
+            {{$examinacionAntropogenica->valor_indice_cormico}} - {{$examinacionAntropogenica->categoria_indice_cormico}}
+        </div>
     </div>
-    <div class="examinacionesAntropogenicas-container-row">
-        <div class="examinacionesAntropogenicas-container-row-title">Indice masa corporal:</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->valor_indice_masa_corporal}}</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->categoria_indice_masa_corporal}}</div>
+    <div class="examination-row">
+        <div class="row-title">Indice masa corporal:</div>
+        <div class="row-content readonly-field">
+            {{$examinacionAntropogenica->valor_indice_masa_corporal}} - {{$examinacionAntropogenica->categoria_indice_masa_corporal}}
+        </div>
     </div>
-    <div class="examinacionesAntropogenicas-container-row">
-        <div class="examinacionesAntropogenicas-container-row-title">Estadio tanner:</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->valor_estadio_tanner}}</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->categoria_estadio_tanner}}</div>
+    <div class="examination-row">
+        <div class="row-title">Estadio tanner:</div>
+        <div class="row-content readonly-field">
+            {{$examinacionAntropogenica->valor_estadio_tanner}} - {{$examinacionAntropogenica->categoria_estadio_tanner}}
+        </div>
     </div>
-    <div class="examinacionesAntropogenicas-container-row">
-        <div class="examinacionesAntropogenicas-container-row-title">Indice madurativo:</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->valor_indice_madurativo}}</div>
+    <div class="examination-row">
+        <div class="row-title">Indice madurativo:</div>
+        <div class="row-content readonly-field">{{$examinacionAntropogenica->valor_indice_madurativo}}</div>
     </div>
-    <div class="examinacionesAntropogenicas-container-row">
-        <div class="examinacionesAntropogenicas-container-row-title">Edad PHV:</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->edad_PHV}}</div>
-        <div class="examinacionesAntropogenicas-container-row-content">{{$examinacionAntropogenica->categoria_PHV}}</div>
+    <div class="examination-row">
+        <div class="row-title">Edad PHV:</div>
+        <div class="row-content readonly-field">
+            {{$examinacionAntropogenica->edad_PHV}} - {{$examinacionAntropogenica->categoria_PHV}}
+        </div>
     </div>
 </div>
 @stop

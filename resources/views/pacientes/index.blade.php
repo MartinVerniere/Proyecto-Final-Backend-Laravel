@@ -8,7 +8,7 @@
             </div>
         </div>
     </div>
-    <table class="table table-bordered table-striped margin:10px">
+    <table class="table table-bordered table-striped content-table">
         <thead class="table-dark">
             <tr>
                 <th>ID</th>
