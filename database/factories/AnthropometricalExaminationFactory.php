@@ -17,6 +17,8 @@ class AnthropometricalExaminationFactory extends Factory
     public function definition(): array
     {
         return [
+            'fecha_realizacion' => fake()->date(),
+            
             'pliegues_triceps' => $this->faker->numberBetween(1, 20),
             'pliegues_subescapular' => $this->faker->numberBetween(1, 20),
             'pliegues_supraespinal' => $this->faker->numberBetween(1, 20),

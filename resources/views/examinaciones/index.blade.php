@@ -13,7 +13,6 @@
             <tr>
                 <th>ID</th>
                 <th>Paciente</th>
-                <th>Fecha de realizacion</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -22,7 +21,6 @@
                 <tr>
                     <td>{{ $examinacion->id }}</td>
                     <td>{{ $examinacion->getNombrePaciente() }}</td>
-                    <td>{{ $examinacion->fecha_realizacion }}</td>
                     <td class="table-acciones-list">
                         <form action="{{ route('examinaciones.examinacionFisicaAsociada', $examinacion->id) }}" method="get">
                             @csrf

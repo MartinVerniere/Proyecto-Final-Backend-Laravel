@@ -17,6 +17,8 @@ return new class extends Migration
 
             $table->foreignId('examination_id')->constrained('examinations');
 
+            $table->date('fecha_realizacion');
+
             $table->integer('pliegues_triceps');
             $table->integer('pliegues_subescapular');
             $table->integer('pliegues_supraespinal');

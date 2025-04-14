@@ -12,7 +12,7 @@
     </div>
     <div class="examination-row">
         <div class="row-title">Fecha Realizacion:</div>
-        <div class="row-content readonly-field">{{$examinacionAntropogenica->examination->fecha_realizacion}}</div>
+        <div class="row-content readonly-field">{{$examinacionAntropogenica->fecha_realizacion}}</div>
     </div>
     <div class="examination-row">
         <div class="row-title">Longitud pierna:</div>

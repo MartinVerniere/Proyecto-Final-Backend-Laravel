@@ -19,7 +19,6 @@ class ExaminationFactory extends Factory
     {
         return [
             'id_paciente' => $this->faker->randomElement(Patient::pluck('id')),
-            'fecha_realizacion' => fake()->date(),
             'talla' => fake()->randomFloat(2, 1, 3)
         ];
     }

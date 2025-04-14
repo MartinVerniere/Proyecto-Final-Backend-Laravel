@@ -16,6 +16,8 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreignId('examination_id')->constrained('examinations');
+
+            $table->date('fecha_realizacion');
             
             $table->float('longitud_pierna');
             $table->float('talla_padre');

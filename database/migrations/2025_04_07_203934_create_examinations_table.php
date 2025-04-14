@@ -15,9 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             
-            
             $table->foreignId('id_paciente')->constrained('patients');
-            $table->date('fecha_realizacion');
             $table->float('talla');
         });
     }

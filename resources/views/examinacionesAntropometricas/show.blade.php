@@ -17,7 +17,7 @@
     <div class="examination-row">
         <div class="row-title">Fecha Realizacion:</div>
         <div class="row-content readonly-field">
-            {{$examinacionAntropometrica->examination->fecha_realizacion}}
+            {{$examinacionAntropometrica->fecha_realizacion}}
         </div>
     </div>
     <div class="examination-row">

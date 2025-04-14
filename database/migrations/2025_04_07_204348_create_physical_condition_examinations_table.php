@@ -16,6 +16,8 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreignId('examination_id')->constrained('examinations');
+
+            $table->date('fecha_realizacion');
             
             $table->float('valor_fuerza_presion_manual');
             $table->enum('categoria_fuerza_presion_manual', ['Muy bajo','Bajo','Medio','Alto','Muy alto']);

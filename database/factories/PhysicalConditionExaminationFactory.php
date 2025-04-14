@@ -17,6 +17,8 @@ class PhysicalConditionExaminationFactory extends Factory
     public function definition(): array
     {
         return [
+            'fecha_realizacion' => fake()->date(),
+            
             'valor_fuerza_presion_manual' => $this->faker->randomFloat(1, 0, 10),
             'categoria_fuerza_presion_manual' => $this->faker->randomElement(['Muy bajo','Bajo','Medio','Alto','Muy alto']),
 

@@ -17,6 +17,8 @@ class AnthropogenicalExaminationFactory extends Factory
     public function definition(): array
     {
         return [
+            'fecha_realizacion' => fake()->date(),
+            
             'longitud_pierna' => $this->faker->randomFloat(1,2),
             'talla_padre' => $this->faker->randomFloat(1,2),
             'talla_madre' => $this->faker->randomFloat(1,2),
