@@ -9,6 +9,7 @@ use App\Http\Controllers\ExaminationController;
 use App\Http\Controllers\AnthropometricalExaminationController;
 use App\Http\Controllers\AnthropogenicalExaminationController;
 use App\Http\Controllers\PhysicalExaminationController;
+use App\Http\Controllers\PostureExaminationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,10 +48,13 @@ Route::middleware('auth')->group(function () {
         ->name('examinaciones.examinacionAntropogenicaAsociada');
     Route::get('examinaciones/examinacionAntropometricaAsociada/{id}', [ExaminationController::class, 'examinacionAntropometricaAsociada'])
         ->name('examinaciones.examinacionAntropometricaAsociada');
+    Route::get('examinaciones/examinacionPosturaAsociada/{id}', [ExaminationController::class, 'examinacionPosturaAsociada'])
+        ->name('examinaciones.examinacionPosturaAsociada');
 
     Route::resource('examinacionesAntropometricas', AnthropometricalExaminationController::class);
     Route::resource('examinacionesAntropogenicas', AnthropogenicalExaminationController::class);
     Route::resource('examinacionesFisicas', PhysicalExaminationController::class);
+    Route::resource('examinacionesPostura', PostureExaminationController::class);
 });
 
 require __DIR__.'/auth.php';

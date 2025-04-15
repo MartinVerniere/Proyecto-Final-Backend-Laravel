@@ -82,4 +82,10 @@ class ExaminationController extends Controller
         $examinacionAntropometrica = $examinacion->anthropometricalExamination;
         return view('examinacionesAntropometricas.show', compact('examinacionAntropometrica'));
     }
+
+    public function examinacionPosturaAsociada($id){
+        $examinacion = Examination::find($id);
+        $examinacionPostura = $examinacion->postureExamination;
+        return view('examinacionesPostura.show', compact('examinacionPostura'));
+    }
 }

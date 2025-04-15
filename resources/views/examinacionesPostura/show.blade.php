@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 <div class="examination-container">
-    <h1>Examinación Física</h1>
+    <h1>Examinación Postura</h1>
     <div class="examination-row">
         <div class="row-title">ID:</div>
         <div class="row-content readonly-field">
@@ -29,7 +29,7 @@
             </div>
             <div class="column-row">
                 <div class="row-subtitle">Inclinacion:</div>
-                <div class="row-content">{{ $examinacionPostura->analisisCabeza }}</div>
+                <div class="row-content">{{ $examinacionPostura->analisisCabeza->inclinacion }}</div>
             </div>
             <div class="column-row">
                 <div class="row-subtitle">Mirada:</div>

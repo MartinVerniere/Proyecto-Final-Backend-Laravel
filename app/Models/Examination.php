@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\AnthropogenicalExamination;
 use App\Models\AnthropometricalExamination;
 use App\Models\PhysicalConditionExamination;
+use App\Models\PostureExamination;
 use App\Models\Patient;
 
 class Examination extends Model
@@ -20,15 +21,19 @@ class Examination extends Model
     ];
 
     public function anthropogenicalExamination() {
-        return $this->hasOne(AnthropogenicalExamination::class);
+        return $this->hasOne(AnthropogenicalExamination::class, 'id_examinacion');
     }
 
     public function anthropometricalExamination() {
-        return $this->hasOne(AnthropometricalExamination::class);
+        return $this->hasOne(AnthropometricalExamination::class, 'id_examinacion');
     }
 
     public function physicalConditionExamination() {
-        return $this->hasOne(PhysicalConditionExamination::class);
+        return $this->hasOne(PhysicalConditionExamination::class, 'id_examinacion');
+    }
+
+    public function postureExamination() {
+        return $this->hasOne(PostureExamination::class, 'id_examinacion');
     }
 
     public function patient() {

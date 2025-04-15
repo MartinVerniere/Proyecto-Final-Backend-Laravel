@@ -34,6 +34,10 @@
                             @csrf
                             <button type="submit" class="btn btn-primary">Examinacion Antropometrica</button>
                         </form>
+                        <form action="{{ route('examinaciones.examinacionPosturaAsociada', $examinacion->id) }}" method="get">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">Examinacion Postura</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

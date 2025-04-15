@@ -27,27 +27,27 @@ class PostureExamination extends Model
     }
 
     public function analisisCabeza() {
-        return $this->hasOne(HeadExamination::class);
+        return $this->hasOne(HeadExamination::class, 'id_examinacion_postura', 'id');
     }
 
     public function analisisHombrosEscapular() {
-        return $this->hasOne(ShouldersExamination::class);
+        return $this->hasOne(ShouldersExamination::class, 'id_examinacion_postura', 'id');
     }
 
     public function analisisPelvis() {
-        return $this->hasOne(PelvisExamination::class);
+        return $this->hasOne(PelvisExamination::class, 'id_examinacion_postura', 'id');
     }
 
     public function analisisRodilla() {
-        return $this->hasOne(KneeExamination::class);
+        return $this->hasOne(KneeExamination::class, 'id_examinacion_postura', 'id');
     }
 
     public function analisisPies() {
-        return $this->hasOne(FeetExamination::class);
+        return $this->hasOne(FeetExamination::class, 'id_examinacion_postura', 'id');
     }
 
     public function analisisPivot() {
-        return $this->hasOne(PivotExamination::class);
+        return $this->hasOne(PivotExamination::class, 'id_examinacion_postura', 'id');
     }
 
     public function añadirExaminacionPostura($request) {
