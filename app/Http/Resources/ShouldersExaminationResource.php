@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Http\Resources;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+class ShouldersExaminationResource extends JsonResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @return array<string, mixed>
+     */
+    public function toArray(Request $request): array
+    {
+        return [
+            'Id' => $this->id,
+            'Id_Examinacion_Postura' => $this->id_examinacion_postura,
+            'Inclinacion' => $this->inclinacion,
+            'Musculatura' => $this->musculatura,
+            'Escapula' => $this->escapula,
+            'Hombro' => $this->hombro,
+            'Triangulo_de_talle' => $this->triangulo_de_talle
+        ];
+    }
+}

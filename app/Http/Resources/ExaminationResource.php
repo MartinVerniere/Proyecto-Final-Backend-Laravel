@@ -19,6 +19,7 @@ class ExaminationResource extends JsonResource
     {
         return [
             'Id' => $this->id,
+            'Id_Paciente' => $this->id_paciente,
             'Talla' => $this->talla,
             'Examinacion_antropogenica' => AnthropogenicalExaminationResource::collection($this->anthropogenicalExamination) ,
             'Examinacion_antropometrica' => AnthropometricalExaminationResource::collection($this->anthropometricalExamination),
