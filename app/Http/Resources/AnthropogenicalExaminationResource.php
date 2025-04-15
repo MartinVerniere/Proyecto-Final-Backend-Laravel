@@ -15,7 +15,7 @@ class AnthropogenicalExaminationResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'Id' => $this->examination_id,
+            'Id' => $this->id_examinacion,
             'Longitud_pierna' => $this->longitud_pierna,
             'Talla_padre' => $this->talla_padre,
             'Talla_madre' => $this->talla_madre,

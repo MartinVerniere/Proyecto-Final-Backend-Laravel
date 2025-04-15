@@ -15,7 +15,7 @@ class PhysicalConditionExaminationResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'Id' => $this->examination_id,
+            'Id' => $this->id_examinacion,
             'Valor_fuerza_presion_manual' => $this->valor_fuerza_presion_manual,
             'Categoria_fuerza_presion_manual' => $this->categoria_fuerza_presion_manual,
             'Valor_fuerza_explosiva' => $this->valor_fuerza_explosiva,
