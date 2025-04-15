@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\APIPatientController;
+use App\Http\Controllers\APIExaminationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('examinaciones', [APIExaminationController::class, 'index']);
+Route::get('examinaciones/{id}', [APIExaminationController::class, 'indexByPatient']);
+
+Route::get('pacientes', [APIPatientController::class, 'index']);
