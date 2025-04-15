@@ -11,7 +11,7 @@ class AnthropometricalExamination extends Model
     use HasFactory;
 
     protected $fillable = [
-        'examination_id',
+        'id_examinacion',
         'pliegues_triceps',
         'pliegues_subescapular',
         'pliegues_supraespinal',
@@ -34,7 +34,7 @@ class AnthropometricalExamination extends Model
     ];
 
     public function examination() {
-        return $this->belongsTo(Examination::class, 'examination_id');
+        return $this->belongsTo(Examination::class, 'id_examinacion');
     }
 
     public function añadirExaminacionAntropogenica($request) {

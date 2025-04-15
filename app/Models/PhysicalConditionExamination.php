@@ -11,7 +11,7 @@ class PhysicalConditionExamination extends Model
     use HasFactory;
 
     protected $fillable = [
-        'examination_id',
+        'id_examinacion',
         'valor_fuerza_presion_manual',
         'categoria_fuerza_presion_manual',
         'valor_fuerza_explosiva',
@@ -24,7 +24,7 @@ class PhysicalConditionExamination extends Model
     ];
 
     public function examination() {
-        return $this->belongsTo(Examination::class, 'examination_id');
+        return $this->belongsTo(Examination::class, 'id_examinacion');
     }
 
     public function añadirExaminacionFisica($request) {

@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('anthropogenical_examinations', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
 
-            $table->foreignId('examination_id')->constrained('examinations');
+            $table->foreignId('id_examinacion')->constrained('examinations');
 
             $table->date('fecha_realizacion');
             
@@ -43,6 +42,8 @@ return new class extends Migration
             
             $table->float('valor_edad_PHV');
             $table->enum('categoria_PHV', ['Temprano','Normal','Tardio']);
+
+            $table->timestamps();
         });
     }
 

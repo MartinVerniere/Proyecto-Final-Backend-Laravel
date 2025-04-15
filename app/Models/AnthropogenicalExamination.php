@@ -11,7 +11,7 @@ class AnthropogenicalExamination extends Model
     use HasFactory;
 
     protected $fillable = [
-        'examination_id',
+        'id_examinacion',
         'longitud_pierna',
         'talla_padre',
         'talla_madre',

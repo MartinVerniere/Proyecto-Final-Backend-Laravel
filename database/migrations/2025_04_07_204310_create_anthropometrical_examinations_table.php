@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('anthropometrical_examinations', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
 
-            $table->foreignId('examination_id')->constrained('examinations');
+            $table->foreignId('id_examinacion')->constrained('examinations');
 
             $table->date('fecha_realizacion');
 
@@ -43,6 +42,8 @@ return new class extends Migration
             $table->enum('categoria_indice_masa_muscular', ['Bajo','Moderado','Alto']);
 
             $table->integer('suma_pliegues');
+
+            $table->timestamps();
         });
     }
 

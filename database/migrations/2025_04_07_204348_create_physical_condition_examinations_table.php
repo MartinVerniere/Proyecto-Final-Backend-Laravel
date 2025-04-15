@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('physical_condition_examinations', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
 
-            $table->foreignId('examination_id')->constrained('examinations');
+            $table->foreignId('id_examinacion')->constrained('examinations');
 
             $table->date('fecha_realizacion');
             
@@ -31,6 +30,7 @@ return new class extends Migration
             //$table->IMAGEN('evaluacion_sentadillas');
             //$table->IMAGEN('evaluacion_activa_pierna');
             //$table->IMAGEN('movilidad_hombros');
+            $table->timestamps();
         });
     }
 
