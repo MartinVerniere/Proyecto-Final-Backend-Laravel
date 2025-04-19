@@ -15,7 +15,8 @@ class AnthropometricalExaminationResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'Id' => $this->id_examinacion,
+            'Id' => $this->id,
+            'Id_Examinacion' => $this->id_examinacion,
             'Pliegues_triceps' => $this->pliegues_triceps,
             'Pliegues_subescapular' => $this->pliegues_subescapular,
             'Pliegues_supraespinal' => $this->pliegues_supraespinal,

@@ -19,12 +19,12 @@ class ExaminationResource extends JsonResource
     {
         return [
             'Id' => $this->id,
-            'Id_Paciente' => $this->id_paciente,
+            'Paciente' => $this->getNombrePaciente(),
             'Talla' => $this->talla,
-            'Examinacion_antropogenica' => AnthropogenicalExaminationResource::collection($this->anthropogenicalExamination) ,
-            'Examinacion_antropometrica' => AnthropometricalExaminationResource::collection($this->anthropometricalExamination),
-            'Examinacion_Fisica' => PhysicalConditionExaminationResource::collection($this->physicalConditionExamination),
-            'Examinacion_Postura' => PostureExaminationResource::collection($this->postureExamination)
+            'Examinacion_antropogenica' => new AnthropogenicalExaminationResource($this->anthropogenicalExamination) ,
+            'Examinacion_antropometrica' => new AnthropometricalExaminationResource($this->anthropometricalExamination),
+            'Examinacion_fisica' => new PhysicalConditionExaminationResource($this->physicalConditionExamination),
+            'Examinacion_postura' => new PostureExaminationResource($this->postureExamination)
         ];
     }
 }

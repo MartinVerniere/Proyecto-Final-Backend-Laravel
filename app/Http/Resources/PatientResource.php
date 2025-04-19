@@ -21,7 +21,7 @@ class PatientResource extends JsonResource
             'Apellido' => $this->apellido,
             'DNI' => $this->DNI,
             'Fecha_Nacimiento' => $this->fecha_nacimiento,
-            'Examinaciones' => ExaminationResource::collection($this->examinaciones),
+            'Examinaciones' => ExaminationResource::collection($this->examinations),
         ];
     }
 }
