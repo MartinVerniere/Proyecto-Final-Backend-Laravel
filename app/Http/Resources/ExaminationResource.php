@@ -20,6 +20,7 @@ class ExaminationResource extends JsonResource
         return [
             'Id' => $this->id,
             'Paciente' => $this->getNombrePaciente(),
+            'Fecha_realizacion' => $this->getUltimaExaminacionRealizada()->fecha_realizacion,
             'Talla' => $this->talla,
             'Examinacion_antropogenica' => new AnthropogenicalExaminationResource($this->anthropogenicalExamination) ,
             'Examinacion_antropometrica' => new AnthropometricalExaminationResource($this->anthropometricalExamination),

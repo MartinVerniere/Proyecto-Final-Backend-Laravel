@@ -23,6 +23,8 @@ class PostureExaminationResource extends JsonResource
         return [
             'Id' => $this->id,
             'Id_Examinacion' => $this->id_examinacion,
+            'Fecha_realizacion' => $this->fecha_realizacion,
+            
             'Examinacion_Cabeza' => new HeadExaminationResource($this->headExamination),
             'Examinacion_Hombros_Escapular' => new ShouldersExaminationResource($this->shouldersExamination),
             'Examinacion_Pelvis' => new PelvisExaminationResource($this->pelvisExamination),

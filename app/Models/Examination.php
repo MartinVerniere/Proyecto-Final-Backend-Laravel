@@ -63,4 +63,24 @@ class Examination extends Model
     public function getNombrePaciente() {
         return $this->patient->nombre . ' ' . $this->patient->apellido;
     }
+
+    public function getUltimaExaminacionRealizada() {
+        $examinaciones = [
+            $this->anthropogenicalExamination,
+            $this->anthropometricalExamination,
+            $this->physicalConditionExamination,
+            $this->postureExamination
+        ];
+
+        $ultima_examinacion = $this->anthropogenicalExamination;
+        $ultima_fecha = $ultima_examinacion->fecha_realizacion;
+
+        foreach ($examinaciones as $examinacionElem) {
+            if ($examinacionElem->fecha_realizacion > $ultima_fecha) {
+                $ultima_examinacion = $examinacionElem;
+            }
+        }
+
+        return $ultima_examinacion;
+    }
 }
