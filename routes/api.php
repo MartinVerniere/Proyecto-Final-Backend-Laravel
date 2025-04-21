@@ -21,6 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('examinaciones', [APIExaminationController::class, 'index']);
-Route::get('examinaciones/{id}', [APIExaminationController::class, 'indexByPatient']);
+Route::get('examinaciones/{id}', [APIExaminationController::class, 'show']);
 
 Route::get('pacientes', [APIPatientController::class, 'index']);
+Route::get('pacientes/{id}', [APIPatientController::class, 'show']);
+Route::get('pacientes/{id}/examinaciones', [APIExaminationController::class, 'indexByPatient']);

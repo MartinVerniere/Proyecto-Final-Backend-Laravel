@@ -22,10 +22,10 @@ class ExaminationResource extends JsonResource
             'Paciente' => $this->getNombrePaciente(),
             'Fecha_realizacion' => $this->getUltimaExaminacionRealizada()->fecha_realizacion,
             'Talla' => $this->talla,
-            'Examinacion_antropogenica' => new AnthropogenicalExaminationResource($this->anthropogenicalExamination) ,
-            'Examinacion_antropometrica' => new AnthropometricalExaminationResource($this->anthropometricalExamination),
-            'Examinacion_fisica' => new PhysicalConditionExaminationResource($this->physicalConditionExamination),
-            'Examinacion_postura' => new PostureExaminationResource($this->postureExamination)
+            'Examinacion_antropogenica' => $this->anthropogenicalExamination ? $this->anthropogenicalExamination->id : null,
+            'Examinacion_antropometrica' => $this->anthropometricalExamination ? $this->anthropometricalExamination->id : null,
+            'Examinacion_fisica' => $this->physicalConditionExamination ? $this->physicalConditionExamination->id : null,
+            'Examinacion_postura' => $this->postureExamination ? $this->postureExamination->id : null
         ];
     }
 }

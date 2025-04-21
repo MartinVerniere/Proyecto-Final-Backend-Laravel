@@ -13,7 +13,11 @@ class APIExaminationController extends Controller
         return ExaminationResource::collection(Examination::all());
     }
 
-    public function indexByPatient($id){
-        return ExaminationResource::collection(Examination::where('id_paciente', $id)->get());
+    public function indexByPatient($id_paciente) {
+        return ExaminationResource::collection(Examination::where('id_paciente', $id_paciente)->get());
+    }
+
+    public function show($id) {
+        return new ExaminationResource(Examination::find($id));
     }
 }
