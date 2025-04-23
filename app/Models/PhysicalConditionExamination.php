@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Examination;
+use App\Models\Consultation;
 
 class PhysicalConditionExamination extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'id_examinacion',
+        'id_consulta',
         'valor_fuerza_presion_manual',
         'categoria_fuerza_presion_manual',
         'valor_fuerza_explosiva',
@@ -23,8 +23,8 @@ class PhysicalConditionExamination extends Model
         'movilidad_hombros',
     ];
 
-    public function examination() {
-        return $this->belongsTo(Examination::class, 'id_examinacion');
+    public function consultation() {
+        return $this->belongsTo(Consultation::class, 'id_consulta');
     }
 
     public function añadirExaminacionFisica($request) {

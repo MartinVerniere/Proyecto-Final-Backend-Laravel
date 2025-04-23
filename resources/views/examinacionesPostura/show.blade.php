@@ -11,7 +11,7 @@
     <div class="examination-row">
         <div class="row-title">Paciente:</div>
         <div class="row-content readonly-field">
-            {{ $examinacionPostura->examination->getNombrePaciente() }}
+            {{ $examinacionPostura->consultation->getNombrePaciente() }}
         </div>
     </div>
     <div class="examination-row">

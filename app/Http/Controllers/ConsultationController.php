@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Examination;
+use App\Models\Consultation;
 
-class ExaminationController extends Controller
+class ConsultationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $examinaciones = Examination::index();
-        return view('examinaciones.index', compact('examinaciones'));
+        $consultas = Consultation::index();
+        return view('consultas.index', compact('consultas'));
     }
 
     /**
@@ -30,7 +30,7 @@ class ExaminationController extends Controller
      */
     public function store(Request $request)
     {
-        return Examination::añadirExaminacion($request);
+        return Consultation::añadirConsulta($request);
     }
 
     /**
@@ -66,26 +66,26 @@ class ExaminationController extends Controller
     }
 
     public function examinacionFisicaAsociada($id){
-        $examinacion = Examination::find($id);
-        $examinacionFisica = $examinacion->physicalConditionExamination;
+        $consulta = Consultation::find($id);
+        $examinacionFisica = $consulta->physicalConditionExamination;
         return view('examinacionesFisicas.show', compact('examinacionFisica'));
     }
 
     public function examinacionAntropogenicaAsociada($id){
-        $examinacion = Examination::find($id);
-        $examinacionAntropogenica = $examinacion->anthropogenicalExamination;
+        $consulta = Consultation::find($id);
+        $examinacionAntropogenica = $consulta->anthropogenicalExamination;
         return view('examinacionesAntropogenicas.show', compact('examinacionAntropogenica'));
     }
 
     public function examinacionAntropometricaAsociada($id){
-        $examinacion = Examination::find($id);
-        $examinacionAntropometrica = $examinacion->anthropometricalExamination;
+        $consulta = Consultation::find($id);
+        $examinacionAntropometrica = $consulta->anthropometricalExamination;
         return view('examinacionesAntropometricas.show', compact('examinacionAntropometrica'));
     }
 
     public function examinacionPosturaAsociada($id){
-        $examinacion = Examination::find($id);
-        $examinacionPostura = $examinacion->postureExamination;
+        $consulta = Consultation::find($id);
+        $examinacionPostura = $consulta->postureExamination;
         return view('examinacionesPostura.show', compact('examinacionPostura'));
     }
 }

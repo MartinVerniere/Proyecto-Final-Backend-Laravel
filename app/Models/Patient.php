@@ -17,8 +17,9 @@ class Patient extends Model
         'fecha_nacimiento'
     ];
 
-    public function examinations() {
-        return $this->hasMany(Examination::class, 'id_paciente', 'id');
+
+    public function consultations() {
+        return $this->hasMany(Consultation::class, 'id_paciente', 'id');
     }
 
     public static function index() {

@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Authenticate;
 
 use App\Http\Controllers\PatientController;
-use App\Http\Controllers\ExaminationController;
+use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\AnthropometricalExaminationController;
 use App\Http\Controllers\AnthropogenicalExaminationController;
 use App\Http\Controllers\PhysicalExaminationController;
@@ -38,18 +38,18 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::resource('pacientes', PatientController::class);
-    Route::get('pacientes/examinacionesAsociadas/{id}', [PatientController::class, 'examinacionesAsociadas'])
-        ->name('pacientes.examinacionesAsociadas');   
+    Route::get('pacientes/consultasAsociadas/{id}', [PatientController::class, 'consultasAsociadas'])
+        ->name('pacientes.consultasAsociadas');   
         
-    Route::resource('examinaciones', ExaminationController::class);
-    Route::get('examinaciones/examinacionFisicaAsociada/{id}', [ExaminationController::class, 'examinacionFisicaAsociada'])
-        ->name('examinaciones.examinacionFisicaAsociada');
-    Route::get('examinaciones/examinacionAntropogenicaAsociada/{id}', [ExaminationController::class, 'examinacionAntropogenicaAsociada'])
-        ->name('examinaciones.examinacionAntropogenicaAsociada');
-    Route::get('examinaciones/examinacionAntropometricaAsociada/{id}', [ExaminationController::class, 'examinacionAntropometricaAsociada'])
-        ->name('examinaciones.examinacionAntropometricaAsociada');
-    Route::get('examinaciones/examinacionPosturaAsociada/{id}', [ExaminationController::class, 'examinacionPosturaAsociada'])
-        ->name('examinaciones.examinacionPosturaAsociada');
+    Route::resource('consultas', ConsultationController::class);
+    Route::get('consultas/examinacionFisicaAsociada/{id}', [ConsultationController::class, 'examinacionFisicaAsociada'])
+        ->name('consultas.examinacionFisicaAsociada');
+    Route::get('consultas/examinacionAntropogenicaAsociada/{id}', [ConsultationController::class, 'examinacionAntropogenicaAsociada'])
+        ->name('consultas.examinacionAntropogenicaAsociada');
+    Route::get('consultas/examinacionAntropometricaAsociada/{id}', [ConsultationController::class, 'examinacionAntropometricaAsociada'])
+        ->name('consultas.examinacionAntropometricaAsociada');
+    Route::get('consultas/examinacionPosturaAsociada/{id}', [ConsultationController::class, 'examinacionPosturaAsociada'])
+        ->name('consultas.examinacionPosturaAsociada');
 
     Route::resource('examinacionesAntropometricas', AnthropometricalExaminationController::class);
     Route::resource('examinacionesAntropogenicas', AnthropogenicalExaminationController::class);

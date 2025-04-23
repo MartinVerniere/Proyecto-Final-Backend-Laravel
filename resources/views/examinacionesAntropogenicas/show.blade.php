@@ -8,7 +8,7 @@
     </div>
     <div class="examination-row">
         <div class="row-title">Paciente:</div>
-        <div class="row-content readonly-field">{{ $examinacionAntropogenica->examination->getNombrePaciente() }}</div>
+        <div class="row-content readonly-field">{{$examinacionAntropogenica->consultation->getNombrePaciente() }}</div>
     </div>
     <div class="examination-row">
         <div class="row-title">Fecha Realizacion:</div>

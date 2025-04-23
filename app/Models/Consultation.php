@@ -10,7 +10,7 @@ use App\Models\PhysicalConditionExamination;
 use App\Models\PostureExamination;
 use App\Models\Patient;
 
-class Examination extends Model
+class Consultation extends Model
 {
     use HasFactory;
 
@@ -21,19 +21,19 @@ class Examination extends Model
     ];
 
     public function anthropogenicalExamination() {
-        return $this->hasOne(AnthropogenicalExamination::class, 'id_examinacion');
+        return $this->hasOne(AnthropogenicalExamination::class, 'id_consulta');
     }
 
     public function anthropometricalExamination() {
-        return $this->hasOne(AnthropometricalExamination::class, 'id_examinacion');
+        return $this->hasOne(AnthropometricalExamination::class, 'id_consulta');
     }
 
     public function physicalConditionExamination() {
-        return $this->hasOne(PhysicalConditionExamination::class, 'id_examinacion');
+        return $this->hasOne(PhysicalConditionExamination::class, 'id_consulta');
     }
 
     public function postureExamination() {
-        return $this->hasOne(PostureExamination::class, 'id_examinacion');
+        return $this->hasOne(PostureExamination::class, 'id_consulta');
     }
 
     public function patient() {
@@ -41,22 +41,22 @@ class Examination extends Model
     }
 
     public static function index() {
-        return Examination::orderBy('id')->paginate(10);
+        return Consultation::orderBy('id')->paginate(10);
     }
 
     public function agregarExaminacion($request) {
-        $examination = new Examination();
+        $consultation = new Consultation();
 
-        $examination->id_paciente = $request->input('id_paciente');
-        $examination->fecha_realizacion = $request->input('fecha_realizacion');
-        $examination->talla = $request->input('talla');
+        $consultation->id_paciente = $request->input('id_paciente');
+        $consultation->fecha_realizacion = $request->input('fecha_realizacion');
+        $consultation->talla = $request->input('talla');
 
-        $examination->save();
+        $consultation->save();
     }
 
     public function quitarExaminacion($request) {
-        $examination = $request->Examinacion;
-        $examinationElem = Examination::find($id);
+        $consultation = $request->Consulta;
+        $examinationElem = Consultation::find($id);
         $examinationElem->delete();
     }
 

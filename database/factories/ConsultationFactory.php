@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Patient;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Examination>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class ExaminationFactory extends Factory
+class ConsultationFactory extends Factory
 {
     /**
      * Define the model's default state.

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Examination;
+use App\Models\Consultation;
 use App\Models\HeadExamination;
 use App\Models\ShouldersExamination;
 use App\Models\PelvisExamination;
@@ -17,13 +17,13 @@ class PostureExamination extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_examinacion',
+        'id_consulta',
         'fecha_realizacion',
         'observations',
     ];
 
-    public function examination() {
-        return $this->belongsTo(Examination::class, 'id_examinacion');
+    public function consultation() {
+        return $this->belongsTo(Consultation::class, 'id_consulta');
     }
 
     public function analisisCabeza() {

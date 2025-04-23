@@ -50,9 +50,9 @@ class PatientController extends Controller
      */
     public function destroy(string $id){}
 
-    public function examinacionesAsociadas($id){
+    public function consultasAsociadas($id){
         $paciente = Patient::find($id);
-        $examinaciones = $paciente->examinations()->orderBy('id', 'desc')->get();
-        return view('examinaciones.index', compact('examinaciones'));
+        $consultas = $paciente->consultations()->orderBy('id', 'desc')->get();
+        return view('consultas.index', compact('consultas'));
     }
 }

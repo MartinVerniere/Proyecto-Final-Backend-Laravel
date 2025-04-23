@@ -9,9 +9,9 @@
             Pacientes
         </div>
     </a>
-    <a class="navbar-button" href="{{ route('examinaciones.index') }}">
+    <a class="navbar-button" href="{{ route('consultas.index') }}">
         <div class="navbar-button-text">
-            Examinaciones
+            Consultas
         </div>
     </a>
 </div>

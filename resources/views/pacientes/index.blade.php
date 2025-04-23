@@ -28,8 +28,8 @@
                     <td>{{ $paciente->genero }}</td>
                     <td>{{ $paciente->DNI }}</td>
                     <td class="table-acciones-list">
-                        <form action="{{ route('pacientes.examinacionesAsociadas', $paciente->id) }}" method="get">
-                            <button type="submit" class="btn btn-primary">Ver examinaciones realizadas</button>
+                        <form action="{{ route('pacientes.consultasAsociadas', $paciente->id) }}" method="get">
+                            <button type="submit" class="btn btn-primary">Ver consultas realizadas</button>
                         </form> 
                     </td>
                 </tr>

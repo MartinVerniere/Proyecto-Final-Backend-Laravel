@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Examinaciones:</h2>
+                <h2>Consultas:</h2>
             </div>
         </div>
     </div>
@@ -17,24 +17,24 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($examinaciones as $examinacion)
+            @foreach ($consultas as $consulta)
                 <tr>
-                    <td>{{ $examinacion->id }}</td>
-                    <td>{{ $examinacion->getNombrePaciente() }}</td>
+                    <td>{{ $consulta->id }}</td>
+                    <td>{{ $consulta->getNombrePaciente() }}</td>
                     <td class="table-acciones-list">
-                        <form action="{{ route('examinaciones.examinacionFisicaAsociada', $examinacion->id) }}" method="get">
+                        <form action="{{ route('consultas.examinacionFisicaAsociada', $consulta->id) }}" method="get">
                             @csrf
                             <button type="submit" class="btn btn-primary">Examinacion Fisica</button>
                         </form>
-                        <form action="{{ route('examinaciones.examinacionAntropogenicaAsociada', $examinacion->id) }}" method="get">
+                        <form action="{{ route('consultas.examinacionAntropogenicaAsociada', $consulta->id) }}" method="get">
                             @csrf
                             <button type="submit" class="btn btn-primary">Examinacion Antropogenica</button>
                         </form>
-                        <form action="{{ route('examinaciones.examinacionAntropometricaAsociada', $examinacion->id) }}" method="get">
+                        <form action="{{ route('consultas.examinacionAntropometricaAsociada', $consulta->id) }}" method="get">
                             @csrf
                             <button type="submit" class="btn btn-primary">Examinacion Antropometrica</button>
                         </form>
-                        <form action="{{ route('examinaciones.examinacionPosturaAsociada', $examinacion->id) }}" method="get">
+                        <form action="{{ route('consultas.examinacionPosturaAsociada', $consulta->id) }}" method="get">
                             @csrf
                             <button type="submit" class="btn btn-primary">Examinacion Postura</button>
                         </form>

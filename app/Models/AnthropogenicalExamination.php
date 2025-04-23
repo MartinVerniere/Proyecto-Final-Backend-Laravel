@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Examination;
+use App\Models\Consultation;
 
 class AnthropogenicalExamination extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'id_examinacion',
+        'id_consulta',
         'longitud_pierna',
         'talla_padre',
         'talla_madre',
@@ -31,8 +31,8 @@ class AnthropogenicalExamination extends Model
         'categoria_edad_PHV'
     ];
 
-    public function examination() {
-        return $this->belongsTo(Examination::class);
+    public function consultation() {
+        return $this->belongsTo(Consultation::class, 'id_consulta');
     }
 
     public function añadirExaminacionAntropogenica($request) {

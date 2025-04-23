@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('physical_condition_examinations', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('id_examinacion')->constrained('examinations');
+            $table->foreignId('id_consulta')->constrained('consultations');
 
             $table->date('fecha_realizacion');
             

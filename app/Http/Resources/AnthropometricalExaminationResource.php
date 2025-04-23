@@ -16,7 +16,7 @@ class AnthropometricalExaminationResource extends JsonResource
     {
         return [
             'Id' => $this->id,
-            'Id_Examinacion' => $this->id_examinacion,
+            'Id_Examinacion' => $this->id_consulta,
             'Fecha_realizacion' => $this->fecha_realizacion,
             
             'Pliegues_triceps' => $this->pliegues_triceps,

@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Examination;
+use App\Models\Consultation;
 
 class AnthropometricalExamination extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'id_examinacion',
+        'id_consulta',
         'pliegues_triceps',
         'pliegues_subescapular',
         'pliegues_supraespinal',
@@ -33,8 +33,8 @@ class AnthropometricalExamination extends Model
         'suma_pliegues'
     ];
 
-    public function examination() {
-        return $this->belongsTo(Examination::class, 'id_examinacion');
+    public function consultation() {
+        return $this->belongsTo(Consultation::class, 'id_consulta');
     }
 
     public function añadirExaminacionAntropogenica($request) {
