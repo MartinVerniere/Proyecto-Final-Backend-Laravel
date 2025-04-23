@@ -20,8 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('examinaciones', [APIConsultationController::class, 'index']);
-Route::get('examinaciones/{id}', [APIConsultationController::class, 'show']);
+Route::get('consultas', [APIConsultationController::class, 'index']);
+Route::get('consultas/{id}', [APIConsultationController::class, 'show']);
 
 Route::get('pacientes', [APIPatientController::class, 'index']);
 Route::get('pacientes/{id}', [APIPatientController::class, 'show']);
