@@ -16,7 +16,7 @@
         }
     ],
     "env": {
-        "APP_NAME": "Vercel Laravel IAW",
+        "APP_NAME": "Proyecto final - Backend - Laravel - Martin Verniere",
         "APP_ENV": "production",
         "APP_DEBUG": "false",
         "VERCEL_DEMO_MODE": "true",
