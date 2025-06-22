@@ -25,12 +25,12 @@ class PostureExaminationResource extends JsonResource
             'Id_Examinacion' => $this->id_consulta,
             'Fecha_realizacion' => $this->fecha_realizacion,
             
-            'Examinacion_Cabeza' => new HeadExaminationResource($this->headExamination),
-            'Examinacion_Hombros_Escapular' => new ShouldersExaminationResource($this->shouldersExamination),
-            'Examinacion_Pelvis' => new PelvisExaminationResource($this->pelvisExamination),
-            'Examinacion_Rodilla' => new KneeExaminationResource($this->kneeExamination),
-            'Examinacion_Pie' => new FeetExaminationResource($this->feetExamination),
-            'Examinacion_Pivot' => new PivotExaminationResource($this->pivotExamination),
+            'Examinacion_Cabeza' => new HeadExaminationResource($this->analisisCabeza),
+            'Examinacion_Hombros_Escapular' => new ShouldersExaminationResource($this->analisisHombrosEscapular),
+            'Examinacion_Pelvis' => new PelvisExaminationResource($this->analisisPelvis),
+            'Examinacion_Rodilla' => new KneeExaminationResource($this->analisisRodilla),
+            'Examinacion_Pie' => new FeetExaminationResource($this->analisisPies),
+            'Examinacion_Pivot' => new PivotExaminationResource($this->analisisPivot),
             'Observaciones' => $this->observaciones
         ];
     }
