@@ -32,3 +32,7 @@ Route::get('examinaciones/examinacionAntropogenica/{id}', [APIExaminationsContro
 Route::get('examinaciones/examinacionAntropometrica/{id}', [APIExaminationsController::class, 'showAnthropometricalExamination']);
 Route::get('examinaciones/examinacionFisica/{id}', [APIExaminationsController::class, 'showPhysicalConditionExamination']);
 Route::get('examinaciones/examinacionPostura/{id}', [APIExaminationsController::class, 'showPostureExamination']);
+
+Route::post('examinaciones/examinacionAntropogenica/crear', [APIExaminationsController::class, 'storeAnthropogenicalExamination']);
+Route::post('examinaciones/examinacionAntropometrica/crear', [APIExaminationsController::class, 'storeAnthropometricalExamination']);
+Route::post('examinaciones/examinacionFisica/crear', [APIExaminationsController::class, 'storePhysicalConditionExamination']);
