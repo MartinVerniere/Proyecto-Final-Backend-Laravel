@@ -38,7 +38,7 @@ class AnthropogenicalExamination extends Model
     public function añadirExaminacionAntropogenica($request) {
         $examination = new AnthropogenicalExamination();
 
-        $examination->id_paciente = $request->input('id_paciente');
+        $examination->id_consulta = $request->input('id_consulta');
         $examination->fecha_realizacion = $request->input('fecha_realizacion');
         $examination->longitud_pierna = $request->input('longitud_pierna');
         $examination->talla_padre = $request->input('talla_padre');

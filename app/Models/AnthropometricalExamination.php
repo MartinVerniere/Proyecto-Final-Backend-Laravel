@@ -40,26 +40,27 @@ class AnthropometricalExamination extends Model
     public function añadirExaminacionAntropogenica($request) {
         $examination = new AnthropogenicalExamination();
     
-        $examination->id_paciente = $request->input('id_paciente');
+        $examination->id_consulta = $request->input('id_consulta');
         $examination->fecha_realizacion = $request->input('fecha_realizacion');
-        $examination->longitud_pierna = $request->input('longitud_pierna');
-        $examination->talla_padre = $request->input('talla_padre');
-        $examination->talla_madre = $request->input('talla_madre');
-        $examination->talla_adulta = $request->input('talla_adulta');
-        $examination->talla_objetiva_genetica = $request->input('talla_objetiva_genetica');
-        $examination->talla_falta_crecer = $request->input('talla_falta_crecer');
-        $examination->valor_IRMI = $request->input('valor_IRMI');
-        $examination->categoria_IRMI = $request->input('categoria_IRMI');
-        $examination->valor_indice_cormico = $request->input('valor_indice_cormico');    
-        $examination->categoria_indice_cormico = $request->input('categoria_indice_cormico');
-        $examination->valor_indice_masa_corporal = $request->input('valor_indice_masa_corporal');
-        $examination->categoria_indice_masa_corporal = $request->input('categoria_indice_masa_corporal');
-        $examination->valor_estadio_tanner = $request->input('valor_estadio_tanner');
-        $examination->categoria_estadio_tanner = $request->input('categoria_estadio_tanner');
-        $examination->valor_PHV = $request->input('valor_PHV');
-        $examination->categoria_PHV = $request->input('categoria_PHV');
-        $examination->valor_edad_PHV = $request->input('valor_edad_PHV');
-        $examination->categoria_edad_PHV = $request->input('categoria_edad_PHV');
+        $examination->pliegues_triceps = $request->input('pliegues_triceps');
+        $examination->pliegues_subescapular = $request->input('pliegues_subescapular');
+        $examination->pliegues_supraespinal = $request->input('pliegues_supraespinal');
+        $examination->pliegues_abdominal = $request->input('pliegues_abdominal');
+        $examination->pliegues_muslo = $request->input('pliegues_muslo');
+        $examination->pliegues_pantorrilla = $request->input('pliegues_pantorrilla');
+        $examination->perimetro_brazo_relajado = $request->input('perimetro_brazo_relajado');
+        $examination->perimetro_brazo_flexionado = $request->input('perimetro_brazo_flexionado');
+        $examination->perimetro_cintura_minima = $request->input('perimetro_cintura_minima');
+        $examination->perimetro_cadera = $request->input('perimetro_cadera');
+        $examination->perimetro_muslo = $request->input('perimetro_muslo');
+        $examination->perimetro_pantorrilla = $request->input('perimetro_pantorrilla');
+        $examination->valor_indice_cintura_cadera = $request->input('valor_indice_cintura_cadera');
+        $examination->categoria_indice_cintura_cadera = $request->input('categoria_indice_cintura_cadera');
+        $examination->valor_indice_masa_grasa = $request->input('valor_indice_masa_grasa');
+        $examination->categoria_indice_masa_grasa = $request->input('categoria_indice_masa_grasa');
+        $examination->valor_indice_masa_muscular = $request->input('valor_indice_masa_muscular');
+        $examination->categoria_indice_masa_muscular = $request->input('categoria_indice_masa_muscular');
+        $examination->suma_pliegues = $request->input('suma_pliegues');
     
         $examination->save();
     }

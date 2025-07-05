@@ -30,7 +30,7 @@ class PhysicalConditionExamination extends Model
     public function añadirExaminacionFisica($request) {
         $examination = new PhysicalConditionExamination();
 
-        $examination->id_paciente = $request->input('id_paciente');
+        $examination->id_consulta = $request->input('id_consulta');
         $examination->fecha_realizacion = $request->input('fecha_realizacion');
         $examination->valor_fuerza_presion_manual = $request->input('valor_fuerza_presion_manual');
         $examination->categoria_fuerza_presion_manual = $request->input('categoria_fuerza_presion_manual');
@@ -38,9 +38,9 @@ class PhysicalConditionExamination extends Model
         $examination->categoria_fuerza_explosiva = $request->input('categoria_fuerza_explosiva');
         $examination->valor_mobilidad_tobillo = $request->input('valor_mobilidad_tobillo');
         $examination->categoria_mobilidad_tobillo = $request->input('categoria_mobilidad_tobillo');
-        $examination->evaluacion_sentadillas = $request->input('evaluacion_sentadillas');
-        $examination->evaluacion_activa_pierna = $request->input('evaluacion_activa_pierna');
-        $examination->movilidad_hombros = $request->input('movilidad_hombros');
+        #$examination->evaluacion_sentadillas = $request->input('evaluacion_sentadillas');
+        #$examination->evaluacion_activa_pierna = $request->input('evaluacion_activa_pierna');
+        #$examination->movilidad_hombros = $request->input('movilidad_hombros');
 
         $examination->save();
     }
