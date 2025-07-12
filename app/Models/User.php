@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'lastName',
         'email',
         'password',
         'role',
@@ -46,6 +47,8 @@ class User extends Authenticatable
     public function añadirMedico($request) {
         $user = new User();
         $user->name = $request->name;
+        $user->lastName = $request->apellido;
+        $user->username = $request->nombreUsuario;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->role = 'MEDICO';

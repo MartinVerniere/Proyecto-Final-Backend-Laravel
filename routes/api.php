@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\APIPatientController;
 use App\Http\Controllers\APIConsultationController;
 use App\Http\Controllers\APIExaminationsController;
+use App\Http\Controllers\Auth\AuthControllerApi;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,6 @@ Route::get('examinaciones/examinacionAntropogenica/{id}', [APIExaminationsContro
 Route::get('examinaciones/examinacionAntropometrica/{id}', [APIExaminationsController::class, 'showAnthropometricalExamination']);
 Route::get('examinaciones/examinacionFisica/{id}', [APIExaminationsController::class, 'showPhysicalConditionExamination']);
 Route::get('examinaciones/examinacionPostura/{id}', [APIExaminationsController::class, 'showPostureExamination']);
+
+Route::post('/login', [AuthControllerApi::class, 'login']);
+Route::post('/register', [AuthControllerApi::class, 'register']);
