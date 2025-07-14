@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\User;
-use App\Traits\HasApiTokens;
-use Illuminate\Support\Facades\Hash;
 
 class AuthControllerApi extends Controller
 {
@@ -26,8 +27,7 @@ class AuthControllerApi extends Controller
 
         if (!$existeEmail){
             if (!$existeNombreUsuario){
-                $hashContraseña = Hash::make($contraseña);
-                User::agregarUsuario($nombre,$apellido,$nombreUsuario,$email,$hashContraseña);
+                User::añadirMedico($request);
 
                 return response()->json(
                     [
@@ -58,7 +58,7 @@ class AuthControllerApi extends Controller
                 [
                     'message' => 'Email o contraseña incorrectas',
                     'emailSent' => $request->email,
-                    'passWordSent' => $request->password,
+                    //'passWordSent' => $request->password,
                 ], 401);
         }
         // Generar y devolver el token de acceso, y nombre e email
@@ -69,7 +69,7 @@ class AuthControllerApi extends Controller
             [
                 'message' => 'Sesion iniciada correctamente',
                 'access_token' => $token,
-                'user_name' => $user->name,
+                'user_name' => $user->username,
                 'user_email' => $user->email,
             ], 201);
     }

@@ -22,17 +22,23 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('consultas', [APIConsultationController::class, 'index']);
-Route::get('consultas/{id}', [APIConsultationController::class, 'show']);
 
-Route::get('pacientes', [APIPatientController::class, 'index']);
-Route::get('pacientes/{id}', [APIPatientController::class, 'show']);
-Route::get('pacientes/{id}/consultas', [APIConsultationController::class, 'indexByPatient']);
-
-Route::get('examinaciones/examinacionAntropogenica/{id}', [APIExaminationsController::class, 'showAnthropogenicalExamination']);
-Route::get('examinaciones/examinacionAntropometrica/{id}', [APIExaminationsController::class, 'showAnthropometricalExamination']);
-Route::get('examinaciones/examinacionFisica/{id}', [APIExaminationsController::class, 'showPhysicalConditionExamination']);
-Route::get('examinaciones/examinacionPostura/{id}', [APIExaminationsController::class, 'showPostureExamination']);
 
 Route::post('/login', [AuthControllerApi::class, 'login']);
 Route::post('/register', [AuthControllerApi::class, 'register']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [AuthControllerApi::class, 'logout']);
+
+    Route::get('consultas', [APIConsultationController::class, 'index']);
+    Route::get('consultas/{id}', [APIConsultationController::class, 'show']);
+
+    Route::get('pacientes', [APIPatientController::class, 'index']);
+    Route::get('pacientes/{id}', [APIPatientController::class, 'show']);
+    Route::get('pacientes/{id}/consultas', [APIConsultationController::class, 'indexByPatient']);
+
+    Route::get('examinaciones/examinacionAntropogenica/{id}', [APIExaminationsController::class, 'showAnthropogenicalExamination']);
+    Route::get('examinaciones/examinacionAntropometrica/{id}', [APIExaminationsController::class, 'showAnthropometricalExamination']);
+    Route::get('examinaciones/examinacionFisica/{id}', [APIExaminationsController::class, 'showPhysicalConditionExamination']);
+    Route::get('examinaciones/examinacionPostura/{id}', [APIExaminationsController::class, 'showPostureExamination']);
+});
