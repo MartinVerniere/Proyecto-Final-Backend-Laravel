@@ -27,6 +27,7 @@ Route::get('consultas/{id}', [APIConsultationController::class, 'show']);
 Route::get('pacientes', [APIPatientController::class, 'index']);
 Route::get('pacientes/{id}', [APIPatientController::class, 'show']);
 Route::get('pacientes/{id}/consultas', [APIConsultationController::class, 'indexByPatient']);
+Route::post('pacientes/crear', [APIPatientController::class, 'store']);
 
 Route::get('examinaciones/examinacionAntropogenica/{id}', [APIExaminationsController::class, 'showAnthropogenicalExamination']);
 Route::get('examinaciones/examinacionAntropometrica/{id}', [APIExaminationsController::class, 'showAnthropometricalExamination']);

@@ -22,6 +22,7 @@ class PatientResource extends JsonResource
             'Genero' => $this->genero,
             'DNI' => $this->DNI,
             'Fecha_Nacimiento' => $this->fecha_nacimiento,
+            'Consultas_Realizadas' => ConsultationResource::collection($this->consultations),
         ];
     }
 }
