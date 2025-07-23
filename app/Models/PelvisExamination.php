@@ -22,7 +22,7 @@ class PelvisExamination extends Model
         return $this->belongsTo(PostureExamination::class, 'id_examinacion_postura');
     }
 
-    public function anadirExaminacionPelvis($request){
+    public static function anadirExaminacionPelvis($request){
         $examination = new PelvisExamination();
 
         $examination->id_examinacion_postura = $request->input('id_examinacion_postura');
@@ -32,9 +32,11 @@ class PelvisExamination extends Model
         $examination->rotacion = $request->input('rotacion');
 
         $examination->save();
+
+        return $examination->id;
     }
 
-    public function quitarExaminacionPelvis($request) {
+    public static function quitarExaminacionPelvis($request) {
         $examination = $request->ExaminacionPelvis;
         $examinationElem = PelvisExamination::find($id);
         $examinationElem->delete();

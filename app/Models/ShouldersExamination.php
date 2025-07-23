@@ -23,7 +23,7 @@ class ShouldersExamination extends Model
         return $this->belongsTo(PostureExamination::class, 'id_examinacion_postura');
     }
 
-    public function añadirExaminacionHombrosEscapular($request) {
+    public static function añadirExaminacionHombrosEscapular($request) {
         $examination = new ShouldersExamination();
 
         $examination->id_examinacion_postura = $request->input('id_examinacion_postura');
@@ -34,9 +34,11 @@ class ShouldersExamination extends Model
         $examination->triangulo_de_talle = $request->input('triangulo_de_talle');
 
         $examination->save();
+
+        return $examination->id;
     }
 
-    public function quitarExaminacionHombrosEscapular($request) {
+    public static function quitarExaminacionHombrosEscapular($request) {
         $examination = $request->ExaminacionHombrosEscapular;
         $examinationElem = ShouldersExamination::find($id);
         $examinationElem->delete();

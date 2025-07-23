@@ -27,7 +27,7 @@ class PhysicalConditionExamination extends Model
         return $this->belongsTo(Consultation::class, 'id_consulta');
     }
 
-    public function añadirExaminacionFisica($request) {
+    public static function añadirExaminacionFisica($request) {
         $examination = new PhysicalConditionExamination();
 
         $examination->id_consulta = $request->input('id_consulta');
@@ -43,9 +43,11 @@ class PhysicalConditionExamination extends Model
         #$examination->movilidad_hombros = $request->input('movilidad_hombros');
 
         $examination->save();
+
+        return $examination->id;
     }
 
-    public function quitarExaminacionFisica($request) {
+    public static function quitarExaminacionFisica($request) {
         $examination = $request->ExaminacionFisica;
         $examinationElem = PhysicalConditionExamination::find($id);
         $examinationElem->delete();

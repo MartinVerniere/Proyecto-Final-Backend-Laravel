@@ -37,7 +37,7 @@ class AnthropometricalExamination extends Model
         return $this->belongsTo(Consultation::class, 'id_consulta');
     }
 
-    public function añadirExaminacionAntropogenica($request) {
+    public static function añadirExaminacionAntropogenica($request) {
         $examination = new AnthropogenicalExamination();
     
         $examination->id_consulta = $request->input('id_consulta');
@@ -63,9 +63,11 @@ class AnthropometricalExamination extends Model
         $examination->suma_pliegues = $request->input('suma_pliegues');
     
         $examination->save();
+
+        return $examination->id;
     }
 
-    public function quitarExaminacionAntropogenica($request) {
+    public static function quitarExaminacionAntropogenica($request) {
         $examination = $request->ExaminacionAntropogenica;
         $examinationElem = AnthropogenicalExamination::find($id);
         $examinationElem->delete();

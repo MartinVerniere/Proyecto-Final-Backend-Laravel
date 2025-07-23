@@ -21,7 +21,7 @@ class KneeExamination extends Model
         return $this->belongsTo(PostureExamination::class, 'id_examinacion_postura');
     }
 
-    public function anadirExaminacionRodilla($request) {
+    public static function anadirExaminacionRodilla($request) {
         $examination = new KneeExamination();
 
         $examination->id_examinacion_postura = $request->input('id_examinacion_postura');
@@ -30,9 +30,11 @@ class KneeExamination extends Model
         $examination->tipologia_rotulas = $request->input('tipologia_rotulas');
 
         $examination->save();
+
+        return $examination->id;
     }
 
-    public function quitarExaminacionRodilla($request) {
+    public static function quitarExaminacionRodilla($request) {
         $examination = $request->ExaminacionRodilla;
         $examinationElem = KneeExamination::find($id);
         $examinationElem->delete();

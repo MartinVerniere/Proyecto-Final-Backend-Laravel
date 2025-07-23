@@ -22,7 +22,7 @@ class FeetExamination extends Model
         return $this->belongsTo(PostureExamination::class, 'id_examinacion_postura');
     }
 
-    public function anadirExaminacionPies($request) {
+    public static function anadirExaminacionPies($request) {
         $examination = new FeetExamination();
 
         $examination->id_examinacion_postura = $request->input('id_examinacion_postura');
@@ -32,9 +32,11 @@ class FeetExamination extends Model
         $examination->dedos_en_garra = $request->input('dedos_en_garra');
 
         $examination->save();
+
+        return $examination->id;
     }
 
-    public function quitarExaminacionPies($request) {
+    public static function quitarExaminacionPies($request) {
         $examination = $request->ExaminacionPies;
         $examinationElem = FeetExamination::find($id);
         $examinationElem->delete();

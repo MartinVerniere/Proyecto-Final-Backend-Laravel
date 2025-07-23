@@ -44,17 +44,20 @@ class Consultation extends Model
         return Consultation::orderBy('id')->paginate(10);
     }
 
-    public function agregarExaminacion($request) {
+    public static function agregarConsulta($request) {
         $consultation = new Consultation();
 
         $consultation->id_paciente = $request->input('id_paciente');
         $consultation->fecha_realizacion = $request->input('fecha_realizacion');
-        $consultation->talla = $request->input('talla');
+        $consultation->talla = $request->input('talla_paciente');
+        #$consultation->peso = $request->input('peso_paciente');
 
         $consultation->save();
+
+        return $consultation->id;
     }
 
-    public function quitarExaminacion($request) {
+    public static function quitarConsulta($request) {
         $consultation = $request->Consulta;
         $examinationElem = Consultation::find($id);
         $examinationElem->delete();

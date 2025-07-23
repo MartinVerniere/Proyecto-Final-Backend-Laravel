@@ -35,7 +35,7 @@ class AnthropogenicalExamination extends Model
         return $this->belongsTo(Consultation::class, 'id_consulta');
     }
 
-    public function añadirExaminacionAntropogenica($request) {
+    public static function añadirExaminacionAntropogenica($request) {
         $examination = new AnthropogenicalExamination();
 
         $examination->id_consulta = $request->input('id_consulta');
@@ -59,9 +59,11 @@ class AnthropogenicalExamination extends Model
         $examination->categoria_edad_PHV = $request->input('categoria_edad_PHV');
 
         $examination->save();
+
+        return $examination->id;
     }
 
-    public function quitarExaminacionAntropogenica($request) {
+    public static function quitarExaminacionAntropogenica($request) {
         $examination = $request->ExaminacionAntropogenica;
         $examinationElem = AnthropogenicalExamination::find($id);
         $examinationElem->delete();

@@ -24,7 +24,7 @@ class PivotExamination extends Model
         return $this->belongsTo(PostureExamination::class, 'id_examinacion_postura');
     }
 
-    public function añadirExaminacionPivot($request) {
+    public static function añadirExaminacionPivot($request) {
         $examination = new PivotExamination;
 
         $examination->id_examinacion_postura = $request->input('id_examinacion_postura');
@@ -36,9 +36,11 @@ class PivotExamination extends Model
         $examination->raquis_cifolordotico = $request->input('raquis_cifolordotico');
 
         $examination->save();
+
+        return $examination->id;
     }
 
-    public function eliminarExaminacionPivot($request) {
+    public static function eliminarExaminacionPivot($request) {
         $examination = $request->ExaminacionPivot;
         $examination = PivotExamination::find($id);
         $examination->delete();

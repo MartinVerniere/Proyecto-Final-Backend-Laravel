@@ -23,9 +23,10 @@ class HeadExamination extends Model
         return $this->belongsTo(PostureExamination::class, 'id_examinacion_postura');
     }
 
-    public function añadirExaminacionCabeza($request) {
+    public static function añadirExaminacionCabeza($request) {
         $examination = new HeadExamination();
 
+        $examination->id_examinacion_postura = $request->input('id_examinacion_postura');
         $examination->plano = $request->input('plano');
         $examination->inclinacion = $request->input('inclinacion');
         $examination->mirada = $request->input('mirada');
@@ -33,5 +34,7 @@ class HeadExamination extends Model
         $examination->oclusion = $request->input('oclusion');
     
         $examination->save();
+
+        return $examination->id;
     }
 }

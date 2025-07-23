@@ -58,6 +58,8 @@ class PostureExamination extends Model
         $examination->observations = $request->input('observaciones');
 
         $examination->save();
+
+        return $examination->id;
     }
 
     public function quitarExaminacionPostura($request) {
