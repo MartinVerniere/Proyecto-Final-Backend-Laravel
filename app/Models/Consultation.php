@@ -17,7 +17,8 @@ class Consultation extends Model
     protected $fillable = [
         'id_paciente',
         'fecha_realizacion',
-        'talla'
+        'talla',
+        'peso',
     ];
 
     public function anthropogenicalExamination() {
@@ -50,7 +51,7 @@ class Consultation extends Model
         $consultation->id_paciente = $request->input('id_paciente');
         $consultation->fecha_realizacion = $request->input('fecha_realizacion');
         $consultation->talla = $request->input('talla_paciente');
-        #$consultation->peso = $request->input('peso_paciente');
+        $consultation->peso = $request->input('peso_paciente');
 
         $consultation->save();
 
@@ -67,23 +68,22 @@ class Consultation extends Model
         return $this->patient->nombre . ' ' . $this->patient->apellido;
     }
 
-    public function getUltimaExaminacionRealizada() {
-        $examinaciones = [
+    public function getFechaUltimaExaminacionRealizada() {
+        $examinaciones = array_filter([ //Filtrar los elementos null
             $this->anthropogenicalExamination,
             $this->anthropometricalExamination,
             $this->physicalConditionExamination,
             $this->postureExamination
-        ];
+        ]);
 
-        $ultima_examinacion = $this->anthropogenicalExamination;
-        $ultima_fecha = $ultima_examinacion->fecha_realizacion;
+        $ultima_fecha = $this->fecha_realizacion;
 
         foreach ($examinaciones as $examinacionElem) {
             if ($examinacionElem->fecha_realizacion > $ultima_fecha) {
-                $ultima_examinacion = $examinacionElem;
+                $ultima_fecha = $examinacionElem->fecha_realizacion;
             }
         }
 
-        return $ultima_examinacion;
+        return $ultima_fecha;
     }
 }

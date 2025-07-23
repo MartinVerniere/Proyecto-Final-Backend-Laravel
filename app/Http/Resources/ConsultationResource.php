@@ -17,7 +17,7 @@ class ConsultationResource extends JsonResource
         return [
             'Id' => $this->id,
             'Paciente' => $this->getNombrePaciente(),
-            'Fecha_realizacion' => $this->getUltimaExaminacionRealizada()->fecha_realizacion,
+            'Fecha_realizacion' => $this->getFechaUltimaExaminacionRealizada(),
             'Talla' => $this->talla,
             'Examinacion_antropogenica' => $this->anthropogenicalExamination ? $this->anthropogenicalExamination->id : null,
             'Examinacion_antropometrica' => $this->anthropometricalExamination ? $this->anthropometricalExamination->id : null,
