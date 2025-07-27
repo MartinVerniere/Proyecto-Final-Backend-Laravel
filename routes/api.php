@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('consultas', [APIConsultationController::class, 'index']);
 Route::get('consultas/{id}', [APIConsultationController::class, 'show']);
+Route::post('consultas/crear', [APIConsultationController::class, 'store']);
 
 Route::get('pacientes', [APIPatientController::class, 'index']);
 Route::get('pacientes/{id}', [APIPatientController::class, 'show']);
@@ -36,4 +37,5 @@ Route::get('examinaciones/examinacionPostura/{id}', [APIExaminationsController::
 
 Route::post('examinaciones/examinacionAntropogenica/crear', [APIExaminationsController::class, 'storeAnthropogenicalExamination']);
 Route::post('examinaciones/examinacionAntropometrica/crear', [APIExaminationsController::class, 'storeAnthropometricalExamination']);
-Route::post('examinaciones/examinacionFisica/crear', [APIExaminationsController::class, 'storePhysicalConditionExamination']);
+Route::post('examinaciones/examinacionCondicionFisica/crear', [APIExaminationsController::class, 'storePhysicalConditionExamination']);
+Route::post('examinaciones/examinacionPostura/crear', [APIExaminationsController::class, 'storePostureExamination']);
