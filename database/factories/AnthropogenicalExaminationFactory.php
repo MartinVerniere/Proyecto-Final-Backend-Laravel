@@ -18,6 +18,9 @@ class AnthropogenicalExaminationFactory extends Factory
     {
         return [
             'fecha_realizacion' => fake()->date(),
+
+            'talla_paciente' => $this->faker->randomFloat(1,2),
+            'peso_paciente' => $this->faker->randomFloat(1,2),
             
             'longitud_pierna' => $this->faker->randomFloat(1,2),
             'talla_padre' => $this->faker->randomFloat(1,2),
@@ -42,7 +45,7 @@ class AnthropogenicalExaminationFactory extends Factory
             'valor_indice_madurativo' => $this->faker->randomFloat(1,2),
 
             'valor_edad_PHV' => $this->faker->randomFloat(1,2),
-            'categoria_PHV' => $this->faker->randomElement(['Temprano','Normal','Tardio']),
+            'categoria_edad_PHV' => $this->faker->randomElement(['Temprano','Normal','Tardio']),
         ];
     }
 }

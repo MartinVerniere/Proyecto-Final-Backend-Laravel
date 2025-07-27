@@ -69,7 +69,7 @@
     <div class="examination-row">
         <div class="row-title">Edad PHV:</div>
         <div class="row-content readonly-field">
-            {{$examinacionAntropogenica->edad_PHV}} - {{$examinacionAntropogenica->categoria_PHV}}
+            {{$examinacionAntropogenica->edad_PHV}} - {{$examinacionAntropogenica->categoria_edad_PHV}}
         </div>
     </div>
 </div>

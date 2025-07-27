@@ -12,6 +12,9 @@ class AnthropometricalExamination extends Model
 
     protected $fillable = [
         'id_consulta',
+        'fecha_realizacion',
+        'talla_paciente',
+        'peso_paciente',
         'pliegues_triceps',
         'pliegues_subescapular',
         'pliegues_supraespinal',
@@ -42,6 +45,8 @@ class AnthropometricalExamination extends Model
     
         $examination->id_consulta = $request->input('id_consulta');
         $examination->fecha_realizacion = $request->input('fecha_realizacion');
+        $examination->talla_paciente = $request->input('talla_paciente');
+        $examination->peso_paciente = $request->input('peso_paciente');
         $examination->pliegues_triceps = $request->input('pliegues_triceps');
         $examination->pliegues_subescapular = $request->input('pliegues_subescapular');
         $examination->pliegues_supraespinal = $request->input('pliegues_supraespinal');

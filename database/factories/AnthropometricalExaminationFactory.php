@@ -18,6 +18,9 @@ class AnthropometricalExaminationFactory extends Factory
     {
         return [
             'fecha_realizacion' => fake()->date(),
+
+            'talla_paciente' => $this->faker->randomFloat(1,2),
+            'peso_paciente' => $this->faker->randomFloat(1,2),
             
             'pliegues_triceps' => $this->faker->numberBetween(1, 20),
             'pliegues_subescapular' => $this->faker->numberBetween(1, 20),

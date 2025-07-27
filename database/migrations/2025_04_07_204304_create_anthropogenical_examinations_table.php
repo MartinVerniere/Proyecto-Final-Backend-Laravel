@@ -17,6 +17,9 @@ return new class extends Migration
             $table->foreignId('id_consulta')->constrained('consultations');
 
             $table->date('fecha_realizacion');
+
+            $table->float('talla_paciente');
+            $table->float('peso_paciente');
             
             $table->float('longitud_pierna');
             $table->float('talla_padre');
@@ -41,7 +44,7 @@ return new class extends Migration
             $table->float('valor_indice_madurativo');
             
             $table->float('valor_edad_PHV');
-            $table->enum('categoria_PHV', ['Temprano','Normal','Tardio']);
+            $table->enum('categoria_edad_PHV', ['Temprano','Normal','Tardio']);
 
             $table->timestamps();
         });

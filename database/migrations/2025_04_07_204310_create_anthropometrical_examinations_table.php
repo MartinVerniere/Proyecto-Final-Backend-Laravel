@@ -18,6 +18,9 @@ return new class extends Migration
 
             $table->date('fecha_realizacion');
 
+            $table->float('talla_paciente');
+            $table->float('peso_paciente');
+
             $table->integer('pliegues_triceps');
             $table->integer('pliegues_subescapular');
             $table->integer('pliegues_supraespinal');

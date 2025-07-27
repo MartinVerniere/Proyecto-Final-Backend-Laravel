@@ -12,15 +12,16 @@ class PhysicalConditionExamination extends Model
 
     protected $fillable = [
         'id_consulta',
+        'fecha_realizacion',
         'valor_fuerza_presion_manual',
         'categoria_fuerza_presion_manual',
         'valor_fuerza_explosiva',
         'categoria_fuerza_explosiva',
         'valor_mobilidad_tobillo',
         'categoria_mobilidad_tobillo',
-        'evaluacion_sentadillas',
-        'evaluacion_activa_pierna',
-        'movilidad_hombros',
+        #'evaluacion_sentadillas',
+        #'evaluacion_activa_pierna',
+        #'movilidad_hombros',
     ];
 
     public function consultation() {

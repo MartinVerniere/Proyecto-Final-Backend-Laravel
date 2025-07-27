@@ -12,6 +12,9 @@ class AnthropogenicalExamination extends Model
 
     protected $fillable = [
         'id_consulta',
+        'fecha_realizacion',
+        'talla_paciente',
+        'peso_paciente',
         'longitud_pierna',
         'talla_padre',
         'talla_madre',
@@ -40,6 +43,8 @@ class AnthropogenicalExamination extends Model
 
         $examination->id_consulta = $request->input('id_consulta');
         $examination->fecha_realizacion = $request->input('fecha_realizacion');
+        $examination->talla_paciente = $request->input('talla_paciente');
+        $examination->peso_paciente = $request->input('peso_paciente');
         $examination->longitud_pierna = $request->input('longitud_pierna');
         $examination->talla_padre = $request->input('talla_padre');
         $examination->talla_madre = $request->input('talla_madre');
