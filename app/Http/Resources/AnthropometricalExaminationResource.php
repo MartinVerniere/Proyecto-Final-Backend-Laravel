@@ -30,7 +30,7 @@ class AnthropometricalExaminationResource extends JsonResource
             'Pliegues_pantorrilla' => $this->pliegues_pantorrilla,
 
             'Perimetro_brazo_relajado' => $this->perimetro_brazo_relajado,
-            'Perimetro_brazo_contraido' => $this->perimetro_brazo_contraido,
+            'Perimetro_brazo_flexionado' => $this->perimetro_brazo_flexionado,
             'Perimetro_cintura_minima' => $this->perimetro_cintura_minima,
             'Perimetro_cadera' => $this->perimetro_cadera,
             'Perimetro_muslo' => $this->perimetro_muslo,

@@ -40,9 +40,9 @@ class AnthropometricalExamination extends Model
         return $this->belongsTo(Consultation::class, 'id_consulta');
     }
 
-    public static function añadirExaminacionAntropogenica($request) {
-        $examination = new AnthropogenicalExamination();
-    
+    public static function añadirExaminacionAntropometrica($request) {
+        $examination = new AnthropometricalExamination();
+
         $examination->id_consulta = $request->input('id_consulta');
         $examination->fecha_realizacion = $request->input('fecha_realizacion');
         $examination->talla_paciente = $request->input('talla_paciente');
@@ -72,9 +72,9 @@ class AnthropometricalExamination extends Model
         return $examination->id;
     }
 
-    public static function quitarExaminacionAntropogenica($request) {
-        $examination = $request->ExaminacionAntropogenica;
-        $examinationElem = AnthropogenicalExamination::find($id);
+    public static function quitarExaminacionAntropometrica($request) {
+        $examination = $request->ExaminacionAntropometrica;
+        $examinationElem = AnthropometricalExamination::find($id);
         $examinationElem->delete();
     }
 }

@@ -22,7 +22,7 @@ class FeetExamination extends Model
         return $this->belongsTo(PostureExamination::class, 'id_examinacion_postura');
     }
 
-    public static function anadirExaminacionPies($request) {
+    public static function añadirExaminacionPies($request) {
         $examination = new FeetExamination();
 
         $examination->id_examinacion_postura = $request->input('id_examinacion_postura');

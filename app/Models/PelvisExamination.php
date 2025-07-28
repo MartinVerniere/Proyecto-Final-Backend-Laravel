@@ -22,7 +22,7 @@ class PelvisExamination extends Model
         return $this->belongsTo(PostureExamination::class, 'id_examinacion_postura');
     }
 
-    public static function anadirExaminacionPelvis($request){
+    public static function añadirExaminacionPelvis($request){
         $examination = new PelvisExamination();
 
         $examination->id_examinacion_postura = $request->input('id_examinacion_postura');

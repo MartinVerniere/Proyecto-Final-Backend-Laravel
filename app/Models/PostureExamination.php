@@ -19,7 +19,7 @@ class PostureExamination extends Model
     protected $fillable = [
         'id_consulta',
         'fecha_realizacion',
-        'observations',
+        'observaciones',
     ];
 
     public function consultation() {
@@ -50,12 +50,12 @@ class PostureExamination extends Model
         return $this->hasOne(PivotExamination::class, 'id_examinacion_postura', 'id');
     }
 
-    public function añadirExaminacionPostura($request) {
+    public static function añadirExaminacionPostura($request) {
         $examination = new PostureExamination();
 
-        $examination->id_paciente = $request->input('id_paciente');
+        $examination->id_consulta = $request->input('id_consulta');
         $examination->fecha_realizacion = $request->input('fecha_realizacion');
-        $examination->observations = $request->input('observaciones');
+        $examination->observaciones = $request->input('observaciones');
 
         $examination->save();
 
