@@ -9,6 +9,12 @@ use App\Models\AnthropogenicalExamination;
 use App\Models\AnthropometricalExamination;
 use App\Models\PhysicalConditionExamination;
 use App\Models\PostureExamination;
+use App\Models\HeadExamination;
+use App\Models\ShouldersExamination;
+use App\Models\PelvisExamination;
+use App\Models\KneeExamination;
+use App\Models\FeetExamination;
+use App\Models\PivotExamination;
 use App\Http\Resources\ConsultationResource;
 
 class APIConsultationController extends Controller
@@ -70,23 +76,23 @@ class APIConsultationController extends Controller
                     'fecha_realizacion' => $request->fecha_realizacion,
                     'talla_paciente' => $request->talla_paciente,
                     'peso_paciente' => $request->peso_paciente,
-                    'longitud_pierna' => $request->examinacionAntropogenica->longitud_pierna,
-                    'talla_padre' => $request->examinacionAntropogenica->talla_padre,
-                    'talla_madre' => $request->examinacionAntropogenica->talla_madre,
-                    'talla_adulta' => $request->examinacionAntropogenica->talla_adulta,
-                    'talla_objetiva_genetica' => $request->examinacionAntropogenica->talla_objetiva_genetica,
-                    'talla_falta_crecer' => $request->examinacionAntropogenica->talla_falta_crecer,
-                    'valor_IRMI' => $request->examinacionAntropogenica->valor_IRMI,
-                    'categoria_IRMI' => $request->examinacionAntropogenica->categoria_IRMI,
-                    'valor_indice_cormico' => $request->examinacionAntropogenica->valor_indice_cormico,
-                    'categoria_indice_cormico' => $request->examinacionAntropogenica->categoria_indice_cormico,
-                    'valor_indice_masa_corporal' => $request->examinacionAntropogenica->valor_indice_masa_corporal,
-                    'categoria_indice_masa_corporal' => $request->examinacionAntropogenica->categoria_indice_masa_corporal,
-                    'valor_estadio_tanner' => $request->examinacionAntropogenica->valor_estadio_tanner,
-                    'categoria_estadio_tanner' => $request->examinacionAntropogenica->categoria_estadio_tanner,
-                    'valor_indice_madurativo' => $request->examinacionAntropogenica->valor_indice_madurativo,
-                    'valor_edad_PHV' => $request->examinacionAntropogenica->valor_edad_PHV,
-                    'categoria_edad_PHV' => $request->examinacionAntropogenica->categoria_edad_PHV,
+                    'longitud_pierna' => $request->examinacionAntropogenica['longitud_pierna'],
+                    'talla_padre' => $request->examinacionAntropogenica['talla_padre'],
+                    'talla_madre' => $request->examinacionAntropogenica['talla_madre'],
+                    'talla_adulta' => $request->examinacionAntropogenica['talla_adulta'],
+                    'talla_objetiva_genetica' => $request->examinacionAntropogenica['talla_objetiva_genetica'],
+                    'talla_falta_crecer' => $request->examinacionAntropogenica['talla_falta_crecer'],
+                    'valor_IRMI' => $request->examinacionAntropogenica['valor_IRMI'],
+                    'categoria_IRMI' => $request->examinacionAntropogenica['categoria_IRMI'],
+                    'valor_indice_cormico' => $request->examinacionAntropogenica['valor_indice_cormico'],
+                    'categoria_indice_cormico' => $request->examinacionAntropogenica['categoria_indice_cormico'],
+                    'valor_indice_masa_corporal' => $request->examinacionAntropogenica['valor_indice_masa_corporal'],
+                    'categoria_indice_masa_corporal' => $request->examinacionAntropogenica['categoria_indice_masa_corporal'],
+                    'valor_estadio_tanner' => $request->examinacionAntropogenica['valor_estadio_tanner'],
+                    'categoria_estadio_tanner' => $request->examinacionAntropogenica['categoria_estadio_tanner'],
+                    'valor_indice_madurativo' => $request->examinacionAntropogenica['valor_indice_madurativo'],
+                    'valor_edad_PHV' => $request->examinacionAntropogenica['valor_edad_PHV'],
+                    'categoria_edad_PHV' => $request->examinacionAntropogenica['categoria_edad_PHV'],
                 ];
                 AnthropogenicalExamination::añadirExaminacionAntropogenica(new Request($dataAnthropogenicalExamination));
             }
@@ -97,25 +103,25 @@ class APIConsultationController extends Controller
                     'fecha_realizacion' => $request->fecha_realizacion,
                     'talla_paciente' => $request->talla_paciente,
                     'peso_paciente' => $request->peso_paciente,
-                    'pliegues_triceps' => $request->examinacionAntropometrica->pliegues_triceps,
-                    'pliegues_subescapular' => $request->examinacionAntropometrica->pliegues_subescapular,
-                    'pliegues_supraespinal' => $request->examinacionAntropometrica->pliegues_supraespinal,
-                    'pliegues_abdominal' => $request->examinacionAntropometrica->pliegues_abdominal,
-                    'pliegues_muslo' => $request->examinacionAntropometrica->pliegues_muslo,
-                    'pliegues_pantorrilla' => $request->examinacionAntropometrica->pliegues_pantorrilla,
-                    'perimetro_brazo_relajado' => $request->examinacionAntropometrica->perimetro_brazo_relajado,
-                    'perimetro_brazo_flexionado' => $request->examinacionAntropometrica->perimetro_brazo_flexionado,
-                    'perimetro_cintura_minima' => $request->examinacionAntropometrica->perimetro_cintura_minima,
-                    'perimetro_cadera' => $request->examinacionAntropometrica->perimetro_cadera,
-                    'perimetro_muslo' => $request->examinacionAntropometrica->perimetro_muslo,
-                    'perimetro_pantorrilla' => $request->examinacionAntropometrica->perimetro_pantorrilla,
-                    'valor_indice_cintura_cadera' => $request->examinacionAntropometrica->valor_indice_cintura_cadera,
-                    'categoria_indice_cintura_cadera' => $request->examinacionAntropometrica->categoria_indice_cintura_cadera,
-                    'valor_indice_masa_grasa' => $request->examinacionAntropometrica->valor_indice_masa_grasa,
-                    'categoria_indice_masa_grasa' => $request->examinacionAntropometrica->categoria_indice_masa_grasa,
-                    'valor_indice_masa_muscular' => $request->examinacionAntropometrica->valor_indice_masa_muscular,
-                    'categoria_indice_masa_muscular' => $request->examinacionAntropometrica->categoria_indice_masa_muscular,
-                    'suma_pliegues' => $request->examinacionAntropometrica->sumatoria_6_pliegues,
+                    'pliegues_triceps' => $request->examinacionAntropometrica['pliegues_triceps'],
+                    'pliegues_subescapular' => $request->examinacionAntropometrica['pliegues_subescapular'],
+                    'pliegues_supraespinal' => $request->examinacionAntropometrica['pliegues_supraespinal'],
+                    'pliegues_abdominal' => $request->examinacionAntropometrica['pliegues_abdominal'],
+                    'pliegues_muslo' => $request->examinacionAntropometrica['pliegues_muslo'],
+                    'pliegues_pantorrilla' => $request->examinacionAntropometrica['pliegues_pantorrilla'],
+                    'perimetro_brazo_relajado' => $request->examinacionAntropometrica['perimetro_brazo_relajado'],
+                    'perimetro_brazo_flexionado' => $request->examinacionAntropometrica['perimetro_brazo_flexionado'],
+                    'perimetro_cintura_minima' => $request->examinacionAntropometrica['perimetro_cintura_minima'],
+                    'perimetro_cadera' => $request->examinacionAntropometrica['perimetro_cadera'],
+                    'perimetro_muslo' => $request->examinacionAntropometrica['perimetro_muslo'],
+                    'perimetro_pantorrilla' => $request->examinacionAntropometrica['perimetro_pantorrilla'],
+                    'valor_indice_cintura_cadera' => $request->examinacionAntropometrica['valor_indice_cintura_cadera'],
+                    'categoria_indice_cintura_cadera' => $request->examinacionAntropometrica['categoria_indice_cintura_cadera'],
+                    'valor_indice_masa_grasa' => $request->examinacionAntropometrica['valor_indice_masa_grasa'],
+                    'categoria_indice_masa_grasa' => $request->examinacionAntropometrica['categoria_indice_masa_grasa'],
+                    'valor_indice_masa_muscular' => $request->examinacionAntropometrica['valor_indice_masa_muscular'],
+                    'categoria_indice_masa_muscular' => $request->examinacionAntropometrica['categoria_indice_masa_muscular'],
+                    'suma_pliegues' => $request->examinacionAntropometrica['suma_pliegues'],
                 ];
                 AnthropometricalExamination::añadirExaminacionAntropometrica(new Request($dataAnthropometricalExamination));
             }
@@ -124,12 +130,12 @@ class APIConsultationController extends Controller
                 $dataPhysicalConditionExamination = [
                     'id_consulta' => $ultima_consulta_id,
                     'fecha_realizacion' => $request->fecha_realizacion,
-                    'valor_fuerza_presion_manual' => $request->examinacionCondicionFisica->valor_fuerza_presion_manual,
-                    'categoria_fuerza_presion_manual' => $request->examinacionCondicionFisica->categoria_fuerza_presion_manual,
-                    'valor_fuerza_explosiva' => $request->examinacionCondicionFisica->valor_fuerza_explosiva,
-                    'categoria_fuerza_explosiva' => $request->examinacionCondicionFisica->categoria_fuerza_explosiva,
-                    'valor_mobilidad_tobillo' => $request->examinacionCondicionFisica->valor_mobilidad_tobillo,
-                    'categoria_mobilidad_tobillo' => $request->examinacionCondicionFisica->categoria_mobilidad_tobillo,                 
+                    'valor_fuerza_presion_manual' => $request->examinacionCondicionFisica['valor_fuerza_presion_manual'],
+                    'categoria_fuerza_presion_manual' => $request->examinacionCondicionFisica['categoria_fuerza_presion_manual'],
+                    'valor_fuerza_explosiva' => $request->examinacionCondicionFisica['valor_fuerza_explosiva'],
+                    'categoria_fuerza_explosiva' => $request->examinacionCondicionFisica['categoria_fuerza_explosiva'],
+                    'valor_mobilidad_tobillo' => $request->examinacionCondicionFisica['valor_mobilidad_tobillo'],
+                    'categoria_mobilidad_tobillo' => $request->examinacionCondicionFisica['categoria_mobilidad_tobillo'],
                 ];
                 PhysicalConditionExamination::añadirExaminacionFisica(new Request($dataPhysicalConditionExamination));
             }
@@ -144,63 +150,63 @@ class APIConsultationController extends Controller
 
                 $dataHeadExamination = [
                     'id_examinacion_postura' => $ultima_examinacion_postura_id,
-                    'plano' => $request->examinacionPostura->plano_cabeza,
-                    'inclinacion' => $request->examinacionPostura->inclinacion_cabeza,
-                    'mirada' => $request->examinacionPostura->mirada_cabeza,
-                    'caries' => $request->examinacionPostura->caries_cabeza,
-                    'oclusion' => $request->examinacionPostura->oclusion_cabeza,
+                    'plano' => $request->examinacionPostura['plano_cabeza'],
+                    'inclinacion' => $request->examinacionPostura['inclinacion_cabeza'],
+                    'mirada' => $request->examinacionPostura['mirada_cabeza'],
+                    'caries' => $request->examinacionPostura['caries_cabeza'],
+                    'oclusion' => $request->examinacionPostura['oclusion_cabeza'],
                 ];
 
                 HeadExamination::añadirExaminacionCabeza(new Request($dataHeadExamination));
 
                 $dataShouldersExamination = [
                     'id_examinacion_postura' => $ultima_examinacion_postura_id,
-                    'inclinacion' => $request->examinacionPostura->inclinacion_hombros,
-                    'musculatura' => $request->examinacionPostura->musculatura_hombros,
-                    'escapula' => $request->examinacionPostura->escapula_hombros,
-                    'hombro' => $request->examinacionPostura->hombro_hombros,
-                    'triangulo_de_talle' => $request->examinacionPostura->triangulo_de_talle_hombros,
+                    'inclinacion' => $request->examinacionPostura['inclinacion_hombros'],
+                    'musculatura' => $request->examinacionPostura['musculatura_hombros'],
+                    'escapula' => $request->examinacionPostura['escapula_hombros'],
+                    'hombro' => $request->examinacionPostura['hombro_hombros'],
+                    'triangulo_de_talle' => $request->examinacionPostura['triangulo_de_talle_hombros'],
                 ];
 
                 ShouldersExamination::añadirExaminacionHombrosEscapular(new Request($dataShouldersExamination));
 
                 $dataPelvisExamination = [
                     'id_examinacion_postura' => $ultima_examinacion_postura_id,
-                    'eias' => $request->examinacionPostura->eias_pelvis,
-                    'eips' => $request->examinacionPostura->eips_pelvis,
-                    'relacion' => $request->examinacionPostura->relacion_pelvis,
-                    'rotacion' => $request->examinacionPostura->rotacion_pelvis,
+                    'eias' => $request->examinacionPostura['eias_pelvis'],
+                    'eips' => $request->examinacionPostura['eips_pelvis'],
+                    'relacion' => $request->examinacionPostura['relacion_pelvis'],
+                    'rotacion' => $request->examinacionPostura['rotacion_pelvis'],
                 ];
 
                 PelvisExamination::añadirExaminacionPelvis(new Request($dataPelvisExamination));
 
                 $dataKneeExamination = [
                     'id_examinacion_postura' => $ultima_examinacion_postura_id,
-                    'genu' => $request->examinacionPostura->genu_rodilla,
-                    'morfotipo_torsional' => $request->examinacionPostura->morfotipo_torsional_rodilla,
-                    'tipologia_rotulas' => $request->examinacionPostura->tipologia_rotulas_rodilla,
+                    'genu' => $request->examinacionPostura['genu_rodilla'],
+                    'morfotipo_torsional' => $request->examinacionPostura['morfotipo_torsional_rodilla'],
+                    'tipologia_rotulas' => $request->examinacionPostura['tipologia_rotulas_rodilla'],
                 ];
 
-                KneeExamination::añadirExaminacionCadera(new Request($dataKneeExamination));
+                KneeExamination::añadirExaminacionRodilla(new Request($dataKneeExamination));
 
                 $dataFeetExamination = [
                     'id_examinacion_postura' => $ultima_examinacion_postura_id,
-                    'eje_posterior' => $request->examinacionPostura->eje_posterior_pie,
-                    'eje_anterior' => $request->examinacionPostura->eje_anterior_pie,
-                    'tipologia' => $request->examinacionPostura->tipologia_pie,
-                    'dedos_en_garra' => $request->examinacionPostura->dedos_en_garra_pie,
+                    'eje_posterior' => $request->examinacionPostura['eje_posterior_pie'],
+                    'eje_anterior' => $request->examinacionPostura['eje_anterior_pie'],
+                    'tipologia' => $request->examinacionPostura['tipologia_pie'],
+                    'dedos_en_garra' => $request->examinacionPostura['dedos_en_garra_pie'],
                 ];
 
-                FeetExamination::añadirExaminacionPiernas(new Request($dataFeetExamination));
+                FeetExamination::añadirExaminacionPies(new Request($dataFeetExamination));
 
                 $dataPivotExamination = [
                     'id_examinacion_postura' => $ultima_examinacion_postura_id,
-                    'cervical_C4_C5' => $request->examinacionPostura->cervical_C4_C5_pivot,
-                    'dorsal_D8' => $request->examinacionPostura->dorsal_D8_pivot,
-                    'lumbar_L3' => $request->examinacionPostura->lumbar_L3_pivot,
-                    'raquis_escoliotico' => $request->examinacionPostura->raquis_escoliotico_pivot,
-                    'raquis_cifolordotico' => $request->examinacionPostura->raquis_cifolordotico_pivot,
-                    'raquis_rectificado' => $request->examinacionPostura->raquis_rectificado_pivot,
+                    'cervical_C4_C5' => $request->examinacionPostura['cervical_C4_C5_pivot'],
+                    'dorsal_D8' => $request->examinacionPostura['dorsal_D8_pivot'],
+                    'lumbar_L3' => $request->examinacionPostura['lumbar_L3_pivot'],
+                    'raquis_escoliotico' => $request->examinacionPostura['raquis_escoliotico_pivot'],
+                    'raquis_cifolordotico' => $request->examinacionPostura['raquis_cifolordotico_pivot'],
+                    'raquis_rectificado' => $request->examinacionPostura['raquis_rectificado_pivot'],
                 ];
 
                 PivotExamination::añadirExaminacionPivot(new Request($dataPivotExamination));
@@ -250,7 +256,7 @@ class APIConsultationController extends Controller
     private function validateNuevaExaminacionAntropometrica(Request $request){
         $validated = $request->validate([
             'fecha_realizacion' => 'required|date',
-            'examinacionAntropometrica.pliegue_triceps' => 'required|integer',
+            'examinacionAntropometrica.pliegues_triceps' => 'required|integer',
             'examinacionAntropometrica.pliegues_subescapular' => 'required|integer',
             'examinacionAntropometrica.pliegues_supraespinal' => 'required|integer',
             'examinacionAntropometrica.pliegues_abdominal' => 'required|integer',
