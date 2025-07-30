@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -19,6 +20,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'lastName',
+        'username',
         'email',
         'password',
         'role',
@@ -43,9 +46,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function añadirMedico($request) {
+    public static function añadirMedico($request) {
         $user = new User();
         $user->name = $request->name;
+        $user->lastName = $request->lastName;
+        $user->username = $request->username;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->role = 'MEDICO';

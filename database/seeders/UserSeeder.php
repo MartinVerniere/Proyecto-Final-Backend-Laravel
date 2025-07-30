@@ -16,7 +16,9 @@ class UserSeeder extends Seeder
     {
         User::truncate();
         User::create([
-            'name' => 'SuperAdmin',
+            'name' => 'Super',
+            'lastName' => 'Admin',
+            'username' => 'SuperAdmin',
             'email' => 'superAdmin@proyectoFinal.com',
             'password' => Hash::make('superAdminProyectoFinal'),
             'role' => 'SUPER_ADMIN',
