@@ -8,7 +8,7 @@ use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\AnthropometricalExaminationController;
 use App\Http\Controllers\AnthropogenicalExaminationController;
-use App\Http\Controllers\PhysicalExaminationController;
+use App\Http\Controllers\PhysicalConditionExaminationController;
 use App\Http\Controllers\PostureExaminationController;
 
 /*
@@ -53,7 +53,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('examinacionesAntropometricas', AnthropometricalExaminationController::class);
     Route::resource('examinacionesAntropogenicas', AnthropogenicalExaminationController::class);
-    Route::resource('examinacionesFisicas', PhysicalExaminationController::class);
+    Route::resource('examinacionesFisicas', PhysicalConditionExaminationController::class);
     Route::resource('examinacionesPostura', PostureExaminationController::class);
 });
 
