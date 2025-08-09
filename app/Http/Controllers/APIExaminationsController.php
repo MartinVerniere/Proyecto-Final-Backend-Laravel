@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Resources\Consultation;
 use App\Http\Resources\AnthropogenicalExaminationResource;
 use App\Http\Resources\AnthropometricalExaminationResource;
 use App\Http\Resources\PhysicalConditionExaminationResource;
 use App\Http\Resources\PostureExaminationResource;
+use App\Models\Consultation;
 use App\Models\AnthropogenicalExamination;
 use App\Models\AnthropometricalExamination;
 use App\Models\PhysicalConditionExamination;
