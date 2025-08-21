@@ -37,7 +37,6 @@ class AnthropogenicalExaminationResource extends JsonResource
             'Estadio_tanner' => $this->valor_estadio_tanner,
             'Categoria_estadio_tanner' => $this->categoria_estadio_tanner,
             'Indice_madurativo' => $this->valor_indice_madurativo,
-            'Categoria_PHV' => $this->categoria_edad_PHV,
             'Edad_PHV' => $this->valor_edad_PHV,
             'Categoria_edad_PHV' => $this->categoria_edad_PHV
         ];
