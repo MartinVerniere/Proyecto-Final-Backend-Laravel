@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->foreignId('id_examinacion_postura')->constrained('posture_examinations');
             
-            $table->enum('plano', ['Adelantado','Neutro','Retrazado']);
+            $table->enum('plano', ['Adelantado','Neutro','Retrasado']);
             $table->enum('inclinacion', ['SI','NO']);
             $table->enum('mirada', ['Inclinacion derecha','Normal','Inclinacion izquierda']);
             $table->enum('caries', ['SI','NO']);

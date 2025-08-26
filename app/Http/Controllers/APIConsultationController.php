@@ -295,7 +295,7 @@ class APIConsultationController extends Controller
     private function validateNuevaExaminacionPostura(Request $request){
         $validated = $request->validate([
             'fecha_realizacion' => 'required|date',
-            'examinacionPostura.plano_cabeza' => 'required|in:Adelantado,Neutro,Retrazado',
+            'examinacionPostura.plano_cabeza' => 'required|in:Adelantado,Neutro,Retrasado',
             'examinacionPostura.inclinacion_cabeza' => 'required|in:SI,NO',
             'examinacionPostura.mirada_cabeza' => 'required|in:Inclinacion derecha,Normal,Inclinacion izquierda',
             'examinacionPostura.caries_cabeza' => 'required|in:SI,NO',

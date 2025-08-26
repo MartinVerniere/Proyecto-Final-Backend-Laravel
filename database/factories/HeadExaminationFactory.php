@@ -17,7 +17,7 @@ class HeadExaminationFactory extends Factory
     public function definition(): array
     {
         return [
-            'plano' => fake()->randomElement(['Adelantado','Neutro','Retrazado']),
+            'plano' => fake()->randomElement(['Adelantado','Neutro','Retrasado']),
             'inclinacion' => fake()->randomElement(['SI','NO']),
             'mirada' => fake()->randomElement(['Inclinacion derecha','Normal','Inclinacion izquierda']),
             'caries' => fake()->randomElement(['SI','NO']),
