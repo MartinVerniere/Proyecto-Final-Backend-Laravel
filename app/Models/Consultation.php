@@ -53,6 +53,29 @@ class Consultation extends Model
         $consultation->talla = $request->input('talla_paciente');
         $consultation->peso = $request->input('peso_paciente');
 
+        $consultation->deporte = $request->input('deporte', null);
+        $consultation->horas_gimnasio = $request->input('horas_gimnasio', null);
+        $consultation->dias_gimnasio = $request->input('dias_gimnasio', null);
+        $consultation->horas_semana_gimnasio = $request->input('horas_semana_gimnasio', null);
+        $consultation->horas_entrenamiento = $request->input('horas_entrenamiento', null);
+        $consultation->dias_entrenamiento = $request->input('dias_entrenamiento', null);
+        $consultation->horas_semana_entrenamiento = $request->input('horas_semana_entrenamiento', null);
+        $consultation->club = $request->input('club', null);
+        $consultation->posicion = $request->input('posicion', null);
+        $consultation->antecedentes_personales = $request->input('antecedentes_personales', null);
+        $consultation->antecedentes_familiares = $request->input('antecedentes_familiares', null);
+        $consultation->antecedentes_lesiones = $request->input('antecedentes_lesiones', null);
+        $consultation->estudios_laboratorio = $request->input('estudios_laboratorio', null);
+        $consultation->observaciones_estudios_laboratorio = $request->input('observaciones_estudios_laboratorio', null);
+        $consultation->estudios_cardiologicos = $request->input('estudios_cardiologicos', null);
+        $consultation->observaciones_estudios_cardiologicos = $request->input('observaciones_estudios_cardiologicos', null);
+        $consultation->desayuna = $request->input('desayuna', null);
+        $consultation->almuerza = $request->input('almuerza', null);
+        $consultation->merienda = $request->input('merienda', null);
+        $consultation->cena = $request->input('cena', null);
+        $consultation->hidratacion = $request->input('hidratacion', null);
+        $consultation->anotaciones = $request->input('anotaciones', null);
+
         $consultation->save();
 
         return $consultation->id;
