@@ -13,79 +13,55 @@ class AuthControllerApi extends Controller
 {
     use HasApiTokens;
 
-    public function register(Request $request)
-    {
-        $nombre = $request->name;
-        $apellido = $request->lastName;
-        $nombreUsuario = $request->username;
-        $email = $request->email;
-        $contraseña = $request->password;
-        //$especializacion = $request->especializaciones;
+    public function register(Request $request) {
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'lastName' => 'required|string',
+            'username' => 'required|string|unique:users,username',
+            'email' => 'required|string|email|unique:users,email',
+            'password' => 'required|string|min:8',
+        ]);
     
-        $existeEmail = User::where('email', $email)->first();
-        $existeNombreUsuario = User::where('username', $nombreUsuario)->first();
+        $user = User::create([
+            'name' => $request->name,
+            'lastName' => $request->lastName,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
 
-        if (!$existeEmail){
-            if (!$existeNombreUsuario){
-                User::añadirMedico($request);
-
-                return response()->json(
-                    [
-                        'success' => 'Nuevo usuario creado correctamente',
-                    ], 201);               
-            }
-            else {
-                return response()->json(
-                    [
-                        'error' => 'No se creo el nuevo usuario, ya existe un usuario con ese nombre de usuario asociado',
-                    ], 400);
-            }
-
-        }
-        else {
-            return response()->json(
-                [
-                    'error' => 'No se creo el nuevo usuario, ya existe un usuario con ese email asociado',
-                ], 400);
-        }
+        return response()->json([
+            'message' => 'Usuario registrado correctamente',
+            'user_name' => $user->username,
+            'user_email' => $user->email,
+        ], 201);
     }
 
-    public function login(Request $request)
-    {
+    public function login(Request $request) {
         // Validar las credenciales del usuario
-        if (!auth()->attempt($request->only('email', 'password'))) {
-            return response()->json(
-                [
-                    'message' => 'Email o contraseña incorrectas',
-                    'emailSent' => $request->email,
-                    //'passWordSent' => $request->password,
-                ], 401);
-        }
-        // Generar y devolver el token de acceso, y nombre e email
-        $token = auth()->user()->createToken('token-name')->plainTextToken;
-        $user = auth()->user();
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
 
-        return response()->json(
-            [
-                'message' => 'Sesion iniciada correctamente',
-                'access_token' => $token,
-                'user_name' => $user->username,
-                'user_email' => $user->email,
-            ], 201);
+        if (!Auth::attempt($credentials)) { return response()->json(['message' => 'Credenciales inválidas'], 401); }
+        
+        $user = Auth::user();
+
+        return response()->json([
+            'message' => 'Sesion iniciada correctamente',
+            'user_name' => $user->username,
+            'user_email' => $user->email,
+        ], 201);
     }
 
-    public function logout(Request $request)
-    {
-        $user = auth()->user();
-
-        $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
-
+    public function logout(Request $request) {
+        $user = Auth::user();
         return response()->json(['message' => 'Sesión cerrada correctamente'], 200);
     }
 
-/* 
-    public function sendResetLinkEmail(Request $request)
-    {
+    /* 
+    public function sendResetLinkEmail(Request $request) {
         $request->validate([
             'email' => ['required', 'email'],
         ]);
@@ -97,5 +73,6 @@ class AuthControllerApi extends Controller
         return $response == Password::RESET_LINK_SENT
             ? response()->json(['message' => 'Correo electrónico de restablecimiento de contraseña enviado'])
             : response()->json(['message' => 'No se pudo enviar el correo electrónico de restablecimiento de contraseña'], 400);
-    } */ 
+    } 
+    */ 
 }

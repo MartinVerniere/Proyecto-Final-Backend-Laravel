@@ -10,7 +10,10 @@ use App\Http\Controllers\AnthropometricalExaminationController;
 use App\Http\Controllers\AnthropogenicalExaminationController;
 use App\Http\Controllers\PhysicalConditionExaminationController;
 use App\Http\Controllers\PostureExaminationController;
-
+use App\Http\Controllers\APIPatientController;
+use App\Http\Controllers\APIConsultationController;
+use App\Http\Controllers\APIExaminationsController;
+use App\Http\Controllers\Auth\AuthControllerApi;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,5 +59,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('examinacionesFisicas', PhysicalConditionExaminationController::class);
     Route::resource('examinacionesPostura', PostureExaminationController::class);
 });
+
+
+Route::post('/login', [AuthControllerApi::class, 'login']);
+Route::post('/register', [AuthControllerApi::class, 'register']);
+Route::middleware('auth:sanctum')->post('/logout', [AuthControllerApi::class, 'logout']);
 
 require __DIR__.'/auth.php';
