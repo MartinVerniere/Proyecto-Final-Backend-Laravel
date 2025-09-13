@@ -48,6 +48,7 @@ class User extends Authenticatable
 
     public static function añadirMedico($request) {
         $user = new User();
+        
         $user->name = $request->name;
         $user->lastName = $request->lastName;
         $user->username = $request->username;
@@ -55,5 +56,7 @@ class User extends Authenticatable
         $user->password = Hash::make($request->password);
         $user->role = 'MEDICO';
         $user->save();
+
+        return $user;
     }
 }

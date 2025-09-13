@@ -22,13 +22,7 @@ class AuthControllerApi extends Controller
             'password' => 'required|string|min:8',
         ]);
     
-        $user = User::create([
-            'name' => $request->name,
-            'lastName' => $request->lastName,
-            'username' => $request->username,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $user = User::añadirMedico($request);
 
         return response()->json([
             'message' => 'Usuario registrado correctamente',
