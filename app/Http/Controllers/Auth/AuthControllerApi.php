@@ -46,12 +46,12 @@ class AuthControllerApi extends Controller
             'message' => 'Sesion iniciada correctamente',
             'user_name' => $user->username,
             'user_email' => $user->email,
-        ], 201);
+        ], 201)->cookie('loggedIn', true, 3600, '/', null, false, false);
     }
 
     public function logout(Request $request) {
         $user = Auth::user();
-        return response()->json(['message' => 'Sesión cerrada correctamente'], 200);
+        return response()->json(['message' => 'Sesión cerrada correctamente'], 200)->cookie('loggedIn', '', -1, '/');
     }
 
     /* 
