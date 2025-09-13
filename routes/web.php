@@ -58,8 +58,8 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::post('/login', [AuthControllerApi::class, 'login']);
-Route::post('/register', [AuthControllerApi::class, 'register']);
-Route::middleware('auth:sanctum')->post('/logout', [AuthControllerApi::class, 'logout']);
+Route::post('rest/login', [AuthControllerApi::class, 'login']);
+Route::post('rest/register', [AuthControllerApi::class, 'register']);
+Route::middleware('auth:sanctum')->post('rest/logout', [AuthControllerApi::class, 'logout']);
 
 require __DIR__.'/auth.php';
