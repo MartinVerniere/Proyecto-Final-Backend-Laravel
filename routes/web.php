@@ -10,9 +10,6 @@ use App\Http\Controllers\AnthropometricalExaminationController;
 use App\Http\Controllers\AnthropogenicalExaminationController;
 use App\Http\Controllers\PhysicalConditionExaminationController;
 use App\Http\Controllers\PostureExaminationController;
-use App\Http\Controllers\APIPatientController;
-use App\Http\Controllers\APIConsultationController;
-use App\Http\Controllers\APIExaminationsController;
 use App\Http\Controllers\Auth\AuthControllerApi;
 /*
 |--------------------------------------------------------------------------
