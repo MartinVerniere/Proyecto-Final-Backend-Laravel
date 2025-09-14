@@ -44,7 +44,7 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::get('/{id}', [APIExaminationsController::class, 'showAnthropometricalExamination']);
             Route::post('/crear', [APIExaminationsController::class, 'storeAnthropometricalExamination']);
         });
-        Route::prefix('examinacionFisica')->group(function () {
+        Route::prefix('examinacionCondicionFisica')->group(function () {
             Route::get('/{id}', [APIExaminationsController::class, 'showPhysicalConditionExamination']);
             Route::post('/crear', [APIExaminationsController::class, 'storePhysicalConditionExamination']);
         });
