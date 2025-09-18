@@ -196,5 +196,5 @@ return [
     |
     */
 
-    'same_site' => env('lax'),
+    'same_site' => 'lax',
 ];
