@@ -212,7 +212,10 @@ class APIConsultationController extends Controller
                 PivotExamination::añadirExaminacionPivot(new Request($dataPivotExamination));
             }
         
-            return response()->json(['message' => 'Consulta creada correctamente'], 200);
+            return response()->json([
+                'message' => 'Consulta creada correctamente',
+                'new_consult_id' => $ultima_consulta_id
+            ], 200);
         }
         else {
             return response()->json(['error' => $validatedConsultation], 400);
