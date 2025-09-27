@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Patient;
 use App\Http\Resources\PatientResource;
 
-class APIPatientController extends Controller
+class PatientAPIController extends Controller
 {
     public function index(){
         return PatientResource::collection(Patient::all());

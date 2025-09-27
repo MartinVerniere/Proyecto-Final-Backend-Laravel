@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -17,7 +17,7 @@ use App\Models\FeetExamination;
 use App\Models\PivotExamination;
 use App\Http\Resources\ConsultationResource;
 
-class APIConsultationController extends Controller
+class ConsultationAPIController extends Controller
 {
     public function index(){
         return ConsultationResource::collection(Consultation::all());
