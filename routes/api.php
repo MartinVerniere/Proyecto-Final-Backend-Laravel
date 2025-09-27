@@ -40,7 +40,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('pacientes/{id}/consultas', [ConsultationAPIController::class, 'indexByPatient']);
     Route::post('pacientes/crear', [PatientAPIController::class, 'store']);
 
-    Route::get('examinaciones/examinacionAntropogenica/{id}', [AnthropogenicalExaminationControler::class, 'showAnthropogenicalExamination']);
+    Route::get('examinaciones/examinacionAntropogenica/{id}', [AnthropogenicalExaminationAPIController::class, 'showAnthropogenicalExamination']);
     Route::get('examinaciones/examinacionAntropometrica/{id}', [AnthropometricalExaminationAPIController::class, 'showAnthropometricalExamination']);
     Route::get('examinaciones/examinacionFisica/{id}', [PhysicalConditionExaminationAPIController::class, 'showPhysicalConditionExamination']);
     Route::get('examinaciones/examinacionPostura/{id}', [PostureExaminationAPIController::class, 'showPostureExamination']);
