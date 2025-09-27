@@ -110,7 +110,7 @@ class PostureExaminationAPIController extends Controller {
             'morfotipo_torsional_rodilla' => 'required|in:SI,NO',
             'tipologia_rotulas_rodilla' => 'required|in:Convexa,Normal,Divergente',
             'eje_posterior_pie' => 'required|in:Supinador,Neutro,Pronador',
-            'eje_anterior_pie' => 'required|in:Valgo,Neutra,Varo',
+            'eje_anterior_pie' => 'required|in:Valgo,Neutro,Varo',
             'tipologia_pie' => 'required|in:Egipcio,Griego,Romano',
             'dedos_en_garra_pie' => 'required|in:SI,NO',
             'cervical_C4_C5_pivot' => 'required|in:Hiperlordosis,Normal,Rectificado',
