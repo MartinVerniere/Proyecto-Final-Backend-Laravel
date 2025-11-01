@@ -17,6 +17,12 @@ class HeadExamination extends Model
         'mirada',
         'caries',
         'oclusion',
+		'keypoints',
+		'imagen'
+    ];
+
+	protected $casts = [
+        'keypoints' => 'array',
     ];
 
     public function postureExamination() {
@@ -32,6 +38,13 @@ class HeadExamination extends Model
         $examination->mirada = $request->input('mirada');
         $examination->caries = $request->input('caries');
         $examination->oclusion = $request->input('oclusion');
+		$examination->keypoints = $request->input('keypoints');
+
+		$imagen = $request->file('imagen');
+		$extension = $imagen->getClientOriginalExtension();
+		$nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_cabeza.'.$extension;
+		$response = $imagen->storeOnCloudinaryAs('/examinaciones/postura/cabeza/imagenes/', $nombre_archivo);
+		$examination->imagen = $response->getSecurePath();
     
         $examination->save();
 

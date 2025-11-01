@@ -16,6 +16,12 @@ class FeetExamination extends Model
         'eje_anterior',
         'tipologia',
         'dedos_en_garra',
+		'keypoints',
+		'imagen'
+    ];
+
+	protected $casts = [
+        'keypoints' => 'array',
     ];
 
     public function postureExamination() {
@@ -30,6 +36,13 @@ class FeetExamination extends Model
         $examination->eje_anterior = $request->input('eje_anterior');        
         $examination->tipologia = $request->input('tipologia');
         $examination->dedos_en_garra = $request->input('dedos_en_garra');
+		$examination->keypoints = $request->input('keypoints');
+
+		$imagen = $request->file('imagen');
+		$extension = $imagen->getClientOriginalExtension();
+		$nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_pies.'.$extension;
+		$response = $imagen->storeOnCloudinaryAs('/examinaciones/postura/pies/imagenes/', $nombre_archivo);
+		$examination->imagen = $response->getSecurePath();
 
         $examination->save();
 

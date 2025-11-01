@@ -36,6 +36,8 @@ class PostureExaminationAPIController extends Controller {
                     'mirada' => $request_postura->mirada_cabeza,
                     'caries' => $request_postura->caries_cabeza,
                     'oclusion' => $request_postura->oclusion_cabeza,
+					'imagen' => $request->file('imagen_cabeza'),
+					'keypoints' => json_decode($request->keypoints_cabeza, true)
                 ]);
                 $request_hombros = new Request([
                     'id_examinacion_postura' => $id_examinacion_postura,
@@ -44,6 +46,8 @@ class PostureExaminationAPIController extends Controller {
                     'escapula' => $request_postura->escapula_hombros,
                     'hombro' => $request_postura->hombro_hombros,
                     'triangulo_de_talle' => $request_postura->triangulo_de_talle_hombros,
+					'imagen' => $request->file('imagen_hombros'),
+					'keypoints' => json_decode($request->keypoints_hombros, true)
                 ]);
                 $request_pelvis = new Request([
                     'id_examinacion_postura' => $id_examinacion_postura,
@@ -51,12 +55,16 @@ class PostureExaminationAPIController extends Controller {
                     'eips' => $request_postura->eips_pelvis,
                     'relacion' => $request_postura->relacion_pelvis,
                     'rotacion' => $request_postura->rotacion_pelvis,
+					'imagen' => $request->file('imagen_pelvis'),
+					'keypoints' => json_decode($request->keypoints_pelvis, true)
                 ]);
                 $request_rodilla = new Request([
                     'id_examinacion_postura' => $id_examinacion_postura,
                     'genu' => $request_postura->genu_rodilla,
                     'morfotipo_torsional' => $request_postura->morfotipo_torsional_rodilla,
                     'tipologia_rotulas' => $request_postura->tipologia_rotulas_rodilla,
+					'imagen' => $request->file('imagen_rodilla'),
+					'keypoints' => json_decode($request->keypoints_rodilla, true)
                 ]);
                 $request_pies = new Request([
                     'id_examinacion_postura' => $id_examinacion_postura,
@@ -64,6 +72,8 @@ class PostureExaminationAPIController extends Controller {
                     'eje_anterior' => $request_postura->eje_anterior_pie,
                     'tipologia' => $request_postura->tipologia_pie,
                     'dedos_en_garra' => $request_postura->dedos_en_garra_pie,
+					'imagen' => $request->file('imagen_pie'),
+					'keypoints' => json_decode($request->keypoints_pie, true)
                 ]);
                 $request_pivot = new Request([
                     'id_examinacion_postura' => $id_examinacion_postura,
@@ -73,6 +83,8 @@ class PostureExaminationAPIController extends Controller {
                     'raquis_escoliotico' => $request_postura->raquis_escoliotico_pivot,
                     'raquis_rectificado' => $request_postura->raquis_rectificado_pivot,
                     'raquis_cifolordotico' => $request_postura->raquis_cifolordotico_pivot,
+					'imagen' => $request->file('imagen_pivot'),
+					'keypoints' => json_decode($request->keypoints_pivot, true)
                 ]);
 
                 HeadExamination::añadirExaminacionCabeza($request_cabeza);
@@ -119,6 +131,18 @@ class PostureExaminationAPIController extends Controller {
             'raquis_escoliotico_pivot' => 'required|in:SI,NO',
             'raquis_rectificado_pivot' => 'required|in:SI,NO',
             'raquis_cifolordotico_pivot' => 'required|in:SI,NO',
+			'imagen_cabeza' => 'required|image',
+			'imagen_hombros' => 'required|image',
+			'imagen_pelvis' => 'required|image',
+			'imagen_rodilla' => 'required|image',
+			'imagen_pie' => 'required|image',
+			'imagen_pivot' => 'required|image',
+			'keypoints_cabeza' => 'required|string',
+			'keypoints_hombros' => 'required|string',
+			'keypoints_pelvis' => 'required|string',
+			'keypoints_rodilla' => 'required|string',
+			'keypoints_pie' => 'required|string',
+			'keypoints_pivot' => 'required|string',
         ]);
         return $validated;
     }

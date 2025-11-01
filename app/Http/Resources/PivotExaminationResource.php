@@ -22,7 +22,9 @@ class PivotExaminationResource extends JsonResource
             'Lumbar_L3' => $this->lumbar_L3,
             'Raquis_Escoliotico' => $this->raquis_escoliotico,
             'Raquis_Rectificado' => $this->raquis_rectificado,
-            'Raquis_Cifolordotico' => $this->raquis_cifolordotico
+            'Raquis_Cifolordotico' => $this->raquis_cifolordotico,
+			'Keypoints' => $this->keypoints,
+			'Imagen' => $this->imagen
         ];
     }
 }

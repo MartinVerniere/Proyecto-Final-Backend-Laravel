@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('eips', ['Inclinacion izquierda','Normal','Inclinacion derecha']);
             $table->enum('relacion', ['Anteversion','Neutra','Retroversion']);
             $table->enum('rotacion', ['Izquierda','Neutra','Derecha']);
+			$table->json('keypoints');
 
             $table->timestamps();
         });

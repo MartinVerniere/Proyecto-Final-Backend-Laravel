@@ -15,6 +15,12 @@ class KneeExamination extends Model
         'genu',
         'morfotipo_torsional',
         'tipologia_rotulas',
+		'keypoints',
+		'imagen'
+    ];
+
+	protected $casts = [
+        'keypoints' => 'array',
     ];
 
     public function postureExamination() {
@@ -28,6 +34,13 @@ class KneeExamination extends Model
         $examination->genu = $request->input('genu');
         $examination->morfotipo_torsional = $request->input('morfotipo_torsional');
         $examination->tipologia_rotulas = $request->input('tipologia_rotulas');
+		$examination->keypoints = $request->input('keypoints');
+
+		$imagen = $request->file('imagen');
+		$extension = $imagen->getClientOriginalExtension();
+		$nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_rodilla.'.$extension;
+		$response = $imagen->storeOnCloudinaryAs('/examinaciones/postura/rodilla/imagenes/', $nombre_archivo);
+		$examination->imagen = $response->getSecurePath();
 
         $examination->save();
 

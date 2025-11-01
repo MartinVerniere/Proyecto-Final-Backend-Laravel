@@ -18,6 +18,12 @@ class PivotExamination extends Model
         'raquis_escoliotico',
         'raquis_rectificado',
         'raquis_cifolordotico',
+		'keypoints',
+		'imagen'
+    ];
+
+	protected $casts = [
+        'keypoints' => 'array',
     ];
 
     public function postureExamination() {
@@ -34,6 +40,13 @@ class PivotExamination extends Model
         $examination->raquis_escoliotico = $request->input('raquis_escoliotico');
         $examination->raquis_rectificado = $request->input('raquis_rectificado');
         $examination->raquis_cifolordotico = $request->input('raquis_cifolordotico');
+		$examination->keypoints = $request->input('keypoints');
+
+		$imagen = $request->file('imagen');
+		$extension = $imagen->getClientOriginalExtension();
+		$nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_pivot.'.$extension;
+		$response = $imagen->storeOnCloudinaryAs('/examinaciones/postura/pivot/imagenes/', $nombre_archivo);
+		$examination->imagen = $response->getSecurePath();
 
         $examination->save();
 

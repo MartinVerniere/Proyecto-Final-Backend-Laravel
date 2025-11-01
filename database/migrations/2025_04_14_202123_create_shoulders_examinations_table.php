@@ -21,6 +21,7 @@ return new class extends Migration
             $table->enum('escapula', ['Rotacion medial','Rotacion lateral','Angulo inferior izquierdo','Angulo inferior derecho','Aladas','Alineadas']);
             $table->enum('hombro', ['Antepulsion','Normal','Retropulsion']);
             $table->enum('triangulo_de_talle', ['Normal','Aumentado']);
+			$table->json('keypoints');
 
             $table->timestamps();
         });

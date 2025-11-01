@@ -21,6 +21,7 @@ return new class extends Migration
             $table->enum('mirada', ['Inclinacion derecha','Normal','Inclinacion izquierda']);
             $table->enum('caries', ['SI','NO']);
             $table->enum('oclusion', ['Bien','Mal']);
+			$table->json('keypoints');
 
             $table->timestamps();
         });

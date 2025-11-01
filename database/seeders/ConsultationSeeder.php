@@ -31,14 +31,16 @@ class ConsultationSeeder extends Seeder
             AnthropogenicalExamination::factory()->create(['id_consulta' => $consulta->id]);
             AnthropometricalExamination::factory()->create(['id_consulta' => $consulta->id]);
             PhysicalConditionExamination::factory()->create(['id_consulta' => $consulta->id]);
-            $examinacionPostura = PostureExamination::factory()->create(['id_consulta' => $consulta->id]);
+
+			// Dont do posture examination seeder anymore, started using cloudinary for images, dont want to have examinations with no images or keypoints asociated
+            // $examinacionPostura = PostureExamination::factory()->create(['id_consulta' => $consulta->id]);
         
-            HeadExamination::factory()->create(['id_examinacion_postura' => $examinacionPostura->id]);
-            ShouldersExamination::factory()->create(['id_examinacion_postura' => $examinacionPostura->id]);
-            PelvisExamination::factory()->create(['id_examinacion_postura' => $examinacionPostura->id]);
-            KneeExamination::factory()->create(['id_examinacion_postura' => $examinacionPostura->id]);
-            FeetExamination::factory()->create(['id_examinacion_postura' => $examinacionPostura->id]);
-            PivotExamination::factory()->create(['id_examinacion_postura' => $examinacionPostura->id]);
+            // HeadExamination::factory()->create(['id_examinacion_postura' => $examinacionPostura->id]);
+            // ShouldersExamination::factory()->create(['id_examinacion_postura' => $examinacionPostura->id]);
+            // PelvisExamination::factory()->create(['id_examinacion_postura' => $examinacionPostura->id]);
+            // KneeExamination::factory()->create(['id_examinacion_postura' => $examinacionPostura->id]);
+            // FeetExamination::factory()->create(['id_examinacion_postura' => $examinacionPostura->id]);
+            // PivotExamination::factory()->create(['id_examinacion_postura' => $examinacionPostura->id]);
         }
     }
 }

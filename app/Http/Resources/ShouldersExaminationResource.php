@@ -21,7 +21,9 @@ class ShouldersExaminationResource extends JsonResource
             'Musculatura' => $this->musculatura,
             'Escapula' => $this->escapula,
             'Hombro' => $this->hombro,
-            'Triangulo_de_talle' => $this->triangulo_de_talle
+            'Triangulo_de_talle' => $this->triangulo_de_talle,
+			'Keypoints' => $this->keypoints,
+			'Imagen' => $this->imagen
         ];
     }
 }

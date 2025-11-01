@@ -19,7 +19,9 @@ class KneeExaminationResource extends JsonResource
             'Id_Examinacion_Postura' => $this->id_examinacion_postura,
             'Genu' => $this->genu,
             'Morfotipo_Torsional' => $this->morfotipo_torsional,
-            'Tipologia_Rotulas' => $this->tipologia_rotulas
+            'Tipologia_Rotulas' => $this->tipologia_rotulas,
+			'Keypoints' => $this->keypoints,
+			'Imagen' => $this->imagen
         ];
     }
 }

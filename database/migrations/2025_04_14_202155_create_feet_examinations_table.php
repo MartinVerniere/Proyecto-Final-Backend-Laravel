@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('eje_anterior', ['Valgo','Neutro','Varo']);
             $table->enum('tipologia', ['Egipcio','Griego','Romano']);
             $table->enum('dedos_en_garra', ['SI','NO']);
+			$table->json('keypoints');
 
             $table->timestamps();
         });

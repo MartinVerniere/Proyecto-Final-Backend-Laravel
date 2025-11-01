@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum('genu', ['Varo','Valgo','Recurbatum','Flexo','Normal']);
             $table->enum('morfotipo_torsional', ['SI','NO']);
             $table->enum('tipologia_rotulas', ['Convexa','Normal','Divergente']);
+			$table->json('keypoints');
 
             $table->timestamps();
         });

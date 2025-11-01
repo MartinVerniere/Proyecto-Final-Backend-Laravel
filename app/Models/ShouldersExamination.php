@@ -17,6 +17,12 @@ class ShouldersExamination extends Model
         'escapula',
         'hombro',
         'triangulo_de_talle',
+		'keypoints',
+		'imagen'
+    ];
+
+	protected $casts = [
+        'keypoints' => 'array',
     ];
 
     public function postureExamination() {
@@ -32,6 +38,13 @@ class ShouldersExamination extends Model
         $examination->escapula = $request->input('escapula');
         $examination->hombro = $request->input('hombro');
         $examination->triangulo_de_talle = $request->input('triangulo_de_talle');
+		$examination->keypoints = $request->input('keypoints');
+
+		$imagen = $request->file('imagen');
+		$extension = $imagen->getClientOriginalExtension();
+		$nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_hombros.'.$extension;
+		$response = $imagen->storeOnCloudinaryAs('/examinaciones/postura/hombros/imagenes/', $nombre_archivo);
+		$examination->imagen = $response->getSecurePath();
 
         $examination->save();
 

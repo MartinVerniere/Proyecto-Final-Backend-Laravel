@@ -20,7 +20,9 @@ class FeetExaminationResource extends JsonResource
             'Eje_Posterior' => $this->eje_posterior,
             'Eje_Anterior' => $this->eje_anterior,
             'Tipologia' => $this->tipologia,
-            'Dedos_en_garra' => $this->dedos_en_garra
+            'Dedos_en_garra' => $this->dedos_en_garra,
+			'Keypoints' => $this->keypoints,
+			'Imagen' => $this->imagen
         ];
     }
 }

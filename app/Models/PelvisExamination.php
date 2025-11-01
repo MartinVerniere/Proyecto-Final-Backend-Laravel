@@ -16,6 +16,12 @@ class PelvisExamination extends Model
         'eips',
         'relacion',
         'rotacion',
+		'keypoints',
+		'imagen'
+    ];
+
+	protected $casts = [
+        'keypoints' => 'array',
     ];
 
     public function postureExamination(){
@@ -30,6 +36,13 @@ class PelvisExamination extends Model
         $examination->eips = $request->input('eips');
         $examination->relacion = $request->input('relacion');
         $examination->rotacion = $request->input('rotacion');
+		$examination->keypoints = $request->input('keypoints');
+
+		$imagen = $request->file('imagen');
+		$extension = $imagen->getClientOriginalExtension();
+		$nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_pelvis.'.$extension;
+		$response = $imagen->storeOnCloudinaryAs('/examinaciones/postura/pelvis/imagenes/', $nombre_archivo);
+		$examination->imagen = $response->getSecurePath();
 
         $examination->save();
 
