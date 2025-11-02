@@ -42,18 +42,18 @@ class HeadExamination extends Model
         $examination->oclusion = $request->input('oclusion');
 		$examination->keypoints = $request->input('keypoints');
 
-		$imagen = $request->file('imagen');
-		$extension = $imagen->getClientOriginalExtension();
-		$nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_cabeza.'.$extension;
-		$response = Cloudinary::upload(
-            $imagen->getRealPath(),
-            [
-                'folder' => 'examinaciones/postura/cabeza/imagenes',
-                'public_id' => pathinfo($nombre_archivo, PATHINFO_FILENAME),
-                'overwrite' => true
-            ]
-        );
-		$examination->imagen = $response->getSecurePath();
+		// $imagen = $request->input('imagen');
+		// $extension = $imagen->getClientOriginalExtension();
+		// $nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_cabeza.'.$extension;
+		// $cloudinaryImage = Cloudinary::upload(
+        //     $imagen->getRealPath(),
+        //     [
+        //         'folder' => 'examinaciones/postura/cabeza/imagenes',
+        //         'public_id' => pathinfo($nombre_archivo, PATHINFO_FILENAME),
+        //         'overwrite' => true
+        //     ]
+        // );
+		// $examination->imagen = $cloudinaryImage->getSecurePath();
     
         $examination->save();
 

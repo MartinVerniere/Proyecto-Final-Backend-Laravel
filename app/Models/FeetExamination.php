@@ -40,18 +40,18 @@ class FeetExamination extends Model
         $examination->dedos_en_garra = $request->input('dedos_en_garra');
 		$examination->keypoints = $request->input('keypoints');
 
-		$imagen = $request->file('imagen');
-		$extension = $imagen->getClientOriginalExtension();
-		$nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_pies.'.$extension;
-		$response = Cloudinary::upload(
-            $imagen->getRealPath(),
-            [
-                'folder' => 'examinaciones/postura/pies/imagenes',
-                'public_id' => pathinfo($nombre_archivo, PATHINFO_FILENAME),
-                'overwrite' => true
-            ]
-        );
-		$examination->imagen = $response->getSecurePath();
+		// $imagen = $request->input('imagen');
+		// $extension = $imagen->getClientOriginalExtension();
+		// $nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_pies.'.$extension;
+		// $response = Cloudinary::upload(
+        //     $imagen->getRealPath(),
+        //     [
+        //         'folder' => 'examinaciones/postura/pies/imagenes',
+        //         'public_id' => pathinfo($nombre_archivo, PATHINFO_FILENAME),
+        //         'overwrite' => true
+        //     ]
+        // );
+		// $examination->imagen = $response->getSecurePath();
 
         $examination->save();
 

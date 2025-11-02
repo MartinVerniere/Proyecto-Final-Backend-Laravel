@@ -21,8 +21,7 @@ class PostureExaminationAPIController extends Controller {
     }
 
     public function storePostureExamination(Request $request){
-        $request_postura=$request->merge(['observaciones' => "OBSERVACIONES"]);
-        $validate = $this->validateNuevaExaminacionPostura($request_postura);
+        $validate = $this->validateNuevaExaminacionPostura($request);
 
         if ($validate) {
             $consulta_asociada = Consultation::findorfail($request->id_consulta);
@@ -31,58 +30,58 @@ class PostureExaminationAPIController extends Controller {
 
                 $request_cabeza = new Request([
                     'id_examinacion_postura' => $id_examinacion_postura,
-                    'plano' => $request_postura->plano_cabeza,
-                    'inclinacion' => $request_postura->inclinacion_cabeza,
-                    'mirada' => $request_postura->mirada_cabeza,
-                    'caries' => $request_postura->caries_cabeza,
-                    'oclusion' => $request_postura->oclusion_cabeza,
+                    'plano' => $request->plano_cabeza,
+                    'inclinacion' => $request->inclinacion_cabeza,
+                    'mirada' => $request->mirada_cabeza,
+                    'caries' => $request->caries_cabeza,
+                    'oclusion' => $request->oclusion_cabeza,
 					'imagen' => $request->file('imagen_cabeza'),
 					'keypoints' => json_decode($request->keypoints_cabeza, true)
                 ]);
                 $request_hombros = new Request([
                     'id_examinacion_postura' => $id_examinacion_postura,
-                    'inclinacion' => $request_postura->inclinacion_hombros,
-                    'musculatura' => $request_postura->musculatura_hombros,
-                    'escapula' => $request_postura->escapula_hombros,
-                    'hombro' => $request_postura->hombro_hombros,
-                    'triangulo_de_talle' => $request_postura->triangulo_de_talle_hombros,
+                    'inclinacion' => $request->inclinacion_hombros,
+                    'musculatura' => $request->musculatura_hombros,
+                    'escapula' => $request->escapula_hombros,
+                    'hombro' => $request->hombro_hombros,
+                    'triangulo_de_talle' => $request->triangulo_de_talle_hombros,
 					'imagen' => $request->file('imagen_hombros'),
 					'keypoints' => json_decode($request->keypoints_hombros, true)
                 ]);
                 $request_pelvis = new Request([
                     'id_examinacion_postura' => $id_examinacion_postura,
-                    'eias' => $request_postura->eias_pelvis,
-                    'eips' => $request_postura->eips_pelvis,
-                    'relacion' => $request_postura->relacion_pelvis,
-                    'rotacion' => $request_postura->rotacion_pelvis,
+                    'eias' => $request->eias_pelvis,
+                    'eips' => $request->eips_pelvis,
+                    'relacion' => $request->relacion_pelvis,
+                    'rotacion' => $request->rotacion_pelvis,
 					'imagen' => $request->file('imagen_pelvis'),
 					'keypoints' => json_decode($request->keypoints_pelvis, true)
                 ]);
                 $request_rodilla = new Request([
                     'id_examinacion_postura' => $id_examinacion_postura,
-                    'genu' => $request_postura->genu_rodilla,
-                    'morfotipo_torsional' => $request_postura->morfotipo_torsional_rodilla,
-                    'tipologia_rotulas' => $request_postura->tipologia_rotulas_rodilla,
+                    'genu' => $request->genu_rodilla,
+                    'morfotipo_torsional' => $request->morfotipo_torsional_rodilla,
+                    'tipologia_rotulas' => $request->tipologia_rotulas_rodilla,
 					'imagen' => $request->file('imagen_rodilla'),
 					'keypoints' => json_decode($request->keypoints_rodilla, true)
                 ]);
                 $request_pies = new Request([
                     'id_examinacion_postura' => $id_examinacion_postura,
-                    'eje_posterior' => $request_postura->eje_posterior_pie,
-                    'eje_anterior' => $request_postura->eje_anterior_pie,
-                    'tipologia' => $request_postura->tipologia_pie,
-                    'dedos_en_garra' => $request_postura->dedos_en_garra_pie,
+                    'eje_posterior' => $request->eje_posterior_pie,
+                    'eje_anterior' => $request->eje_anterior_pie,
+                    'tipologia' => $request->tipologia_pie,
+                    'dedos_en_garra' => $request->dedos_en_garra_pie,
 					'imagen' => $request->file('imagen_pie'),
 					'keypoints' => json_decode($request->keypoints_pie, true)
                 ]);
                 $request_pivot = new Request([
                     'id_examinacion_postura' => $id_examinacion_postura,
-                    'cervical_C4_C5' => $request_postura->cervical_C4_C5_pivot,
-                    'dorsal_D8' => $request_postura->dorsal_D8_pivot,
-                    'lumbar_L3' => $request_postura->lumbar_L3_pivot,
-                    'raquis_escoliotico' => $request_postura->raquis_escoliotico_pivot,
-                    'raquis_rectificado' => $request_postura->raquis_rectificado_pivot,
-                    'raquis_cifolordotico' => $request_postura->raquis_cifolordotico_pivot,
+                    'cervical_C4_C5' => $request->cervical_C4_C5_pivot,
+                    'dorsal_D8' => $request->dorsal_D8_pivot,
+                    'lumbar_L3' => $request->lumbar_L3_pivot,
+                    'raquis_escoliotico' => $request->raquis_escoliotico_pivot,
+                    'raquis_rectificado' => $request->raquis_rectificado_pivot,
+                    'raquis_cifolordotico' => $request->raquis_cifolordotico_pivot,
 					'imagen' => $request->file('imagen_pivot'),
 					'keypoints' => json_decode($request->keypoints_pivot, true)
                 ]);
@@ -131,12 +130,12 @@ class PostureExaminationAPIController extends Controller {
             'raquis_escoliotico_pivot' => 'required|in:SI,NO',
             'raquis_rectificado_pivot' => 'required|in:SI,NO',
             'raquis_cifolordotico_pivot' => 'required|in:SI,NO',
-			'imagen_cabeza' => 'required|image',
-			'imagen_hombros' => 'required|image',
-			'imagen_pelvis' => 'required|image',
-			'imagen_rodilla' => 'required|image',
-			'imagen_pie' => 'required|image',
-			'imagen_pivot' => 'required|image',
+			//'imagen_cabeza' => 'required|image',
+			//'imagen_hombros' => 'required|image',
+			//'imagen_pelvis' => 'required|image',
+			//'imagen_rodilla' => 'required|image',
+			//'imagen_pie' => 'required|image',
+			//'imagen_pivot' => 'required|image',
 			'keypoints_cabeza' => 'required|string',
 			'keypoints_hombros' => 'required|string',
 			'keypoints_pelvis' => 'required|string',
