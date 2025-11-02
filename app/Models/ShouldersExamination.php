@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\PostureExamination;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use Illuminate\Support\Str;
 
 class ShouldersExamination extends Model
 {
@@ -43,7 +45,14 @@ class ShouldersExamination extends Model
 		$imagen = $request->file('imagen');
 		$extension = $imagen->getClientOriginalExtension();
 		$nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_hombros.'.$extension;
-		$response = $imagen->storeOnCloudinaryAs('/examinaciones/postura/hombros/imagenes/', $nombre_archivo);
+		$response = Cloudinary::upload(
+            $imagen->getRealPath(),
+            [
+                'folder' => 'examinaciones/postura/hombros/imagenes',
+                'public_id' => pathinfo($nombre_archivo, PATHINFO_FILENAME),
+                'overwrite' => true
+            ]
+        );
 		$examination->imagen = $response->getSecurePath();
 
         $examination->save();
