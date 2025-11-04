@@ -35,12 +35,22 @@ class PostureExaminationAPIController extends Controller {
 		
 		$id_examinacion_postura = PostureExamination::añadirExaminacionPostura($request);
 
-		HeadExamination::añadirExaminacionCabeza($this->createRequestExaminacionCabeza($request, $id_examinacion_postura));
-		ShouldersExamination::añadirExaminacionHombrosEscapular($this->createRequestExaminacionHombros($request, $id_examinacion_postura));
-		PelvisExamination::añadirExaminacionPelvis($this->createRequestExaminacionPelvis($request, $id_examinacion_postura));
-		KneeExamination::añadirExaminacionRodilla($this->createRequestExaminacionRodilla($request, $id_examinacion_postura));
-		FeetExamination::añadirExaminacionPies($this->createRequestExaminacionPies($request, $id_examinacion_postura));
-		PivotExamination::añadirExaminacionPivot($this->createRequestExaminacionPivot($request, $id_examinacion_postura));
+		try {
+			HeadExamination::añadirExaminacionCabeza($this->createRequestExaminacionCabeza($request, $id_examinacion_postura));
+			ShouldersExamination::añadirExaminacionHombrosEscapular($this->createRequestExaminacionHombros($request, $id_examinacion_postura));
+			PelvisExamination::añadirExaminacionPelvis($this->createRequestExaminacionPelvis($request, $id_examinacion_postura));
+			KneeExamination::añadirExaminacionRodilla($this->createRequestExaminacionRodilla($request, $id_examinacion_postura));
+			FeetExamination::añadirExaminacionPies($this->createRequestExaminacionPies($request, $id_examinacion_postura));
+			PivotExamination::añadirExaminacionPivot($this->createRequestExaminacionPivot($request, $id_examinacion_postura));
+		} catch (Exception $e) {
+			$examination_postura = PostureExamination::find($id_examinacion_postura);
+        	$examination_postura->delete();
+
+			return response()->json([
+				'error' => 'Error al agregar sub-examinaciones para la examinacion de postura',
+				'errorMessage' => $e
+			]);
+		}
 
 		return response()->json([
 			'message' => 'Examen postural creado correctamente',
@@ -95,68 +105,78 @@ class PostureExaminationAPIController extends Controller {
     }
 
 	private function createRequestExaminacionCabeza(Request $request, int $id_examinacion_postura) {
-		return new Request([
+		$newRequest = new Request([
 			'id_examinacion_postura' => $id_examinacion_postura,
 			'plano' => $request->plano_cabeza,
 			'inclinacion' => $request->inclinacion_cabeza,
 			'mirada' => $request->mirada_cabeza,
 			'caries' => $request->caries_cabeza,
 			'oclusion' => $request->oclusion_cabeza,
-			'imagen' => $request->file('imagen_cabeza'),
 			'keypoints' => json_decode($request->keypoints_cabeza, true)				
 		]);
+
+		$newRequest->files->set('imagen', $request->file('imagen_cabeza'));
+		return $newRequest;
 	}
 
 	private function createRequestExaminacionHombros(Request $request, int $id_examinacion_postura) {
-		return new Request([
+		$newRequest = new Request([
 			'id_examinacion_postura' => $id_examinacion_postura,
 			'inclinacion' => $request->inclinacion_hombros,
 			'musculatura' => $request->musculatura_hombros,
 			'escapula' => $request->escapula_hombros,
 			'hombro' => $request->hombro_hombros,
 			'triangulo_de_talle' => $request->triangulo_de_talle_hombros,
-			'imagen' => $request->file('imagen_hombros'),
 			'keypoints' => json_decode($request->keypoints_hombros, true)
 		]);
+
+		$newRequest->files->set('imagen', $request->file('imagen_hombros'));
+		return $newRequest;
 	}
 
 	private function createRequestExaminacionPelvis(Request $request, int $id_examinacion_postura) {
-		return new Request([
+		$newRequest = new Request([
 			'id_examinacion_postura' => $id_examinacion_postura,
 			'eias' => $request->eias_pelvis,
 			'eips' => $request->eips_pelvis,
 			'relacion' => $request->relacion_pelvis,
 			'rotacion' => $request->rotacion_pelvis,
-			'imagen' => $request->file('imagen_pelvis'),
 			'keypoints' => json_decode($request->keypoints_pelvis, true),
 		]);
+
+		$newRequest->files->set('imagen', $request->file('imagen_pelvis'));
+		return $newRequest;
 	}
 
 	private function createRequestExaminacionRodilla(Request $request, int $id_examinacion_postura) {
-		return new Request([
+		$newRequest = new Request([
 			'id_examinacion_postura' => $id_examinacion_postura,
 			'genu' => $request->genu_rodilla,
 			'morfotipo_torsional' => $request->morfotipo_torsional_rodilla,
 			'tipologia_rotulas' => $request->tipologia_rotulas_rodilla,
-			'imagen' => $request->file('imagen_rodilla'),
 			'keypoints' => json_decode($request->keypoints_rodilla, true)
 		]);
+
+		$newRequest->files->set('imagen', $request->file('imagen_rodilla'));
+		return $newRequest;
 	}
 
 	private function createRequestExaminacionPies(Request $request, int $id_examinacion_postura) {
-		return new Request([
+		$newRequest = new Request([
 			'id_examinacion_postura' => $id_examinacion_postura,
 			'eje_posterior' => $request->eje_posterior_pie,
 			'eje_anterior' => $request->eje_anterior_pie,
 			'tipologia' => $request->tipologia_pie,
 			'dedos_en_garra' => $request->dedos_en_garra_pie,
-			'imagen' => $request->file('imagen_pie'),
 			'keypoints' => json_decode($request->keypoints_pie, true)
 		]);
+
+		$newRequest->files->set('imagen', $request->file('imagen_pie'));
+		return $newRequest;
 	}
 
 	private function createRequestExaminacionPivot(Request $request, int $id_examinacion_postura) {
-		return new Request([
+		$newRequest = new Request([
 			'id_examinacion_postura' => $id_examinacion_postura,
 			'cervical_C4_C5' => $request->cervical_C4_C5_pivot,
 			'dorsal_D8' => $request->dorsal_D8_pivot,
@@ -164,8 +184,10 @@ class PostureExaminationAPIController extends Controller {
 			'raquis_escoliotico' => $request->raquis_escoliotico_pivot,
 			'raquis_rectificado' => $request->raquis_rectificado_pivot,
 			'raquis_cifolordotico' => $request->raquis_cifolordotico_pivot,
-			'imagen' => $request->file('imagen_pivot'),
 			'keypoints' => json_decode($request->keypoints_pivot, true)
 		]);
+
+		$newRequest->files->set('imagen', $request->file('imagen_pivot'));
+		return $newRequest;
 	}
 }
