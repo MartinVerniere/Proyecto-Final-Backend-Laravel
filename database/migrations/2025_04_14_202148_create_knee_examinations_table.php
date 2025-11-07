@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('morfotipo_torsional', ['SI','NO']);
             $table->enum('tipologia_rotulas', ['Convexa','Normal','Divergente']);
 			$table->json('keypoints');
+			$table->string("imagen");
 
             $table->timestamps();
         });

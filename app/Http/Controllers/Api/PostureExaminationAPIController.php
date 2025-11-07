@@ -31,7 +31,7 @@ class PostureExaminationAPIController extends Controller {
 		if (!$validate) return response()->json(['error' => $validate], 400);
 
 		$consulta_asociada = Consultation::findorfail($request->id_consulta);
-		if ($consulta_asociada->postureExamination) return response()->json(['error' => 'La consulta ya tenia una examinacion de postura asociada']);
+		if ($consulta_asociada->postureExamination) return response()->json(['error' => 'La consulta ya tenia una examinacion de postura asociada'], 500);
 		
 		$id_examinacion_postura = PostureExamination::añadirExaminacionPostura($request);
 

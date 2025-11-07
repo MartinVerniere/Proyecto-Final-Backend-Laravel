@@ -23,6 +23,7 @@ return new class extends Migration
             $table->enum('raquis_rectificado', ['SI','NO']);
             $table->enum('raquis_cifolordotico', ['SI','NO']);
 			$table->json('keypoints');
+			$table->string("imagen");
 
             $table->timestamps();
         });

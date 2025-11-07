@@ -22,6 +22,7 @@ return new class extends Migration
             $table->enum('hombro', ['Antepulsion','Normal','Retropulsion']);
             $table->enum('triangulo_de_talle', ['Normal','Aumentado']);
 			$table->json('keypoints');
+			$table->string("imagen");
 
             $table->timestamps();
         });

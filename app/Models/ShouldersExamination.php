@@ -42,18 +42,11 @@ class ShouldersExamination extends Model
         $examination->triangulo_de_talle = $request->input('triangulo_de_talle');
 		$examination->keypoints = $request->input('keypoints');
 
-		// $imagen = $request->input('imagen');
-		// $extension = $imagen->getClientOriginalExtension();
-		// $nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_hombros.'.$extension;
-		// $response = Cloudinary::upload(
-        //     $imagen->getRealPath(),
-        //     [
-        //         'folder' => 'examinaciones/postura/hombros/imagenes',
-        //         'public_id' => pathinfo($nombre_archivo, PATHINFO_FILENAME),
-        //         'overwrite' => true
-        //     ]
-        // );
-		// $examination->imagen = $response->getSecurePath();
+		$imagen = $request->file('imagen');
+		$extension = $imagen->getClientOriginalExtension();
+		$nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_hombros.'.$extension;
+		$result = $imagen->storeOnCloudinaryAs('examinaciones/postura/hombros/imagenes',$nombre_archivo);
+		$examination->imagen = $result->getSecurePath();
 
         $examination->save();
 

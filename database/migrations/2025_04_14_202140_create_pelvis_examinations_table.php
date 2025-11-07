@@ -21,6 +21,7 @@ return new class extends Migration
             $table->enum('relacion', ['Anteversion','Neutra','Retroversion']);
             $table->enum('rotacion', ['Izquierda','Neutra','Derecha']);
 			$table->json('keypoints');
+			$table->string("imagen");
 
             $table->timestamps();
         });

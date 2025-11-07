@@ -40,18 +40,11 @@ class PelvisExamination extends Model
         $examination->rotacion = $request->input('rotacion');
 		$examination->keypoints = $request->input('keypoints');
 
-		// $imagen = $request->input('imagen');
-		// $extension = $imagen->getClientOriginalExtension();
-		// $nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_pelvis.'.$extension;
-		// $response = Cloudinary::upload(
-        //     $imagen->getRealPath(),
-        //     [
-        //         'folder' => 'examinaciones/postura/pelvis/imagenes',
-        //         'public_id' => pathinfo($nombre_archivo, PATHINFO_FILENAME),
-        //         'overwrite' => true
-        //     ]
-        // );
-		// $examination->imagen = $response->getSecurePath();
+		$imagen = $request->file('imagen');
+		$extension = $imagen->getClientOriginalExtension();
+		$nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_pelvis.'.$extension;
+		$result = $imagen->storeOnCloudinaryAs('examinaciones/postura/pelvis/imagenes',$nombre_archivo);
+		$examination->imagen = $result->getSecurePath();
 
         $examination->save();
 

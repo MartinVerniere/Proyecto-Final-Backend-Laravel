@@ -22,6 +22,7 @@ return new class extends Migration
             $table->enum('caries', ['SI','NO']);
             $table->enum('oclusion', ['Bien','Mal']);
 			$table->json('keypoints');
+			$table->string("imagen");
 
             $table->timestamps();
         });
