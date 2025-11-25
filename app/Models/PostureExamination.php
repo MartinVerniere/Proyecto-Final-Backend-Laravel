@@ -9,7 +9,6 @@ use App\Models\HeadExamination;
 use App\Models\ShouldersExamination;
 use App\Models\PelvisExamination;
 use App\Models\KneeExamination;
-use App\Models\FeetExamination;
 use App\Models\PivotExamination;
 
 class PostureExamination extends Model
@@ -40,10 +39,6 @@ class PostureExamination extends Model
 
     public function analisisRodilla() {
         return $this->hasOne(KneeExamination::class, 'id_examinacion_postura', 'id');
-    }
-
-    public function analisisPies() {
-        return $this->hasOne(FeetExamination::class, 'id_examinacion_postura', 'id');
     }
 
     public function analisisPivot() {

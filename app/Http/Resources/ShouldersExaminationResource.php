@@ -18,10 +18,9 @@ class ShouldersExaminationResource extends JsonResource
             'Id' => $this->id,
             'Id_Examinacion_Postura' => $this->id_examinacion_postura,
             'Inclinacion' => $this->inclinacion,
-            'Musculatura' => $this->musculatura,
             'Escapula' => $this->escapula,
             'Hombro' => $this->hombro,
-            'Triangulo_de_talle' => $this->triangulo_de_talle,
+            //'Triangulo_de_talle' => $this->triangulo_de_talle,
 			'Keypoints' => $this->keypoints,
 			'Imagen' => $this->imagen
         ];

@@ -16,9 +16,8 @@ return new class extends Migration
 
             $table->foreignId('id_examinacion_postura')->constrained('posture_examinations');
 
-            $table->enum('genu', ['Varo','Valgo','Recurbatum','Flexo','Normal']);
-            $table->enum('morfotipo_torsional', ['SI','NO']);
-            $table->enum('tipologia_rotulas', ['Convexa','Normal','Divergente']);
+            $table->enum('genu', ['Varo','Valgo','Normal']);
+			$table->enum('genu_b', ['Recurbatum','Flexo','Normal']);
 			$table->json('keypoints');
 			$table->string("imagen");
 

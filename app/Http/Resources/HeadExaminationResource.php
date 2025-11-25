@@ -20,8 +20,6 @@ class HeadExaminationResource extends JsonResource
             'Plano' => $this->plano,
             'Inclinacion' => $this->inclinacion,
             'Mirada' => $this->mirada,
-            'Caries' => $this->caries,
-            'Oclusion' => $this->oclusion,
 			'Keypoints' => $this->keypoints,
 			'Imagen' => $this->imagen
         ];

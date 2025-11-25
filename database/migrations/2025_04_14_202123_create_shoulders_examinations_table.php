@@ -17,10 +17,9 @@ return new class extends Migration
             $table->foreignId('id_examinacion_postura')->constrained('posture_examinations');
             
             $table->enum('inclinacion', ['Inclinacion derecha','Normal','Inclinacion izquierda']);
-            $table->enum('musculatura', ['Hipertonica','Normal','Hipotonica']);
-            $table->enum('escapula', ['Rotacion medial','Rotacion lateral','Angulo inferior izquierdo','Angulo inferior derecho','Aladas','Alineadas']);
+            $table->enum('escapula', ['Rotacion medial','Rotacion lateral','Aladas','Alineadas']);
             $table->enum('hombro', ['Antepulsion','Normal','Retropulsion']);
-            $table->enum('triangulo_de_talle', ['Normal','Aumentado']);
+            //$table->enum('triangulo_de_talle', ['Normal','Aumentado']);
 			$table->json('keypoints');
 			$table->string("imagen");
 

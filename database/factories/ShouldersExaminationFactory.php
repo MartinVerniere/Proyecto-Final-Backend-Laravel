@@ -18,10 +18,9 @@ class ShouldersExaminationFactory extends Factory
     {
         return [
             'inclinacion' => fake()->randomElement(['Inclinacion derecha','Normal','Inclinacion izquierda']),
-            'musculatura' => fake()->randomElement(['Hipertonica','Normal','Hipotonica']),
-            'escapula' => fake()->randomElement(['Rotacion medial','Rotacion lateral','Angulo inferior izquierdo','Angulo inferior derecho','Aladas','Alineadas']),
+            'escapula' => fake()->randomElement(['Rotacion medial','Rotacion lateral','Aladas','Alineadas']),
             'hombro' => fake()->randomElement(['Antepulsion','Normal','Retropulsion']),
-            'triangulo_de_talle' => fake()->randomElement(['Normal','Aumentado']),
+            //'triangulo_de_talle' => fake()->randomElement(['Normal','Aumentado']),
         ];
     }
 }

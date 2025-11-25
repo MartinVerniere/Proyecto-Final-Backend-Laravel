@@ -17,9 +17,8 @@ class KneeExaminationFactory extends Factory
     public function definition(): array
     {
         return [
-            'genu' => fake()->randomElement(['Varo','Valgo','Recurbatum','Flexo','Normal']),
-            'morfotipo_torsional' => fake()->randomElement(['SI','NO']),
-            'tipologia_rotulas' => fake()->randomElement(['Convexa','Normal','Divergente']),
+            'genu' => fake()->randomElement(['Varo','Valgo','Normal']),
+			'genu_b' => fake()->randomElement(['Recurbatum','Flexo','Normal']),
         ];
     }
 }

@@ -15,10 +15,9 @@ class ShouldersExamination extends Model
     protected $fillable = [
         'id_examinacion_postura',
         'inclinacion',
-        'musculatura',
         'escapula',
         'hombro',
-        'triangulo_de_talle',
+        //'triangulo_de_talle',
 		'keypoints',
 		'imagen'
     ];
@@ -36,10 +35,9 @@ class ShouldersExamination extends Model
 
         $examination->id_examinacion_postura = $request->input('id_examinacion_postura');
         $examination->inclinacion = $request->input('inclinacion');
-        $examination->musculatura = $request->input('musculatura');
         $examination->escapula = $request->input('escapula');
         $examination->hombro = $request->input('hombro');
-        $examination->triangulo_de_talle = $request->input('triangulo_de_talle');
+        //$examination->triangulo_de_talle = $request->input('triangulo_de_talle');
 		$examination->keypoints = $request->input('keypoints');
 
 		$imagen = $request->file('imagen');

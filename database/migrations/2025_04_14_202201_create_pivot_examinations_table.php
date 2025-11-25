@@ -19,9 +19,7 @@ return new class extends Migration
             $table->enum('cervical_C4_C5', ['Hiperlordosis','Normal','Rectificado']);
             $table->enum('dorsal_D8', ['Lordotico','Normal','Cifotico']);
             $table->enum('lumbar_L3', ['Hiperlordosis','Normal','Rectificado']);
-            $table->enum('raquis_escoliotico', ['SI','NO']);
-            $table->enum('raquis_rectificado', ['SI','NO']);
-            $table->enum('raquis_cifolordotico', ['SI','NO']);
+            $table->enum('raquis', ['Escoliotico','Rectificado', 'Cifolordotico']);
 			$table->json('keypoints');
 			$table->string("imagen");
 

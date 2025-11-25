@@ -17,9 +17,7 @@ class PivotExamination extends Model
         'cervical_C4_C5',
         'dorsal_D8',
         'lumbar_L3',
-        'raquis_escoliotico',
-        'raquis_rectificado',
-        'raquis_cifolordotico',
+        'raquis',
 		'keypoints',
 		'imagen'
     ];
@@ -39,9 +37,7 @@ class PivotExamination extends Model
         $examination->cervical_C4_C5 = $request->input('cervical_C4_C5');
         $examination->dorsal_D8 = $request->input('dorsal_D8');
         $examination->lumbar_L3 = $request->input('lumbar_L3');
-        $examination->raquis_escoliotico = $request->input('raquis_escoliotico');
-        $examination->raquis_rectificado = $request->input('raquis_rectificado');
-        $examination->raquis_cifolordotico = $request->input('raquis_cifolordotico');
+        $examination->raquis = $request->input('raquis');
 		$examination->keypoints = $request->input('keypoints');
 
 		$imagen = $request->file('imagen');

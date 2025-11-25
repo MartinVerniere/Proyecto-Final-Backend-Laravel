@@ -15,8 +15,7 @@ class KneeExamination extends Model
     protected $fillable = [
         'id_examinacion_postura',
         'genu',
-        'morfotipo_torsional',
-        'tipologia_rotulas',
+        'genu_b',
 		'keypoints',
 		'imagen'
     ];
@@ -34,8 +33,7 @@ class KneeExamination extends Model
 
         $examination->id_examinacion_postura = $request->input('id_examinacion_postura');
         $examination->genu = $request->input('genu');
-        $examination->morfotipo_torsional = $request->input('morfotipo_torsional');
-        $examination->tipologia_rotulas = $request->input('tipologia_rotulas');
+		$examination->genu_b = $request->input('genu_b');
 		$examination->keypoints = $request->input('keypoints');
 
 		$imagen = $request->file('imagen');

@@ -17,8 +17,6 @@ class HeadExamination extends Model
         'plano',
         'inclinacion',
         'mirada',
-        'caries',
-        'oclusion',
 		'keypoints',
 		'imagen'
     ];
@@ -38,8 +36,6 @@ class HeadExamination extends Model
         $examination->plano = $request->input('plano');
         $examination->inclinacion = $request->input('inclinacion');
         $examination->mirada = $request->input('mirada');
-        $examination->caries = $request->input('caries');
-        $examination->oclusion = $request->input('oclusion');
 		$examination->keypoints = $request->input('keypoints');
 
 		$imagen = $request->file('imagen');

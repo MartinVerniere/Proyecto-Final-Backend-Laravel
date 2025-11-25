@@ -18,8 +18,7 @@ class KneeExaminationResource extends JsonResource
             'Id' => $this->id,
             'Id_Examinacion_Postura' => $this->id_examinacion_postura,
             'Genu' => $this->genu,
-            'Morfotipo_Torsional' => $this->morfotipo_torsional,
-            'Tipologia_Rotulas' => $this->tipologia_rotulas,
+			'Genu_b' => $this->genu_b,
 			'Keypoints' => $this->keypoints,
 			'Imagen' => $this->imagen
         ];

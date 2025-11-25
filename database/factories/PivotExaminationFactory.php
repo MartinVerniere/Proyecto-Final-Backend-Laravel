@@ -20,9 +20,7 @@ class PivotExaminationFactory extends Factory
             'cervical_C4_C5' => fake()->randomElement(['Hiperlordosis','Normal','Rectificado']),
             'dorsal_D8' => fake()->randomElement(['Lordotico','Normal','Cifotico']),
             'lumbar_L3' => fake()->randomElement(['Hiperlordosis','Normal','Rectificado']),
-            'raquis_escoliotico' => fake()->randomElement(['SI','NO']),
-            'raquis_rectificado' => fake()->randomElement(['SI','NO']),
-            'raquis_cifolordotico' => fake()->randomElement(['SI','NO']),
+            'raquis' => fake()->randomElement(['Escoliotico','Rectificado','Cifolordotico']),
         ];
     }
 }

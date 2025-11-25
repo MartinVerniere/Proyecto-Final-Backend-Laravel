@@ -19,8 +19,6 @@ return new class extends Migration
             $table->enum('plano', ['Adelantado','Neutro','Retrasado']);
             $table->enum('inclinacion', ['SI','NO']);
             $table->enum('mirada', ['Inclinacion derecha','Normal','Inclinacion izquierda']);
-            $table->enum('caries', ['SI','NO']);
-            $table->enum('oclusion', ['Bien','Mal']);
 			$table->json('keypoints');
 			$table->string("imagen");
 
