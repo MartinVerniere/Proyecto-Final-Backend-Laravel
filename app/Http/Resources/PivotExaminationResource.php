@@ -21,8 +21,6 @@ class PivotExaminationResource extends JsonResource
             'Dorsal_D8' => $this->dorsal_D8,
             'Lumbar_L3' => $this->lumbar_L3,
             'Raquis' => $this->raquis,
-			'Keypoints' => $this->keypoints,
-			'Imagen' => $this->imagen
         ];
     }
 }

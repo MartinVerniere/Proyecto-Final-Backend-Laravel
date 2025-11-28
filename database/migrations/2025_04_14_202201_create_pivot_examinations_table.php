@@ -20,8 +20,6 @@ return new class extends Migration
             $table->enum('dorsal_D8', ['Lordotico','Normal','Cifotico']);
             $table->enum('lumbar_L3', ['Hiperlordosis','Normal','Rectificado']);
             $table->enum('raquis', ['Escoliotico','Rectificado', 'Cifolordotico']);
-			$table->json('keypoints');
-			$table->string("imagen");
 
             $table->timestamps();
         });

@@ -18,6 +18,16 @@ return new class extends Migration
 
             $table->date('fecha_realizacion');
             $table->string('observaciones');
+			
+			$table->string('imagen_frontal');
+			$table->string('imagen_lateral_derecha');
+			$table->string('imagen_lateral_izquierda');
+			$table->string('imagen_trasera');
+
+			$table->json('keypoints_frontal');
+			$table->json('keypoints_lateral_derecha');
+			$table->json('keypoints_lateral_izquierda');
+			$table->json('keypoints_trasera');
 
             $table->timestamps();
         });

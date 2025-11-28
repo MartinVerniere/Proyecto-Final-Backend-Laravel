@@ -21,8 +21,6 @@ class PelvisExaminationResource extends JsonResource
             'EIPS' => $this->eips,
             'Relacion' => $this->relacion,
             'Rotacion' => $this->rotacion,
-			'Keypoints' => $this->keypoints,
-			'Imagen' => $this->imagen
         ];
     }
 }

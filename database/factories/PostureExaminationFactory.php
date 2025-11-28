@@ -19,6 +19,8 @@ class PostureExaminationFactory extends Factory
         return [
             'fecha_realizacion' => fake()->date(),
             'observaciones' => fake()->sentence(),
+			
+			// Añadir imagenes y keypoints si es necesario
         ];
     }
 }

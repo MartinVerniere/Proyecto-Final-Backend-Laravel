@@ -18,8 +18,6 @@ return new class extends Migration
 
             $table->enum('genu', ['Varo','Valgo','Normal']);
 			$table->enum('genu_b', ['Recurbatum','Flexo','Normal']);
-			$table->json('keypoints');
-			$table->string("imagen");
 
             $table->timestamps();
         });
