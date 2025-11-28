@@ -18,8 +18,6 @@ class PivotExamination extends Model
         'dorsal_D8',
         'lumbar_L3',
         'raquis',
-		'keypoints',
-		'imagen'
     ];
 
 	protected $casts = [
@@ -38,13 +36,6 @@ class PivotExamination extends Model
         $examination->dorsal_D8 = $request->input('dorsal_D8');
         $examination->lumbar_L3 = $request->input('lumbar_L3');
         $examination->raquis = $request->input('raquis');
-		$examination->keypoints = $request->input('keypoints');
-
-		$imagen = $request->file('imagen');
-		$extension = $imagen->getClientOriginalExtension();
-		$nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_pivot.'.$extension;
-		$result = $imagen->storeOnCloudinaryAs('examinaciones/postura/pivot/imagenes',$nombre_archivo);
-		$examination->imagen = $result->getSecurePath();
 
         $examination->save();
 

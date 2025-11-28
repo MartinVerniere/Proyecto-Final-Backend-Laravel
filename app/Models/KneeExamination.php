@@ -16,8 +16,6 @@ class KneeExamination extends Model
         'id_examinacion_postura',
         'genu',
         'genu_b',
-		'keypoints',
-		'imagen'
     ];
 
 	protected $casts = [
@@ -34,13 +32,6 @@ class KneeExamination extends Model
         $examination->id_examinacion_postura = $request->input('id_examinacion_postura');
         $examination->genu = $request->input('genu');
 		$examination->genu_b = $request->input('genu_b');
-		$examination->keypoints = $request->input('keypoints');
-
-		$imagen = $request->file('imagen');
-		$extension = $imagen->getClientOriginalExtension();
-		$nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_rodilla.'.$extension;
-		$result = $imagen->storeOnCloudinaryAs('examinaciones/postura/rodilla/imagenes',$nombre_archivo);
-		$examination->imagen = $result->getSecurePath();
 
         $examination->save();
 

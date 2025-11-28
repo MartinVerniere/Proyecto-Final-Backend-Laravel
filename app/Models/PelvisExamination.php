@@ -18,8 +18,6 @@ class PelvisExamination extends Model
         'eips',
         'relacion',
         'rotacion',
-		'keypoints',
-		'imagen'
     ];
 
 	protected $casts = [
@@ -38,13 +36,6 @@ class PelvisExamination extends Model
         $examination->eips = $request->input('eips');
         $examination->relacion = $request->input('relacion');
         $examination->rotacion = $request->input('rotacion');
-		$examination->keypoints = $request->input('keypoints');
-
-		$imagen = $request->file('imagen');
-		$extension = $imagen->getClientOriginalExtension();
-		$nombre_archivo = 'examinacion_postura_'.Str::slug($request->input('id_examinacion_postura')).'_pelvis.'.$extension;
-		$result = $imagen->storeOnCloudinaryAs('examinaciones/postura/pelvis/imagenes',$nombre_archivo);
-		$examination->imagen = $result->getSecurePath();
 
         $examination->save();
 

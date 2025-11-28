@@ -20,11 +20,11 @@ class PostureExaminationAPIController extends Controller {
     }
 
     public function storePostureExamination(Request $request){
-		// dd([
-		// 	'has_file_imagen_cabeza' => $request->hasFile('imagen_cabeza'),
-		// 	'all_files' => $request->allFiles(),
-		// 	'all_inputs' => $request->all(),
-		// ]);
+		dd([
+			'has_file_imagen_cabeza' => $request->hasFile('imagen_frontal'),
+			'all_files' => $request->allFiles(),
+			'all_inputs' => $request->all(),
+		]);
 
         $validate = $this->validateNuevaExaminacionPostura($request);
 		if (!$validate) return response()->json(['error' => $validate], 400);
@@ -76,18 +76,14 @@ class PostureExaminationAPIController extends Controller {
             'dorsal_D8_pivot' => 'required|in:Lordotico,Normal,Cifotico',
             'lumbar_L3_pivot' => 'required|in:Hiperlordosis,Normal,Rectificado',
             'raquis_pivot' => 'required|in:Escoliotico,Rectificado, Cifolordotico',
-			'imagen_cabeza' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
-			'imagen_hombros' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
-			'imagen_pelvis' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
-			'imagen_rodilla' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
-			'imagen_pie' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
-			'imagen_pivot' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
-			'keypoints_cabeza' => 'required|string',
-			'keypoints_hombros' => 'required|string',
-			'keypoints_pelvis' => 'required|string',
-			'keypoints_rodilla' => 'required|string',
-			'keypoints_pie' => 'required|string',
-			'keypoints_pivot' => 'required|string',
+			'imagen_frontal' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
+			'imagen_lateral_derecha' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
+			'imagen_lateral_izquierda' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
+			'imagen_trasera' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
+			'keypoints_frontal' => 'required|string',
+			'keypoints_lateral_derecha' => 'required|string',
+			'keypoints_lateral_izquierda' => 'required|string',
+			'keypoints_trasera' => 'required|string',
         ]);
         return $validated;
     }
