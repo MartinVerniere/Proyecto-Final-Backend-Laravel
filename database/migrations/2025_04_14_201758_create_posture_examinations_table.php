@@ -19,10 +19,10 @@ return new class extends Migration
             $table->date('fecha_realizacion');
             $table->string('observaciones');
 			
-			$table->string('imagen_frontal');
-			$table->string('imagen_lateral_derecha');
-			$table->string('imagen_lateral_izquierda');
-			$table->string('imagen_trasera');
+			$table->string('imagen_frontal')->nullable();
+			$table->string('imagen_lateral_derecha')->nullable();
+			$table->string('imagen_lateral_izquierda')->nullable();
+			$table->string('imagen_trasera')->nullable();
 
 			$table->json('keypoints_frontal');
 			$table->json('keypoints_lateral_derecha');

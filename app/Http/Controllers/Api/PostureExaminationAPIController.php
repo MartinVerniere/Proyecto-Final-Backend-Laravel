@@ -20,11 +20,11 @@ class PostureExaminationAPIController extends Controller {
     }
 
     public function storePostureExamination(Request $request){
-		dd([
-			'has_file_imagen_cabeza' => $request->hasFile('imagen_frontal'),
-			'all_files' => $request->allFiles(),
-			'all_inputs' => $request->all(),
-		]);
+		// dd([
+		// 	'has_file_imagen_cabeza' => $request->hasFile('imagen_frontal'),
+		// 	'all_files' => $request->allFiles(),
+		// 	'all_inputs' => $request->all(),
+		// ]);
 
         $validate = $this->validateNuevaExaminacionPostura($request);
 		if (!$validate) return response()->json(['error' => $validate], 400);
@@ -52,7 +52,6 @@ class PostureExaminationAPIController extends Controller {
 
 		return response()->json([
 			'message' => 'Examen postural creado correctamente',
-			'image_head_sent' => $request->file('imagen_cabeza')->getClientOriginalName()
 		], 200);
     }
 
@@ -93,11 +92,9 @@ class PostureExaminationAPIController extends Controller {
 			'id_examinacion_postura' => $id_examinacion_postura,
 			'plano' => $request->plano_cabeza,
 			'inclinacion' => $request->inclinacion_cabeza,
-			'mirada' => $request->mirada_cabeza,
-			'keypoints' => json_decode($request->keypoints_cabeza, true)				
+			'mirada' => $request->mirada_cabeza,			
 		]);
 
-		$newRequest->files->set('imagen', $request->file('imagen_cabeza'));
 		return $newRequest;
 	}
 
@@ -108,10 +105,8 @@ class PostureExaminationAPIController extends Controller {
 			'escapula' => $request->escapula_hombros,
 			'hombro' => $request->hombro_hombros,
 			//'triangulo_de_talle' => $request->triangulo_de_talle_hombros,
-			'keypoints' => json_decode($request->keypoints_hombros, true)
 		]);
 
-		$newRequest->files->set('imagen', $request->file('imagen_hombros'));
 		return $newRequest;
 	}
 
@@ -122,10 +117,8 @@ class PostureExaminationAPIController extends Controller {
 			'eips' => $request->eips_pelvis,
 			'relacion' => $request->relacion_pelvis,
 			'rotacion' => $request->rotacion_pelvis,
-			'keypoints' => json_decode($request->keypoints_pelvis, true),
 		]);
 
-		$newRequest->files->set('imagen', $request->file('imagen_pelvis'));
 		return $newRequest;
 	}
 
@@ -134,10 +127,8 @@ class PostureExaminationAPIController extends Controller {
 			'id_examinacion_postura' => $id_examinacion_postura,
 			'genu' => $request->genu_rodilla,
 			'genu_b' => $request->genu_rodilla_b,
-			'keypoints' => json_decode($request->keypoints_rodilla, true)
 		]);
 
-		$newRequest->files->set('imagen', $request->file('imagen_rodilla'));
 		return $newRequest;
 	}
 
@@ -148,10 +139,8 @@ class PostureExaminationAPIController extends Controller {
 			'dorsal_D8' => $request->dorsal_D8_pivot,
 			'lumbar_L3' => $request->lumbar_L3_pivot,
 			'raquis' => $request->raquis_pivot,
-			'keypoints' => json_decode($request->keypoints_pivot, true)
 		]);
 
-		$newRequest->files->set('imagen', $request->file('imagen_pivot'));
 		return $newRequest;
 	}
 }

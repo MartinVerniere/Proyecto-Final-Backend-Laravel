@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use App\Models\Consultation;
 use App\Models\HeadExamination;
 use App\Models\ShouldersExamination;
@@ -28,6 +30,13 @@ class PostureExamination extends Model
 		'keypoints_lateral_izquierda',
 		'keypoints_trasera',
     ];
+
+	protected $casts = [
+		'keypoints_frontal' => 'array',
+		'keypoints_lateral_derecha' => 'array',
+		'keypoints_lateral_izquierda' => 'array',
+		'keypoints_trasera' => 'array',
+	];
 
     public function consultation() {
         return $this->belongsTo(Consultation::class, 'id_consulta');
@@ -65,11 +74,15 @@ class PostureExamination extends Model
 		$examination->keypoints_lateral_izquierda = $request->input('keypoints_lateral_izquierda');
 		$examination->keypoints_trasera = $request->input('keypoints_trasera');
 
+		$examination->save();
+
+		$id = $examination->id;
+
 		// Imagen frontal
 		$imagen = $request->file('imagen_frontal');
 		$extension = $imagen->getClientOriginalExtension();
 		$nombre_archivo = 'examinacion_postura_'
-			.Str::slug($request->input('id_examinacion_postura'))
+			.Str::slug($id)
 			.'_frontal.'
 			.$extension;
 		$result = $imagen->storeOnCloudinaryAs('examinaciones/postura/frontal/imagenes',$nombre_archivo);
@@ -79,7 +92,7 @@ class PostureExamination extends Model
 		$imagen = $request->file('imagen_lateral_derecha');
 		$extension = $imagen->getClientOriginalExtension();
 		$nombre_archivo = 'examinacion_postura_'
-			.Str::slug($request->input('id_examinacion_postura'))
+			.Str::slug($id)
 			.'_lateral_derecha.'
 			.$extension;
 		$result = $imagen->storeOnCloudinaryAs('examinaciones/postura/lateral_derecha/imagenes',$nombre_archivo);
@@ -89,7 +102,7 @@ class PostureExamination extends Model
 		$imagen = $request->file('imagen_lateral_izquierda');
 		$extension = $imagen->getClientOriginalExtension();
 		$nombre_archivo = 'examinacion_postura_'
-			.Str::slug($request->input('id_examinacion_postura'))
+			.Str::slug($id)
 			.'_lateral_izquierda.'
 			.$extension;
 		$result = $imagen->storeOnCloudinaryAs('examinaciones/postura/lateral_izquierda/imagenes',$nombre_archivo);
@@ -99,7 +112,7 @@ class PostureExamination extends Model
 		$imagen = $request->file('imagen_trasera');
 		$extension = $imagen->getClientOriginalExtension();
 		$nombre_archivo = 'examinacion_postura_'
-			.Str::slug($request->input('id_examinacion_postura'))
+			.Str::slug($id)
 			.'_trasera.'
 			.$extension;
 		$result = $imagen->storeOnCloudinaryAs('examinaciones/postura/trasera/imagenes',$nombre_archivo);
@@ -107,7 +120,7 @@ class PostureExamination extends Model
 
         $examination->save();
 
-        return $examination->id;
+        return $id;
     }
 
     public function quitarExaminacionPostura($request) {
