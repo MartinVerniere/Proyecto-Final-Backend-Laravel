@@ -13,7 +13,7 @@ class KneeExamination extends Model
     protected $fillable = [
         'id_examinacion_postura',
         'genu',
-        'genu_b',
+        'recurbatum',
     ];
 
 	protected $casts = [
@@ -29,7 +29,7 @@ class KneeExamination extends Model
 
         $examination->id_examinacion_postura = $request->input('id_examinacion_postura');
         $examination->genu = $request->input('genu');
-		$examination->genu_b = $request->input('genu_b');
+		$examination->recurbatum = $request->input('recurbatum');
 
         $examination->save();
 

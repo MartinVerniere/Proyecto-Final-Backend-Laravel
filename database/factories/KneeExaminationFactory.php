@@ -18,7 +18,7 @@ class KneeExaminationFactory extends Factory
     {
         return [
             'genu' => fake()->randomElement(['Varo','Valgo','Normal']),
-			'genu_b' => fake()->randomElement(['Recurbatum','Flexo','Normal']),
+			'recurbatum' => fake()->randomElement(['Recurbatum','Flexo','Normal']),
         ];
     }
 }

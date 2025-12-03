@@ -70,7 +70,7 @@ class PostureExaminationAPIController extends Controller {
             'relacion_pelvis' => 'required|in:Anteversion,Neutra,Retroversion',
             'rotacion_pelvis' => 'required|in:Izquierda,Neutra,Derecha',
             'genu_rodilla' => 'required|in:Varo,Valgo,Normal',
-			'genu_rodilla_b' => 'required|in:Recurbatum,Flexo,Normal',
+			'recurbatum_rodilla' => 'required|in:Recurbatum,Flexo,Normal',
             'cervical_C4_C5_pivot' => 'required|in:Hiperlordosis,Normal,Rectificado',
             'dorsal_D8_pivot' => 'required|in:Lordotico,Normal,Cifotico',
             'lumbar_L3_pivot' => 'required|in:Hiperlordosis,Normal,Rectificado',
@@ -126,7 +126,7 @@ class PostureExaminationAPIController extends Controller {
 		$newRequest = new Request([
 			'id_examinacion_postura' => $id_examinacion_postura,
 			'genu' => $request->genu_rodilla,
-			'genu_b' => $request->genu_rodilla_b,
+			'recurbatum' => $request->recurbatum_rodilla,
 		]);
 
 		return $newRequest;

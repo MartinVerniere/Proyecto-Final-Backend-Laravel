@@ -18,7 +18,7 @@ class KneeExaminationResource extends JsonResource
             'Id' => $this->id,
             'Id_Examinacion_Postura' => $this->id_examinacion_postura,
             'Genu' => $this->genu,
-			'Genu_b' => $this->genu_b,
+			'Recurbatum' => $this->recurbatum,
         ];
     }
 }

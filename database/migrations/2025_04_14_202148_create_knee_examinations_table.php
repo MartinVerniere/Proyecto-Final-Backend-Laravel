@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('id_examinacion_postura')->constrained('posture_examinations');
 
             $table->enum('genu', ['Varo','Valgo','Normal']);
-			$table->enum('genu_b', ['Recurbatum','Flexo','Normal']);
+			$table->enum('recurbatum', ['Recurbatum','Flexo','Normal']);
 
             $table->timestamps();
         });
