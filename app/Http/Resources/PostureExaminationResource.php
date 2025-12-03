@@ -29,10 +29,34 @@ class PostureExaminationResource extends JsonResource
 			'Imagen_Lateral_Izquierda' => $this->imagen_lateral_izquierda,
 			'Imagen_Trasera' => $this->imagen_trasera,
 
-			'Keypoints_Frontal' => $this->keypoints_frontal,
-			'Keypoints_Lateral_Derecha' => $this->keypoints_lateral_derecha,
-			'Keypoints_Lateral_Izquierda' => $this->keypoints_lateral_izquierda,
-			'Keypoints_Trasera' => $this->keypoints_trasera,
+			'Keypoints_Frontal' => collect(json_decode($this->keypoints_frontal, true))->map(function ($kp) {
+				return [
+					'x' => $kp['x'],
+					'y' => $kp['y'],
+					'name' => $kp['name'],
+				];
+			}),
+			'Keypoints_Lateral_Derecha' => collect(json_decode($this->keypoints_lateral_derecha, true))->map(function ($kp) {
+				return [
+					'x' => $kp['x'],
+					'y' => $kp['y'],
+					'name' => $kp['name'],
+				];
+			}),
+			'Keypoints_Lateral_Izquierda' => collect(json_decode($this->keypoints_lateral_izquierda, true))->map(function ($kp) {
+				return [
+					'x' => $kp['x'],
+					'y' => $kp['y'],
+					'name' => $kp['name'],
+				];
+			}),
+			'Keypoints_Trasera' => collect(json_decode($this->keypoints_trasera, true))->map(function ($kp) {
+				return [
+					'x' => $kp['x'],
+					'y' => $kp['y'],
+					'name' => $kp['name'],
+				];
+			}),			
 
             'Examinacion_Cabeza' => new HeadExaminationResource($this->analisisCabeza),
             'Examinacion_Hombros_Escapular' => new ShouldersExaminationResource($this->analisisHombrosEscapular),
