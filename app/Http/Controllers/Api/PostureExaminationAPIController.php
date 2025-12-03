@@ -74,7 +74,7 @@ class PostureExaminationAPIController extends Controller {
             'cervical_C4_C5_pivot' => 'required|in:Hiperlordosis,Normal,Rectificado',
             'dorsal_D8_pivot' => 'required|in:Lordotico,Normal,Cifotico',
             'lumbar_L3_pivot' => 'required|in:Hiperlordosis,Normal,Rectificado',
-            'raquis_pivot' => 'required|in:Escoliotico,Rectificado, Cifolordotico',
+            'raquis_pivot' => 'required|in:Escoliotico,Rectificado,Cifolordotico',
 			'imagen_frontal' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
 			'imagen_lateral_derecha' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
 			'imagen_lateral_izquierda' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
