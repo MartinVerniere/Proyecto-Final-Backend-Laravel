@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Patient;
 use App\Http\Resources\PatientResource;
+use App\Http\Resources\ExaminationHistoryResource;
 
 class PatientAPIController extends Controller
 {
@@ -28,6 +29,14 @@ class PatientAPIController extends Controller
             return response()->json(['error' => $validated], 400);
         }
     }
+
+	public function getAllExaminationsByPatient($id){
+		$patient = Patient::find($id);
+
+		if (!$patient) return response()->json(['error' => 'Paciente no encontrado'], 404);
+
+		return new ExaminationHistoryResource($patient);
+	}
 
     private function validatePatientInfo(Request $request){
         $validated = $request->validate([
