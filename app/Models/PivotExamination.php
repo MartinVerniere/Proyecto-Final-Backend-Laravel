@@ -12,14 +12,10 @@ class PivotExamination extends Model
 
     protected $fillable = [
         'id_examinacion_postura',
-        'cervical_C4_C5',
-        'dorsal_D8',
-        'lumbar_L3',
+        'cervical',
+        'dorsal',
+        'lumbar',
         'raquis',
-    ];
-
-	protected $casts = [
-        'keypoints' => 'array',
     ];
 
     public function postureExamination() {
@@ -30,9 +26,9 @@ class PivotExamination extends Model
         $examination = new PivotExamination;
 
         $examination->id_examinacion_postura = $request->input('id_examinacion_postura');
-        $examination->cervical_C4_C5 = $request->input('cervical_C4_C5');
-        $examination->dorsal_D8 = $request->input('dorsal_D8');
-        $examination->lumbar_L3 = $request->input('lumbar_L3');
+        $examination->cervical = $request->input('cervical');
+        $examination->dorsal = $request->input('dorsal');
+        $examination->lumbar = $request->input('lumbar');
         $examination->raquis = $request->input('raquis');
 
         $examination->save();

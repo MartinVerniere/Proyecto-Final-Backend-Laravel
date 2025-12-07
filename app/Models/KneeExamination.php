@@ -16,10 +16,6 @@ class KneeExamination extends Model
         'recurbatum',
     ];
 
-	protected $casts = [
-        'keypoints' => 'array',
-    ];
-
     public function postureExamination() {
         return $this->belongsTo(PostureExamination::class, 'id_examinacion_postura');
     }

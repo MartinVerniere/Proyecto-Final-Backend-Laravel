@@ -17,9 +17,9 @@ class PivotExaminationResource extends JsonResource
         return [
             'Id' => $this->id,
             'Id_Examinacion_Postura' => $this->id_examinacion_postura,
-            'Cervical_C4_C5' => $this->cervical_C4_C5,
-            'Dorsal_D8' => $this->dorsal_D8,
-            'Lumbar_L3' => $this->lumbar_L3,
+            'Cervical' => $this->cervical,
+            'Dorsal' => $this->dorsal,
+            'Lumbar' => $this->lumbar,
             'Raquis' => $this->raquis,
         ];
     }

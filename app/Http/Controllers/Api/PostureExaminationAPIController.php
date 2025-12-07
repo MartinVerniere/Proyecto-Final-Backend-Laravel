@@ -59,8 +59,7 @@ class PostureExaminationAPIController extends Controller {
         $validated = $request->validate([
             'fecha_realizacion' => 'required|date',
             'plano_cabeza' => 'required|in:Adelantado,Neutro,Retrasado',
-            'inclinacion_cabeza' => 'required|in:SI,NO',
-            'mirada_cabeza' => 'required|in:Inclinacion derecha,Normal,Inclinacion izquierda',
+            'inclinacion_cabeza' => 'required|in:Inclinacion derecha,Normal,Inclinacion izquierda',
             'inclinacion_hombros' => 'required|in:Inclinacion derecha,Normal,Inclinacion izquierda',
             'escapula_hombros' => 'required|in:Rotacion medial,Rotacion lateral,Angulo inferior izquierdo,Angulo inferior derecho,Aladas,Alineadas',
             'hombro_hombros' => 'required|in:Antepulsion,Normal,Retropulsion',
@@ -71,10 +70,10 @@ class PostureExaminationAPIController extends Controller {
             'rotacion_pelvis' => 'required|in:Izquierda,Neutra,Derecha',
             'genu_rodilla' => 'required|in:Varo,Valgo,Normal',
 			'recurbatum_rodilla' => 'required|in:Recurbatum,Flexo,Normal',
-            'cervical_C4_C5_pivot' => 'required|in:Hiperlordosis,Normal,Rectificado',
-            'dorsal_D8_pivot' => 'required|in:Lordotico,Normal,Cifotico',
-            'lumbar_L3_pivot' => 'required|in:Hiperlordosis,Normal,Rectificado',
-            'raquis_pivot' => 'required|in:Escoliotico,Rectificado,Cifolordotico',
+            'cervical_pivot' => 'required|in:Lordotico,Normal,Rectificado,Cifotico',
+            'dorsal_pivot' => 'required|in:Lordotico,Normal,Rectificado,Cifotico',
+            'lumbar_pivot' => 'required|in:Lordotico,Normal,Rectificado,Cifotico',
+            'raquis_pivot' => 'required|in:Escoliotico,Rectificado',
 			'imagen_frontal' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
 			'imagen_lateral_derecha' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
 			'imagen_lateral_izquierda' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
@@ -91,8 +90,7 @@ class PostureExaminationAPIController extends Controller {
 		$newRequest = new Request([
 			'id_examinacion_postura' => $id_examinacion_postura,
 			'plano' => $request->plano_cabeza,
-			'inclinacion' => $request->inclinacion_cabeza,
-			'mirada' => $request->mirada_cabeza,			
+			'inclinacion' => $request->inclinacion_cabeza,		
 		]);
 
 		return $newRequest;
@@ -135,9 +133,9 @@ class PostureExaminationAPIController extends Controller {
 	private function createRequestExaminacionPivot(Request $request, int $id_examinacion_postura) {
 		$newRequest = new Request([
 			'id_examinacion_postura' => $id_examinacion_postura,
-			'cervical_C4_C5' => $request->cervical_C4_C5_pivot,
-			'dorsal_D8' => $request->dorsal_D8_pivot,
-			'lumbar_L3' => $request->lumbar_L3_pivot,
+			'cervical' => $request->cervical_pivot,
+			'dorsal' => $request->dorsal_pivot,
+			'lumbar' => $request->lumbar_pivot,
 			'raquis' => $request->raquis_pivot,
 		]);
 

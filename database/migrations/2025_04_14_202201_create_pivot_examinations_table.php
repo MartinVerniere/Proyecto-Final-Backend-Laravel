@@ -16,10 +16,10 @@ return new class extends Migration
 
             $table->foreignId('id_examinacion_postura')->constrained('posture_examinations');
 
-            $table->enum('cervical_C4_C5', ['Hiperlordosis','Normal','Rectificado']);
-            $table->enum('dorsal_D8', ['Lordotico','Normal','Cifotico']);
-            $table->enum('lumbar_L3', ['Hiperlordosis','Normal','Rectificado']);
-            $table->enum('raquis', ['Escoliotico','Rectificado', 'Cifolordotico']);
+            $table->enum('cervical', ['Lordotico','Normal','Rectificado','Cifotico']);
+            $table->enum('dorsal', ['Lordotico','Normal','Rectificado','Cifotico']);
+            $table->enum('lumbar', ['Lordotico','Normal','Rectificado','Cifotico']);
+            $table->enum('raquis', ['Escoliotico','Rectificado']);
 
             $table->timestamps();
         });

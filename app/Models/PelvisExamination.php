@@ -18,10 +18,6 @@ class PelvisExamination extends Model
         'rotacion',
     ];
 
-	protected $casts = [
-        'keypoints' => 'array',
-    ];
-
     public function postureExamination(){
         return $this->belongsTo(PostureExamination::class, 'id_examinacion_postura');
     }

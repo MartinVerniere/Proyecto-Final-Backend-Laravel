@@ -18,10 +18,6 @@ class ShouldersExamination extends Model
         //'triangulo_de_talle',
     ];
 
-	protected $casts = [
-        'keypoints' => 'array',
-    ];
-
     public function postureExamination() {
         return $this->belongsTo(PostureExamination::class, 'id_examinacion_postura');
     }

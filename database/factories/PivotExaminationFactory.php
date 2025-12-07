@@ -17,10 +17,10 @@ class PivotExaminationFactory extends Factory
     public function definition(): array
     {
         return [
-            'cervical_C4_C5' => fake()->randomElement(['Hiperlordosis','Normal','Rectificado']),
-            'dorsal_D8' => fake()->randomElement(['Lordotico','Normal','Cifotico']),
-            'lumbar_L3' => fake()->randomElement(['Hiperlordosis','Normal','Rectificado']),
-            'raquis' => fake()->randomElement(['Escoliotico','Rectificado','Cifolordotico']),
+            'cervical' => fake()->randomElement(['Lordotico','Normal','Rectificado','Cifotico']),
+            'dorsal' => fake()->randomElement(['Lordotico','Normal','Rectificado','Cifotico']),
+            'lumbar' => fake()->randomElement(['Lordotico','Normal','Rectificado','Cifotico']),
+            'raquis' => fake()->randomElement(['Escoliotico','Rectificado']),
         ];
     }
 }

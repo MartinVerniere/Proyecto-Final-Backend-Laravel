@@ -18,8 +18,7 @@ class HeadExaminationFactory extends Factory
     {
         return [
             'plano' => fake()->randomElement(['Adelantado','Neutro','Retrasado']),
-            'inclinacion' => fake()->randomElement(['SI','NO']),
-            'mirada' => fake()->randomElement(['Inclinacion derecha','Normal','Inclinacion izquierda']),
+            'inclinacion' => fake()->randomElement(['Inclinacion derecha','Normal','Inclinacion izquierda']),
         ];
     }
 }

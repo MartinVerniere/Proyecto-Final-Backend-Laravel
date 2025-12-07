@@ -14,11 +14,6 @@ class HeadExamination extends Model
         'id_examinacion_postura',
         'plano',
         'inclinacion',
-        'mirada',
-    ];
-
-	protected $casts = [
-        'keypoints' => 'array',
     ];
 
     public function postureExamination() {
@@ -31,7 +26,6 @@ class HeadExamination extends Model
         $examination->id_examinacion_postura = $request->input('id_examinacion_postura');
         $examination->plano = $request->input('plano');
         $examination->inclinacion = $request->input('inclinacion');
-        $examination->mirada = $request->input('mirada');
 
 		$examination->save();
 
