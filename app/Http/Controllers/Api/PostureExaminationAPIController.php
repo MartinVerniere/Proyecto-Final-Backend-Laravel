@@ -61,7 +61,7 @@ class PostureExaminationAPIController extends Controller {
             'plano_cabeza' => 'required|in:Adelantado,Neutro,Retrasado',
             'inclinacion_cabeza' => 'required|in:Inclinacion derecha,Normal,Inclinacion izquierda',
             'inclinacion_hombros' => 'required|in:Inclinacion derecha,Normal,Inclinacion izquierda',
-            'escapula_hombros' => 'required|in:Rotacion medial,Rotacion lateral,Angulo inferior izquierdo,Angulo inferior derecho,Aladas,Alineadas',
+            'escapula_hombros' => 'required|in:Rotacion medial,Rotacion lateral',
             'hombro_hombros' => 'required|in:Antepulsion,Normal,Retropulsion',
             //'triangulo_de_talle_hombros' => 'required|in:Normal,Aumentado',
             'eias_pelvis' => 'required|in:Inclinacion izquierda,Normal,Inclinacion derecha',
