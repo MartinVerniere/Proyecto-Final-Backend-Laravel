@@ -31,38 +31,38 @@ Route::post('/register', [AuthControllerApi::class, 'register']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthControllerApi::class, 'logout']);
 
-	Route::prefix('consultas')->group(function () {
+	Route::prefix('consultations')->group(function () {
 		Route::get('', [ConsultationAPIController::class, 'index']);
 		Route::get('{id}', [ConsultationAPIController::class, 'show']);
-		Route::post('crear', [ConsultationAPIController::class, 'store']);
+		Route::post('create', [ConsultationAPIController::class, 'store']);
 	});
 
-	Route::prefix('pacientes')->group(function () {
+	Route::prefix('patients')->group(function () {
 		Route::get('', [PatientAPIController::class, 'index']);
 		Route::prefix('{id}')->group(function () {
 			Route::get('', [PatientAPIController::class, 'show']);
-			Route::get('consultas', [ConsultationAPIController::class, 'indexByPatient']);
-			Route::get('historial', [PatientAPIController::class, 'getAllExaminationsByPatient']);
+			Route::get('consultations', [ConsultationAPIController::class, 'indexByPatient']);
+			Route::get('medicalHistory', [PatientAPIController::class, 'getAllExaminationsByPatient']);
 		});
-		Route::post('crear', [PatientAPIController::class, 'store']);
+		Route::post('create', [PatientAPIController::class, 'store']);
 	});
 
-	Route::prefix('examinaciones')->group(function () {
-		Route::prefix('examinacionAntropogenica')->group(function () {
+	Route::prefix('examinations')->group(function () {
+		Route::prefix('anthropogenical')->group(function () {
 			Route::get('{id}', [AnthropogenicalExaminationAPIController::class, 'showAnthropogenicalExamination']);
-			Route::post('crear', [AnthropogenicalExaminationAPIController::class, 'storeAnthropogenicalExamination']);
+			Route::post('create', [AnthropogenicalExaminationAPIController::class, 'storeAnthropogenicalExamination']);
 		});
-		Route::prefix('examinacionAntropometrica')->group(function () {
+		Route::prefix('anthropometrical')->group(function () {
 			Route::get('{id}', [AnthropometricalExaminationAPIController::class, 'showAnthropometricalExamination']);
-			Route::post('crear', [AnthropometricalExaminationAPIController::class, 'storeAnthropometricalExamination']);
+			Route::post('create', [AnthropometricalExaminationAPIController::class, 'storeAnthropometricalExamination']);
 		});
-		Route::prefix('examinacionFisica')->group(function () {
+		Route::prefix('physical')->group(function () {
 			Route::get('{id}', [PhysicalConditionExaminationAPIController::class, 'showPhysicalConditionExamination']);
-			Route::post('crear', [PhysicalConditionExaminationAPIController::class, 'storePhysicalConditionExamination']);
+			Route::post('create', [PhysicalConditionExaminationAPIController::class, 'storePhysicalConditionExamination']);
 		});
-		Route::prefix('examinacionPostura')->group(function () {
+		Route::prefix('posture')->group(function () {
 			Route::get('{id}', [PostureExaminationAPIController::class, 'showPostureExamination']);
-			Route::post('crear', [PostureExaminationAPIController::class, 'storePostureExamination']);
+			Route::post('create', [PostureExaminationAPIController::class, 'storePostureExamination']);
 		});
 	});
 });
