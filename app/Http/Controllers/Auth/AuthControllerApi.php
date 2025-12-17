@@ -69,8 +69,7 @@ class AuthControllerApi extends Controller
             [
                 'message' => 'Sesion iniciada correctamente',
                 'access_token' => $token,
-                'user_name' => $user->username,
-                'user_email' => $user->email,
+                'user' => $user,
             ], 201);
     }
 
