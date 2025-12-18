@@ -31,30 +31,27 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+	Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
-Route::middleware('auth')->group(function () {
-    Route::resource('pacientes', PatientController::class);
-    Route::get('pacientes/consultasAsociadas/{id}', [PatientController::class, 'consultasAsociadas'])
-        ->name('pacientes.consultasAsociadas');   
+	Route::prefix('patients')->group(function () {
+		Route::resource('', PatientController::class);
+		Route::get('pacientes/consultations/{id}', [PatientController::class, 'consultations'])->name('patients.consultations');   
+	});
         
-    Route::resource('consultas', ConsultationController::class);
-    Route::get('consultas/examinacionFisicaAsociada/{id}', [ConsultationController::class, 'examinacionFisicaAsociada'])
-        ->name('consultas.examinacionFisicaAsociada');
-    Route::get('consultas/examinacionAntropogenicaAsociada/{id}', [ConsultationController::class, 'examinacionAntropogenicaAsociada'])
-        ->name('consultas.examinacionAntropogenicaAsociada');
-    Route::get('consultas/examinacionAntropometricaAsociada/{id}', [ConsultationController::class, 'examinacionAntropometricaAsociada'])
-        ->name('consultas.examinacionAntropometricaAsociada');
-    Route::get('consultas/examinacionPosturaAsociada/{id}', [ConsultationController::class, 'examinacionPosturaAsociada'])
-        ->name('consultas.examinacionPosturaAsociada');
+	Route::prefix('consultations')->group(function () {
+		Route::resource('', ConsultationController::class);
+		Route::get('anthropogenical/{id}', [ConsultationController::class, 'anthropogenical'])->name('consultations.anthropogenical');
+		Route::get('anthropometrical/{id}', [ConsultationController::class, 'anthropometrical'])->name('consultations.anthropometrical');
+		Route::get('physical/{id}', [ConsultationController::class, 'physical'])->name('consultations.physical');
+		Route::get('posture/{id}', [ConsultationController::class, 'posture'])->name('consultations.posture');
+	});
 
-    Route::resource('examinacionesAntropometricas', AnthropometricalExaminationController::class);
-    Route::resource('examinacionesAntropogenicas', AnthropogenicalExaminationController::class);
-    Route::resource('examinacionesFisicas', PhysicalConditionExaminationController::class);
-    Route::resource('examinacionesPostura', PostureExaminationController::class);
+    Route::resource('anthropogenical', AnthropometricalExaminationController::class);
+    Route::resource('anthropometrical', AnthropogenicalExaminationController::class);
+    Route::resource('physical', PhysicalConditionExaminationController::class);
+    Route::resource('posture', PostureExaminationController::class);
 });
 
 require __DIR__.'/auth.php';

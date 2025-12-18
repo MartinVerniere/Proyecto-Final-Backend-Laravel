@@ -14,7 +14,7 @@ class PostureExaminationController extends Controller
     public function index()
     {
         $examinaciones_postura = PostureExamination::all();
-        return view('examinacionesPostura.index', compact('examinaciones_postura'));
+        return view('examinations.posture.index', compact('examinaciones_postura'));
     }
 
     /**

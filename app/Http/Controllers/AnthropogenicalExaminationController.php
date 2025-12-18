@@ -14,7 +14,7 @@ class AnthropogenicalExaminationController extends Controller
     public function index()
     {
         $examinaciones_antropogenicas = AntropogenicalExamination::all();
-        return view('examinacionesAntropogenicas.index', compact('examinaciones_antropogenicas'));
+        return view('examinations.anthropogenical.index', compact('examinaciones_antropogenicas'));
     }
 
     /**

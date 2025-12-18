@@ -14,7 +14,7 @@ class PhysicalConditionExaminationController extends Controller
     public function index()
     {
         $examinaciones_fisicas = PhysicalConditionExamination::all();
-        return view('examinacionesFisicas.index', compact('examinaciones_fisicas'));
+        return view('examinations.physical.index', compact('examinaciones_fisicas'));
     }
 
     /**

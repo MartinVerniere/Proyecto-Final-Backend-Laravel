@@ -14,7 +14,7 @@ class ConsultationController extends Controller
     public function index()
     {
         $consultas = Consultation::index();
-        return view('consultas.index', compact('consultas'));
+        return view('consultations.index', compact('consultas'));
     }
 
     /**
@@ -65,27 +65,27 @@ class ConsultationController extends Controller
         //
     }
 
-    public function examinacionFisicaAsociada($id){
-        $consulta = Consultation::find($id);
-        $examinacionFisica = $consulta->physicalConditionExamination;
-        return view('examinacionesFisicas.show', compact('examinacionFisica'));
-    }
-
-    public function examinacionAntropogenicaAsociada($id){
+    public function anthropogenical($id){
         $consulta = Consultation::find($id);
         $examinacionAntropogenica = $consulta->anthropogenicalExamination;
-        return view('examinacionesAntropogenicas.show', compact('examinacionAntropogenica'));
+        return view('examinations.anthropogenical.show', compact('examinacionAntropogenica'));
     }
 
-    public function examinacionAntropometricaAsociada($id){
+    public function anthropometrical($id){
         $consulta = Consultation::find($id);
         $examinacionAntropometrica = $consulta->anthropometricalExamination;
-        return view('examinacionesAntropometricas.show', compact('examinacionAntropometrica'));
+        return view('examinations.anthropometrical.show', compact('examinacionAntropometrica'));
     }
 
-    public function examinacionPosturaAsociada($id){
+	public function physical($id){
+        $consulta = Consultation::find($id);
+        $examinacionFisica = $consulta->physicalConditionExamination;
+        return view('examinations.physical.show', compact('examinacionFisica'));
+    }
+
+    public function posture($id){
         $consulta = Consultation::find($id);
         $examinacionPostura = $consulta->postureExamination;
-        return view('examinacionesPostura.show', compact('examinacionPostura'));
+        return view('examinations.posture.show', compact('examinacionPostura'));
     }
 }

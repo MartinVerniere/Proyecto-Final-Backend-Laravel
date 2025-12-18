@@ -14,7 +14,7 @@ class AnthropometricalExaminationController extends Controller
     public function index()
     {
         $examinaciones_antropometricas = AnthropometricalExamination::all();
-        return view('examinacionesAntropometricas.index', compact('examinaciones_antropometricas'));
+        return view('examinations.anthropometrical.index', compact('examinaciones_antropometricas'));
     }
 
     /**
