@@ -24,7 +24,7 @@ use App\Http\Controllers\PostureExaminationController;
 
 Route::get('/', function () {
     return view('mainpage');
-})->middleware(Authenticate::Class);;
+})->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -35,21 +35,21 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+	Route::resource('patients', PatientController::class);
 	Route::prefix('patients')->group(function () {
-		Route::resource('', PatientController::class);
-		Route::get('pacientes/consultations/{id}', [PatientController::class, 'consultations'])->name('patients.consultations');   
+		Route::get('{patient}/consultations', [PatientController::class, 'consultations'])->name('patients.consultations');   
 	});
         
+	Route::resource('consultations', ConsultationController::class);
 	Route::prefix('consultations')->group(function () {
-		Route::resource('', ConsultationController::class);
-		Route::get('anthropogenical/{id}', [ConsultationController::class, 'anthropogenical'])->name('consultations.anthropogenical');
-		Route::get('anthropometrical/{id}', [ConsultationController::class, 'anthropometrical'])->name('consultations.anthropometrical');
-		Route::get('physical/{id}', [ConsultationController::class, 'physical'])->name('consultations.physical');
-		Route::get('posture/{id}', [ConsultationController::class, 'posture'])->name('consultations.posture');
+		Route::get('{consultation}/anthropogenical', [ConsultationController::class, 'anthropogenical'])->name('consultations.anthropogenical');
+		Route::get('{consultation}/anthropometrical', [ConsultationController::class, 'anthropometrical'])->name('consultations.anthropometrical');
+		Route::get('{consultation}/physical', [ConsultationController::class, 'physical'])->name('consultations.physical');
+		Route::get('{consultation}/posture', [ConsultationController::class, 'posture'])->name('consultations.posture');
 	});
 
-    Route::resource('anthropogenical', AnthropometricalExaminationController::class);
-    Route::resource('anthropometrical', AnthropogenicalExaminationController::class);
+    Route::resource('anthropogenical', AnthropogenicalExaminationController::class);
+    Route::resource('anthropometrical', AnthropometricalExaminationController::class);
     Route::resource('physical', PhysicalConditionExaminationController::class);
     Route::resource('posture', PostureExaminationController::class);
 });

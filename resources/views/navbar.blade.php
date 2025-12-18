@@ -4,12 +4,12 @@
             Inicio
         </div>
     </a>
-    <a class="navbar-button" href="{{ route('pacientes.index') }}">
+    <a class="navbar-button" href="{{ route('patients.index') }}">
         <div class="navbar-button-text">
             Pacientes
         </div>
     </a>
-    <a class="navbar-button" href="{{ route('consultas.index') }}">
+    <a class="navbar-button" href="{{ route('consultations.index') }}">
         <div class="navbar-button-text">
             Consultas
         </div>

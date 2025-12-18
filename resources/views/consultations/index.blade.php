@@ -12,6 +12,7 @@
         <thead class="table-dark">
             <tr>
                 <th>ID</th>
+				<th>Fecha de realizacion</th>
                 <th>Paciente</th>
                 <th>Acciones</th>
             </tr>
@@ -20,24 +21,14 @@
             @foreach ($consultas as $consulta)
                 <tr>
                     <td>{{ $consulta->id }}</td>
+					<td>{{ $consulta->fecha_realizacion }}</td>
                     <td>{{ $consulta->getNombrePaciente() }}</td>
-                    <td class="table-acciones-list">
-                        <form action="{{ route('consultas.examinacionFisicaAsociada', $consulta->id) }}" method="get">
-                            @csrf
-                            <button type="submit" class="btn btn-primary">Examinacion Fisica</button>
-                        </form>
-                        <form action="{{ route('consultas.examinacionAntropogenicaAsociada', $consulta->id) }}" method="get">
-                            @csrf
-                            <button type="submit" class="btn btn-primary">Examinacion Antropogenica</button>
-                        </form>
-                        <form action="{{ route('consultas.examinacionAntropometricaAsociada', $consulta->id) }}" method="get">
-                            @csrf
-                            <button type="submit" class="btn btn-primary">Examinacion Antropometrica</button>
-                        </form>
-                        <form action="{{ route('consultas.examinacionPosturaAsociada', $consulta->id) }}" method="get">
-                            @csrf
-                            <button type="submit" class="btn btn-primary">Examinacion Postura</button>
-                        </form>
+					<td class="table-acciones-list">
+                        <form action="{{ route('consultations.show', $consulta) }}" method="get">
+                            <button type="submit" class="btn btn-primary">
+								Ver detalles Consulta
+							</button>
+                        </form> 
                     </td>
                 </tr>
             @endforeach

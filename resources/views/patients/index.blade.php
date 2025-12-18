@@ -15,6 +15,7 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Genero</th>
+				<th>Fecha de nacimiento</th>
                 <th>DNI</th>
                 <th>Acciones</th>
             </tr>
@@ -26,10 +27,13 @@
                     <td>{{ $paciente->nombre }}</td>
                     <td>{{ $paciente->apellido }}</td>
                     <td>{{ $paciente->genero }}</td>
+					<td>{{ $paciente->fecha_nacimiento }}</td>
                     <td>{{ $paciente->DNI }}</td>
                     <td class="table-acciones-list">
-                        <form action="{{ route('pacientes.consultasAsociadas', $paciente->id) }}" method="get">
-                            <button type="submit" class="btn btn-primary">Ver consultas realizadas</button>
+                        <form action="{{ route('patients.consultations', $paciente) }}" method="get">
+                            <button type="submit" class="btn btn-primary">
+								Ver consultas realizadas
+							</button>
                         </form> 
                     </td>
                 </tr>

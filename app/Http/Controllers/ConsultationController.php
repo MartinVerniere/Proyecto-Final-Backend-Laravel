@@ -36,9 +36,9 @@ class ConsultationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Consultation $consultation)
     {
-        //
+        return view('consultations.show', compact('consultation'));
     }
 
     /**

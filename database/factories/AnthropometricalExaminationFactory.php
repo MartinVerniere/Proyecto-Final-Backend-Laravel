@@ -29,12 +29,12 @@ class AnthropometricalExaminationFactory extends Factory
             'pliegues_muslo' => $this->faker->numberBetween(1, 20),
             'pliegues_pantorrilla' => $this->faker->numberBetween(1, 20),
 
-            'perimetro_brazo_relajado' => $this->faker->randomFloat(20, 150, 2),
-            'perimetro_brazo_flexionado' => $this->faker->randomFloat(20, 150, 2),
-            'perimetro_cintura_minima' => $this->faker->randomFloat(20, 150, 2),
-            'perimetro_cadera' => $this->faker->randomFloat(20, 150, 2),
-            'perimetro_muslo' => $this->faker->randomFloat(20, 150, 2),
-            'perimetro_pantorrilla' => $this->faker->randomFloat(20, 150, 2),
+            'perimetro_brazo_relajado' => $this->faker->numberBetween(20, 150, 2),
+            'perimetro_brazo_flexionado' => $this->faker->numberBetween(20, 150, 2),
+            'perimetro_cintura_minima' => $this->faker->numberBetween(20, 150, 2),
+            'perimetro_cadera' => $this->faker->numberBetween(20, 150, 2),
+            'perimetro_muslo' => $this->faker->numberBetween(20, 150, 2),
+            'perimetro_pantorrilla' => $this->faker->numberBetween(20, 150, 2),
 
             'valor_indice_cintura_cadera' => $this->faker->randomFloat(0, 2, 2),
             'categoria_indice_cintura_cadera' => $this->faker->randomElement(['Bajo','Moderado','Alto','Muy alto']),
