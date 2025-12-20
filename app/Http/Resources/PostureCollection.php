@@ -16,7 +16,6 @@ class PostureCollection extends ResourceCollection
     public function toArray(Request $request): array
     {
 		$sorted = $this->collection->sortByDesc(fn($exam) => $exam->fecha_realizacion);
-	
-		return PostureExaminationResource::collection($sorted->values());
+		return PostureExaminationResource::collection($sorted->values())->toArray($request);
     }
 }

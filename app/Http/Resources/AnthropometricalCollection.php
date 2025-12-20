@@ -11,6 +11,6 @@ class AnthropometricalCollection extends ResourceCollection
     public function toArray($request)
     {
 		$sorted = $this->collection->sortByDesc(fn($exam) => $exam->fecha_realizacion);
-		return AnthropometricalExaminationResource::collection($sorted->values());
+		return AnthropometricalExaminationResource::collection($sorted->values())->toArray($request);
     }
 }

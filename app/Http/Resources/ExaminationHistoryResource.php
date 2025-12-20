@@ -20,11 +20,16 @@ class ExaminationHistoryResource extends JsonResource
     {
         $consultations = $this->consultations;
 
+		$anthropometricalExaminations = $consultations->pluck('anthropometricalExamination')->filter();
+		$anthropogenicalExaminations = $consultations->pluck('anthropogenicalExamination')->filter();
+		$physicalExaminations = $consultations->pluck('physicalConditionExamination')->filter();
+		$postureExaminations = $consultations->pluck('postureExamination')->filter();
+
 		return [
-			'anthropometrical_history' => new AnthropometricalCollection($consultations->pluck('anthropometricalExamination')->filter()),
-			'anthropogenical_history' => new AnthropogenicalCollection($consultations->pluck('anthropogenicalExamination')->filter()),
-			'physical_history' => new PhysicalCollection($consultations->pluck('physicalConditionExamination')->filter()),
-			'posture_history' =>  new PostureCollection($consultations->pluck('postureExamination')->filter()),
+			'anthropometrical_history' => (new AnthropometricalCollection($anthropometricalExaminations))->toArray($request),
+			'anthropogenical_history' => (new AnthropogenicalCollection($anthropogenicalExaminations))->toArray($request),
+			'physical_history' => (new PhysicalCollection($physicalExaminations))->toArray($request),
+			'posture_history' =>  (new PostureCollection($postureExaminations))->toArray($request),
 		];
     }
 }

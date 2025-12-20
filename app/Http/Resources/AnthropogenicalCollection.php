@@ -16,7 +16,6 @@ class AnthropogenicalCollection extends ResourceCollection
     public function toArray(Request $request): array
     {
         $sorted = $this->collection->sortByDesc(fn($exam) => $exam->fecha_realizacion);
-
-        return AnthropogenicalExaminationResource::collection($sorted->values());
+        return AnthropogenicalExaminationResource::collection($sorted->values())->toArray($request);
     }
 }

@@ -16,7 +16,6 @@ class PhysicalCollection extends ResourceCollection
     public function toArray(Request $request): array
     {
 		$sorted = $this->collection->sortByDesc(fn($exam) => $exam->fecha_realizacion);
-	
-		return PhysicalConditionExaminationResource::collection($sorted->values());
+		return PhysicalConditionExaminationResource::collection($sorted->values())->toArray($request);
     }
 }
