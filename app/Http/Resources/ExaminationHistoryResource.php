@@ -4,10 +4,10 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\AnthropometricalExaminationResource;
-use App\Http\Resources\AnthropogenicalExaminationResource;
-use App\Http\Resources\PhysicalConditionExaminationResource;
-use App\Http\Resources\PostureExaminationResource;
+use App\Http\Resources\AnthropometricalCollection;
+use App\Http\Resources\AnthropogenicalCollection;
+use App\Http\Resources\PhysicalCollection;
+use App\Http\Resources\PostureCollection;
 
 class ExaminationHistoryResource extends JsonResource
 {
@@ -21,21 +21,10 @@ class ExaminationHistoryResource extends JsonResource
         $consultations = $this->consultations;
 
 		return [
-			'anthropometrical_history' => AnthropometricalExaminationResource::collection(
-				$consultations->pluck('anthropometricalExamination')->filter()
-			),
-		
-			'anthropogenical_history' => AnthropogenicalExaminationResource::collection(
-				$consultations->pluck('anthropogenicalExamination')->filter()
-			),
-		
-			'physical_history' => PhysicalConditionExaminationResource::collection(
-				$consultations->pluck('physicalConditionExamination')->filter()
-			),
-		
-			'posture_history' => PostureExaminationResource::collection(
-				$consultations->pluck('postureExamination')->filter()
-			),
+			'anthropometrical_history' => new AnthropometricalCollection($consultations->pluck('anthropometricalExamination')->filter()),
+			'anthropogenical_history' => new AnthropogenicalCollection($consultations->pluck('anthropogenicalExamination')->filter()),
+			'physical_history' => new PhysicalCollection($consultations->pluck('physicalConditionExamination')->filter()),
+			'posture_history' =>  new PostureCollection($consultations->pluck('postureExamination')->filter()),
 		];
     }
 }

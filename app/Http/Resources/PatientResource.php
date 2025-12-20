@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\ExaminationResource;
+use App\Http\Resources\ConsultationCollection;
 
 class PatientResource extends JsonResource
 {
@@ -22,7 +23,7 @@ class PatientResource extends JsonResource
             'Genero' => $this->genero,
             'DNI' => $this->DNI,
             'Fecha_Nacimiento' => $this->fecha_nacimiento,
-            'Consultas_Realizadas' => ConsultationResource::collection($this->consultations),
+            'Consultas_Realizadas' => new ConsultationCollection($this->consultations),
         ];
     }
 }

@@ -16,15 +16,18 @@ use App\Models\KneeExamination;
 use App\Models\FeetExamination;
 use App\Models\PivotExamination;
 use App\Http\Resources\ConsultationResource;
+use App\Http\Resources\ConsultationCollection;
 
 class ConsultationAPIController extends Controller
 {
     public function index(){
-        return ConsultationResource::collection(Consultation::all());
+		$consultations = Consultation::all();
+		return new ConsultationCollection($consultations);
     }
 
     public function indexByPatient($id_paciente) {
-        return ConsultationResource::collection(Consultation::where('id_paciente', $id_paciente)->get());
+		$consultationsByPatient = Consultation::where('id_paciente', $id_paciente)->get();
+        return new ConsultationCollection($consultationsByPatient);
     }
 
     public function show($id) {
