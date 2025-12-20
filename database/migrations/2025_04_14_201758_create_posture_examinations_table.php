@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreignId('id_consulta')->constrained('consultations');
 
             $table->date('fecha_realizacion');
+			$table->float('talla_paciente');
+            $table->float('peso_paciente');
             $table->string('observaciones');
 			
 			$table->string('imagen_frontal')->nullable();

@@ -20,6 +20,8 @@ class PostureExamination extends Model
     protected $fillable = [
         'id_consulta',
         'fecha_realizacion',
+		'talla_paciente',
+        'peso_paciente',
         'observaciones',
 		'imagen_frontal',
 		'imagen_lateral_derecha',
@@ -67,6 +69,8 @@ class PostureExamination extends Model
 
         $examination->id_consulta = $request->input('id_consulta');
         $examination->fecha_realizacion = $request->input('fecha_realizacion');
+		$examination->talla_paciente = $request->input('talla_paciente');
+        $examination->peso_paciente = $request->input('peso_paciente');
         $examination->observaciones = $request->input('observaciones');
 
 		$examination->keypoints_frontal = $request->input('keypoints_frontal');

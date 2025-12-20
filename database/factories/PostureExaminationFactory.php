@@ -18,6 +18,8 @@ class PostureExaminationFactory extends Factory
     {
         return [
             'fecha_realizacion' => fake()->date(),
+			'talla_paciente' => $this->faker->randomFloat(1,2),
+            'peso_paciente' => $this->faker->randomFloat(1,2),
             'observaciones' => fake()->sentence(),
 			
 			// Añadir imagenes y keypoints si es necesario
