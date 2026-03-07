@@ -17,6 +17,9 @@ return new class extends Migration
             $table->foreignId('id_consulta')->constrained('consultations');
 
             $table->date('fecha_realizacion');
+
+			$table->float('talla_paciente');
+            $table->float('peso_paciente');
             
             $table->float('valor_fuerza_presion_manual');
             $table->enum('categoria_fuerza_presion_manual', ['Muy bajo','Bajo','Medio','Alto','Muy alto']);

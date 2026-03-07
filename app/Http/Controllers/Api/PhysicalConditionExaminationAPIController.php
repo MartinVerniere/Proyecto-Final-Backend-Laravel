@@ -31,6 +31,8 @@ class PhysicalConditionExaminationAPIController extends Controller {
         $validated = $request->validate([
             'id_consulta' => 'required|exists:consultations,id',
             'fecha_realizacion' => 'required|date',
+			'talla_paciente' => 'required|numeric',
+            'peso_paciente' => 'required|numeric',
             'valor_fuerza_presion_manual' => 'required|numeric',
             'categoria_fuerza_presion_manual' => 'required|in:Muy bajo,Bajo,Medio,Alto,Muy alto',
             'valor_fuerza_explosiva' => 'required|numeric',

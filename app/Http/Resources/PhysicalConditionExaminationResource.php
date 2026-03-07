@@ -18,6 +18,9 @@ class PhysicalConditionExaminationResource extends JsonResource
             'Id' => $this->id,
             'Id_Examinacion' => $this->id_consulta,
             'Fecha_realizacion' => $this->fecha_realizacion,
+
+			'Peso' => $this->peso_paciente,
+            'Talla' => $this->talla_paciente,
             
             'Valor_fuerza_presion_manual' => $this->valor_fuerza_presion_manual,
             'Categoria_fuerza_presion_manual' => $this->categoria_fuerza_presion_manual,

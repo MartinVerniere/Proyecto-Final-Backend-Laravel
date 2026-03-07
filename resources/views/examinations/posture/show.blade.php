@@ -13,6 +13,15 @@
         </div>
     </div>
 
+	{{-- Medidas básicas --}}
+    <div class="card mb-4">
+        <div class="card-header">Medidas</div>
+        <div class="card-body">
+            <p><strong>Talla paciente:</strong> {{ $examinacionAntropogenica->talla_paciente }} cm</p>
+            <p><strong>Peso paciente:</strong> {{ $examinacionAntropogenica->peso_paciente }} kg</p>
+        </div>
+    </div>
+
     {{-- ================= IMÁGENES + KEYPOINTS ================= --}}
 
 	@php
