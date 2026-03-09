@@ -16,6 +16,10 @@ class AnthropogenicalExamination extends Model
         'talla_paciente',
         'peso_paciente',
         'longitud_pierna',
+		'nivel_de_actividad',
+		'valor_EER',
+		'tasa_metabolica_basal',
+		'gasto_energetico_total_estimado',
         'talla_padre',
         'talla_madre',
         'talla_adulta',
@@ -27,8 +31,7 @@ class AnthropogenicalExamination extends Model
         'categoria_indice_cormico',
         'valor_indice_masa_corporal',
         'categoria_indice_masa_corporal',
-        'valor_estadio_tanner',
-        'categoria_estadio_tanner',
+        'estadio_tanner',
         'valor_indice_madurativo',
         'valor_edad_PHV',
         'categoria_edad_PHV'
@@ -46,6 +49,10 @@ class AnthropogenicalExamination extends Model
         $examination->talla_paciente = $request->input('talla_paciente');
         $examination->peso_paciente = $request->input('peso_paciente');
         $examination->longitud_pierna = $request->input('longitud_pierna');
+		$examination->nivel_de_actividad = $request->input('nivel_de_actividad');
+		$examination->valor_EER = $request->input('valor_EER');
+		$examination->tasa_metabolica_basal = $request->input('tasa_metabolica_basal');
+		$examination->gasto_energetico_total_estimado = $request->input('gasto_energetico_total_estimado');
         $examination->talla_padre = $request->input('talla_padre');
         $examination->talla_madre = $request->input('talla_madre');
         $examination->talla_adulta = $request->input('talla_adulta');
@@ -57,8 +64,7 @@ class AnthropogenicalExamination extends Model
         $examination->categoria_indice_cormico = $request->input('categoria_indice_cormico');
         $examination->valor_indice_masa_corporal = $request->input('valor_indice_masa_corporal');
         $examination->categoria_indice_masa_corporal = $request->input('categoria_indice_masa_corporal');
-        $examination->valor_estadio_tanner = $request->input('valor_estadio_tanner');
-        $examination->categoria_estadio_tanner = $request->input('categoria_estadio_tanner');
+        $examination->estadio_tanner = $request->input('estadio_tanner');
         $examination->valor_indice_madurativo = $request->input('valor_indice_madurativo');
         $examination->valor_edad_PHV = $request->input('valor_edad_PHV');
         $examination->categoria_edad_PHV = $request->input('categoria_edad_PHV');

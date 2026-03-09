@@ -23,6 +23,13 @@ class AnthropogenicalExaminationFactory extends Factory
             'peso_paciente' => $this->faker->randomFloat(1,2),
             
             'longitud_pierna' => $this->faker->randomFloat(1,2),
+
+			'nivel_de_actividad' => $this->faker->randomFloat(1,2),
+			'valor_EER' => $this->faker->randomFloat(1,2),
+
+			'tasa_metabolica_basal' => $this->faker->randomFloat(1,2),
+			'gasto_energetico_total_estimado' => $this->faker->randomFloat(1,2),
+
             'talla_padre' => $this->faker->randomFloat(1,2),
             'talla_madre' => $this->faker->randomFloat(1,2),
 
@@ -39,11 +46,8 @@ class AnthropogenicalExaminationFactory extends Factory
             'valor_indice_masa_corporal' => $this->faker->randomFloat(1,2),
             'categoria_indice_masa_corporal' => $this->faker->randomElement(['Peso insuficiente','Normopeso','Sobrepeso tipo I','Sobrepeso tipo II','Obesidad tipo I','Obesidad tipo II','Obesidad tipo III']),
 
-            'valor_estadio_tanner' => $this->faker->randomFloat(1,2),
-            'categoria_estadio_tanner' => $this->faker->randomElement(['I','II','III','IV','V']),
-
+            'estadio_tanner' => $this->faker->randomElement(['I','II','III','IV','V']),
             'valor_indice_madurativo' => $this->faker->randomFloat(1,2),
-
             'valor_edad_PHV' => $this->faker->randomFloat(1,2),
             'categoria_edad_PHV' => $this->faker->randomElement(['Temprano','Normal','Tardio']),
         ];

@@ -22,6 +22,13 @@ return new class extends Migration
             $table->float('peso_paciente');
             
             $table->float('longitud_pierna');
+
+			$table->float('nivel_de_actividad');
+            $table->float('valor_EER');
+
+			$table->float('tasa_metabolica_basal');
+            $table->float('gasto_energetico_total_estimado');
+
             $table->float('talla_padre');
             $table->float('talla_madre');
 
@@ -38,11 +45,8 @@ return new class extends Migration
             $table->float('valor_indice_masa_corporal');
             $table->enum('categoria_indice_masa_corporal', ['Peso insuficiente','Normopeso','Sobrepeso tipo I','Sobrepeso tipo II','Obesidad tipo I','Obesidad tipo II','Obesidad tipo III']);
 
-            $table->float('valor_estadio_tanner');
-            $table->enum('categoria_estadio_tanner', ['I','II','III','IV','V']);
-
+            $table->enum('estadio_tanner', ['I','II','III','IV','V']);
             $table->float('valor_indice_madurativo');
-            
             $table->float('valor_edad_PHV');
             $table->enum('categoria_edad_PHV', ['Temprano','Normal','Tardio']);
 
