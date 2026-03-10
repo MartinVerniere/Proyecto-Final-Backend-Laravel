@@ -22,7 +22,9 @@
         <div class="card-header">Medidas</div>
         <div class="card-body">
             <p><strong>Talla paciente:</strong> {{ $examinacionAntropogenica->talla_paciente }} cm</p>
+			<p><strong>Talla paciente sentado:</strong> {{ $examinacionAntropogenica->talla_paciente_sentado }} cm</p>
             <p><strong>Peso paciente:</strong> {{ $examinacionAntropogenica->peso_paciente }} kg</p>
+			<p><strong>Presion arterial:</strong> {{ $examinacionAntropogenica->presion_arterial_paciente }} mmHg</p>
             <p><strong>Longitud de pierna:</strong> {{ $examinacionAntropogenica->longitud_pierna }} cm</p>
         </div>
     </div>
@@ -43,6 +45,14 @@
     <div class="card mb-4">
         <div class="card-header">Índices antropogenicos</div>
         <div class="card-body">
+			<p>
+                <strong>Nivel de actividad:</strong>
+                {{ $examinacionAntropogenica->nivel_de_actividad }}
+                ({{ $examinacionAntropogenica->valor_EER }})
+				{{ $examinacionAntropogenica->tasa_metabolica_basal }}
+                ({{ $examinacionAntropogenica->gasto_energetico_total_estimado }})
+            </p>
+
             <p>
                 <strong>IRMI:</strong>
                 {{ $examinacionAntropogenica->valor_IRMI }}
@@ -63,8 +73,7 @@
 
             <p>
                 <strong>Estadio Tanner:</strong>
-                {{ $examinacionAntropogenica->valor_estadio_tanner }}
-                ({{ $examinacionAntropogenica->categoria_estadio_tanner }})
+                {{ $examinacionAntropogenica->estadio_tanner }}
             </p>
 
             <p>

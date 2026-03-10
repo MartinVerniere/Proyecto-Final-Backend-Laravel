@@ -14,7 +14,9 @@ class AnthropogenicalExamination extends Model
         'id_consulta',
         'fecha_realizacion',
         'talla_paciente',
+		'talla_paciente_sentado',
         'peso_paciente',
+		'presion_arterial_paciente',
         'longitud_pierna',
 		'nivel_de_actividad',
 		'valor_EER',
@@ -47,7 +49,9 @@ class AnthropogenicalExamination extends Model
         $examination->id_consulta = $request->input('id_consulta');
         $examination->fecha_realizacion = $request->input('fecha_realizacion');
         $examination->talla_paciente = $request->input('talla_paciente');
+		$examination->talla_paciente_sentado = $request->input('talla_paciente_sentado');
         $examination->peso_paciente = $request->input('peso_paciente');
+		$examination->presion_arterial_paciente = $request->input('presion_arterial_paciente');
         $examination->longitud_pierna = $request->input('longitud_pierna');
 		$examination->nivel_de_actividad = $request->input('nivel_de_actividad');
 		$examination->valor_EER = $request->input('valor_EER');

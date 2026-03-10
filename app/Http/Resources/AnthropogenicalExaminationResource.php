@@ -19,9 +19,15 @@ class AnthropogenicalExaminationResource extends JsonResource
             'Id_Examinacion' => $this->id_consulta,
             'Fecha_realizacion' => $this->fecha_realizacion,
             
-            'Peso' => $this->peso_paciente,
+            
             'Talla' => $this->talla_paciente,
+			'Talla_sentado' => $this->talla_paciente_sentado,
+			'Peso' => $this->peso_paciente,
+			'Presion_arterial' => $this->presion_arterial_paciente,
 
+			'EER' => $this->valor_EER,
+			'Tasa_metabolica_basal' => $this->tasa_metabolica_basal,
+			'Gasto_energetico_total_estimado' => $this->gasto_energetico_total_estimado,
             'Longitud_pierna' => $this->longitud_pierna,
             'Talla_padre' => $this->talla_padre,
             'Talla_madre' => $this->talla_madre,
@@ -34,8 +40,7 @@ class AnthropogenicalExaminationResource extends JsonResource
             'Categoria_indice_cormico' => $this->categoria_indice_cormico,
             'Indice_masa_corporal' => $this->valor_indice_masa_corporal,
             'Categoria_indice_masa_corporal' => $this->categoria_indice_masa_corporal,
-            'Estadio_tanner' => $this->valor_estadio_tanner,
-            'Categoria_estadio_tanner' => $this->categoria_estadio_tanner,
+            'Estadio_tanner' => $this->estadio_tanner,
             'Indice_madurativo' => $this->valor_indice_madurativo,
             'Edad_PHV' => $this->valor_edad_PHV,
             'Categoria_edad_PHV' => $this->categoria_edad_PHV

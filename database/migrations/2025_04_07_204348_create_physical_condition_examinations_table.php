@@ -18,8 +18,10 @@ return new class extends Migration
 
             $table->date('fecha_realizacion');
 
-			$table->float('talla_paciente');
+            $table->float('talla_paciente');
+			$table->float('talla_paciente_sentado');
             $table->float('peso_paciente');
+            $table->float('presion_arterial_paciente');
             
             $table->float('valor_fuerza_presion_manual');
             $table->enum('categoria_fuerza_presion_manual', ['Muy bajo','Bajo','Medio','Alto','Muy alto']);

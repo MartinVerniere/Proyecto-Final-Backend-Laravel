@@ -8,7 +8,9 @@
 			<p><strong>Paciente:</strong> {{ $consultation->getNombrePaciente() }}</p>
 			<p><strong>Fecha de realización:</strong> {{ $consultation->fecha_realizacion }}</p>
 			<p><strong>Talla:</strong> {{ $consultation->talla }} cm</p>
-			<p><strong>Peso:</strong> {{ $consultation->peso }} kg</p>
+			<p><strong>Talla sentado:</strong> {{ $examinacionAntropogenica->talla_sentado }} cm</p>
+			<p><strong>Peso:</strong> {{ $consultation->peso }} kg</p>			
+			<p><strong>Presion arterial:</strong> {{ $examinacionAntropogenica->presion_arterial }} mmHg</p>
 			<p><strong>Deporte:</strong> {{ $consultation->deporte ?? '—' }}</p>
 			<p><strong>Club:</strong> {{ $consultation->club ?? '—' }}</p>
 			<p><strong>Posición:</strong> {{ $consultation->posicion ?? '—' }}</p>

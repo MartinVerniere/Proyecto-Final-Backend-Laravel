@@ -20,7 +20,9 @@ class AnthropogenicalExaminationFactory extends Factory
             'fecha_realizacion' => fake()->date(),
 
             'talla_paciente' => $this->faker->randomFloat(1,2),
+			'talla_paciente_sentado' => $this->faker->randomFloat(1,2),
             'peso_paciente' => $this->faker->randomFloat(1,2),
+			'presion_arterial_paciente' => $this->faker->randomFloat(1,2),
             
             'longitud_pierna' => $this->faker->randomFloat(1,2),
 

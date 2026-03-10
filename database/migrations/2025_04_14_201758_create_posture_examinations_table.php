@@ -17,8 +17,12 @@ return new class extends Migration
             $table->foreignId('id_consulta')->constrained('consultations');
 
             $table->date('fecha_realizacion');
-			$table->float('talla_paciente');
+			
+            $table->float('talla_paciente');
+			$table->float('talla_paciente_sentado');
             $table->float('peso_paciente');
+            $table->float('presion_arterial_paciente');
+
             $table->string('observaciones');
 			
 			$table->string('imagen_frontal')->nullable();

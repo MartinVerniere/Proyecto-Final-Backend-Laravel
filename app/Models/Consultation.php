@@ -18,7 +18,9 @@ class Consultation extends Model
         'id_paciente',
         'fecha_realizacion',
         'talla',
+		'talla_sentado',
         'peso',
+		'presion_arterial',
         'deporte',
         'horas_gimnasio',
         'dias_gimnasio',
@@ -72,8 +74,10 @@ class Consultation extends Model
 
         $consultation->id_paciente = $request->input('id_paciente');
         $consultation->fecha_realizacion = $request->input('fecha_realizacion');
-        $consultation->talla = $request->input('talla_paciente');
-        $consultation->peso = $request->input('peso_paciente');
+        $examination->talla = $request->input('talla_paciente');
+		$examination->talla_sentado = $request->input('talla_paciente_sentado');
+        $examination->peso = $request->input('peso_paciente');
+		$examination->presion_arterial = $request->input('presion_arterial_paciente');
 
         $consultation->deporte = $request->input('deporte', null);
         $consultation->horas_gimnasio = $request->input('horas_gimnasio', null);

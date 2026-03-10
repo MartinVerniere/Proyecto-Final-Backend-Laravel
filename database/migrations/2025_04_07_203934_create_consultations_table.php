@@ -18,7 +18,9 @@ return new class extends Migration
             $table->foreignId('id_paciente')->constrained('patients');
             $table->date('fecha_realizacion');
             $table->float('talla');
+			$table->float('talla_sentado');
             $table->float('peso');
+            $table->float('presion_arterial');
 
             $table->string('deporte')->nullable();
             $table->integer('horas_gimnasio')->nullable();

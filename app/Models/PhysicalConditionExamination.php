@@ -13,8 +13,10 @@ class PhysicalConditionExamination extends Model
     protected $fillable = [
         'id_consulta',
         'fecha_realizacion',
-		'talla_paciente',
+        'talla_paciente',
+		'talla_paciente_sentado',
         'peso_paciente',
+		'presion_arterial_paciente',
         'valor_fuerza_presion_manual',
         'categoria_fuerza_presion_manual',
         'valor_fuerza_explosiva',
@@ -35,8 +37,10 @@ class PhysicalConditionExamination extends Model
 
         $examination->id_consulta = $request->input('id_consulta');
         $examination->fecha_realizacion = $request->input('fecha_realizacion');
-		$examination->talla_paciente = $request->input('talla_paciente');
+        $examination->talla_paciente = $request->input('talla_paciente');
+		$examination->talla_paciente_sentado = $request->input('talla_paciente_sentado');
         $examination->peso_paciente = $request->input('peso_paciente');
+		$examination->presion_arterial_paciente = $request->input('presion_arterial_paciente');
         $examination->valor_fuerza_presion_manual = $request->input('valor_fuerza_presion_manual');
         $examination->categoria_fuerza_presion_manual = $request->input('categoria_fuerza_presion_manual');
         $examination->valor_fuerza_explosiva = $request->input('valor_fuerza_explosiva');

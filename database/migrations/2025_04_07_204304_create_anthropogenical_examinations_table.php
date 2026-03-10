@@ -19,8 +19,10 @@ return new class extends Migration
             $table->date('fecha_realizacion');
 
             $table->float('talla_paciente');
+			$table->float('talla_paciente_sentado');
             $table->float('peso_paciente');
-            
+            $table->float('presion_arterial_paciente');
+
             $table->float('longitud_pierna');
 
 			$table->float('nivel_de_actividad');

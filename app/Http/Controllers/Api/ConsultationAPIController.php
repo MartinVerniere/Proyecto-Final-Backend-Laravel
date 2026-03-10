@@ -55,8 +55,9 @@ class ConsultationAPIController extends Controller
             'id_paciente' => 'required|exists:patients,id',
             'fecha_realizacion' => 'required|date',
             'talla_paciente' => 'required|numeric',
+			'talla_paciente_sentado' => 'required|numeric',
             'peso_paciente' => 'required|numeric',
-            
+			'presion_arterial_paciente' => 'required|numeric',
             'deporte' => 'sometimes|string',
             'horas_gimnasio' => 'sometimes|integer',
             'dias_gimnasio' => 'sometimes|integer',
