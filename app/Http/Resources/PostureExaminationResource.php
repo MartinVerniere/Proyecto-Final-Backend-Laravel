@@ -23,9 +23,11 @@ class PostureExaminationResource extends JsonResource
             'Id' => $this->id,
             'Id_Examinacion' => $this->id_consulta,
             'Fecha_realizacion' => $this->fecha_realizacion,
-
-			'Talla' => $this->talla_paciente,
+			
+            'Talla' => $this->talla_paciente,
+			'Talla_sentado' => $this->talla_paciente_sentado,
 			'Peso' => $this->peso_paciente,
+			'Presion_arterial' => $this->presion_arterial_paciente,
             
 			'Imagen_Frontal' => $this->imagen_frontal,
 			'Imagen_Lateral_Derecha' => $this->imagen_lateral_derecha,
