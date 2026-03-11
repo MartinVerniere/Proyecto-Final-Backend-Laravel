@@ -50,9 +50,7 @@ class PostureExaminationAPIController extends Controller {
 			]);
 		}
 
-		return response()->json([
-			'message' => 'Examen postural creado correctamente',
-		], 200);
+		return response()->json(['message' => 'Examen postural creado correctamente'], 200);
     }
 
     private function validateNuevaExaminacionPostura(Request $request){
@@ -86,6 +84,7 @@ class PostureExaminationAPIController extends Controller {
 			'keypoints_lateral_derecha' => 'required|string',
 			'keypoints_lateral_izquierda' => 'required|string',
 			'keypoints_trasera' => 'required|string',
+			'observaciones' => 'sometimes|string|max:65535',
         ]);
         return $validated;
     }

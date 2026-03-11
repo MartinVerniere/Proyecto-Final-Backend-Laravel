@@ -23,7 +23,7 @@ return new class extends Migration
             $table->float('peso_paciente');
             $table->float('presion_arterial_paciente');
 
-            $table->string('observaciones');
+            $table->string('observaciones')->nullable();
 			
 			$table->string('imagen_frontal')->nullable();
 			$table->string('imagen_lateral_derecha')->nullable();
