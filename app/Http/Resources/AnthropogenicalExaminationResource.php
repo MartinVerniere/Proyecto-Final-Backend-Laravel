@@ -25,7 +25,8 @@ class AnthropogenicalExaminationResource extends JsonResource
 			'Peso' => $this->peso_paciente,
 			'Presion_arterial' => $this->presion_arterial_paciente,
 
-			'Nivel_actividad' => $this->nivel_de_actividad,
+			'Categoria_nivel_actividad' => $this->categoria_nivel_de_actividad,
+			'Valor_nivel_actividad' => $this->valor_nivel_de_actividad,
 			'EER' => $this->valor_EER,
 			'Tasa_metabolica_basal' => $this->tasa_metabolica_basal,
 			'Gasto_energetico_total_estimado' => $this->gasto_energetico_total_estimado,

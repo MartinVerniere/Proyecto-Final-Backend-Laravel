@@ -47,7 +47,8 @@
         <div class="card-body">
 			<p>
                 <strong>Nivel de actividad:</strong>
-                {{ $examinacionAntropogenica->nivel_de_actividad }}
+				{{ $examinacionAntropogenica->categoria_nivel_de_actividad }}
+				{{ $examinacionAntropogenica->valor_nivel_de_actividad }}
                 ({{ $examinacionAntropogenica->valor_EER }})
 				{{ $examinacionAntropogenica->tasa_metabolica_basal }}
                 ({{ $examinacionAntropogenica->gasto_energetico_total_estimado }})

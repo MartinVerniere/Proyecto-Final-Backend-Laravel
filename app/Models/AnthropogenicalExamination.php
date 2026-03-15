@@ -18,7 +18,8 @@ class AnthropogenicalExamination extends Model
         'peso_paciente',
 		'presion_arterial_paciente',
         'longitud_pierna',
-		'nivel_de_actividad',
+		'categoria_nivel_de_actividad',
+		'valor_nivel_de_actividad',
 		'valor_EER',
 		'tasa_metabolica_basal',
 		'gasto_energetico_total_estimado',
@@ -53,7 +54,8 @@ class AnthropogenicalExamination extends Model
         $examination->peso_paciente = $request->input('peso_paciente');
 		$examination->presion_arterial_paciente = $request->input('presion_arterial_paciente');
         $examination->longitud_pierna = $request->input('longitud_pierna');
-		$examination->nivel_de_actividad = $request->input('nivel_de_actividad');
+		$examination->categoria_nivel_de_actividad = $request->input('categoria_nivel_de_actividad');
+		$examination->valor_nivel_de_actividad = $request->input('valor_nivel_de_actividad');
 		$examination->valor_EER = $request->input('valor_EER');
 		$examination->tasa_metabolica_basal = $request->input('tasa_metabolica_basal');
 		$examination->gasto_energetico_total_estimado = $request->input('gasto_energetico_total_estimado');
