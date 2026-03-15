@@ -51,6 +51,7 @@ class ConsultationFactory extends Factory
             'merienda' => fake()->boolean(),
             'cena' => fake()->boolean(),
             'hidratacion' => fake()->numberBetween(1, 10),
+			'observaciones_alimentacion' => fake()->sentence(),
             'anotaciones' => fake()->sentence(),
         ];
     }

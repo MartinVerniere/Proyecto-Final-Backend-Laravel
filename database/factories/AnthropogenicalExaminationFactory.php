@@ -26,7 +26,8 @@ class AnthropogenicalExaminationFactory extends Factory
             
             'longitud_pierna' => $this->faker->randomFloat(1,2),
 
-			'nivel_de_actividad' => $this->faker->randomFloat(1,2),
+			'categoria_nivel_de_actividad' =>  $this->faker->randomElement(['Sedentaria','Liviana','Moderada','Intensa','Extremada']),
+			'valor_nivel_de_actividad' => $this->faker->randomFloat(1,2),
 			'valor_EER' => $this->faker->randomFloat(1,2),
 
 			'tasa_metabolica_basal' => $this->faker->randomFloat(1,2),

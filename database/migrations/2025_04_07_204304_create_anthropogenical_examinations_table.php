@@ -25,7 +25,7 @@ return new class extends Migration
 
             $table->float('longitud_pierna');
 
-			$table->enum('categorai_nivel_de_actividad', ['Sedentaria','Liviana','Moderada','Intensa','Extremada']);
+			$table->enum('categoria_nivel_de_actividad', ['Sedentaria','Liviana','Moderada','Intensa','Extremada']);
 			$table->float('valor_nivel_de_actividad');
             $table->float('valor_EER');
 
