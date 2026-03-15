@@ -23,14 +23,14 @@ return new class extends Migration
             $table->float('presion_arterial');
 
             $table->string('deporte')->nullable();
+			$table->string('club')->nullable();
+            $table->string('posicion')->nullable();
             $table->integer('horas_gimnasio')->nullable();
             $table->integer('dias_gimnasio')->nullable();
             $table->integer('horas_semana_gimnasio')->nullable();
             $table->integer('horas_entrenamiento')->nullable();
             $table->integer('dias_entrenamiento')->nullable();
             $table->integer('horas_semana_entrenamiento')->nullable();
-            $table->string('club')->nullable();
-            $table->string('posicion')->nullable();
             $table->text('antecedentes_personales')->nullable();
             $table->text('antecedentes_familiares')->nullable();
             $table->text('antecedentes_lesiones')->nullable();
@@ -43,6 +43,7 @@ return new class extends Migration
             $table->boolean('merienda')->nullable();
             $table->boolean('cena')->nullable();
             $table->float('hidratacion')->nullable();
+			$table->text('observaciones_alimentacion')->nullable();
             $table->text('anotaciones')->nullable();
         });
     }

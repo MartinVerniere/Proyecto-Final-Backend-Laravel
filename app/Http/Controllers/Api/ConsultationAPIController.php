@@ -79,6 +79,7 @@ class ConsultationAPIController extends Controller
             'merienda' => 'sometimes|boolean',
             'cena' => 'sometimes|boolean',
             'hidratacion' => 'sometimes|numeric',
+            'observaciones_alimentacion' => 'sometimes|string|max:65535',
             'anotaciones' => 'sometimes|string|max:65535',
         ]);
         return $validated;

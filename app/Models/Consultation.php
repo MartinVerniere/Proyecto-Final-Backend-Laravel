@@ -42,6 +42,7 @@ class Consultation extends Model
         'merienda',
         'cena',
         'hidratacion',
+		'observaciones_alimentacion',
         'anotaciones',
     ];
 
@@ -100,6 +101,7 @@ class Consultation extends Model
         $consultation->merienda = $request->input('merienda', null);
         $consultation->cena = $request->input('cena', null);
         $consultation->hidratacion = $request->input('hidratacion', null);
+		$consultation->observaciones_alimentacion = $request->input('observaciones_alimentacion', null);
         $consultation->anotaciones = $request->input('anotaciones', null);
 
         $consultation->save();

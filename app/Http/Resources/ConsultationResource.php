@@ -45,6 +45,7 @@ class ConsultationResource extends JsonResource
 			'Merienda' => $this->merienda ?? null,
 			'Cena' => $this->cena ?? null,
 			'Hidratacion' => $this->hidratacion ?? null,
+			'Observaciones_alimentacion' => $this->observaciones_alimentacion ?? null,
 			'Anotaciones' => $this->anotaciones ?? null,
 			
 			'Examinacion_antropogenica' => $this->anthropogenicalExamination?->id ?? null,

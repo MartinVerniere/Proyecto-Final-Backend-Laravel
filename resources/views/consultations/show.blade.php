@@ -2,8 +2,10 @@
 @section('content')
 <div class="container py-4">
 	<h3 class="mb-4">Detalles de la Consulta</h3>
+	{{-- OBLIGATORIA --}}
 	{{-- Información básica --}}
 	<div class="card mb-4">
+		<div class="card-header">Datos generales</div>
 		<div class="card-body">
 			<p><strong>Paciente:</strong> {{ $consultation->getNombrePaciente() }}</p>
 			<p><strong>Fecha de realización:</strong> {{ $consultation->fecha_realizacion }}</p>
@@ -11,9 +13,78 @@
 			<p><strong>Talla sentado:</strong> {{ $examinacionAntropogenica->talla_sentado }} cm</p>
 			<p><strong>Peso:</strong> {{ $consultation->peso }} kg</p>			
 			<p><strong>Presion arterial:</strong> {{ $examinacionAntropogenica->presion_arterial }} mmHg</p>
+
+		</div>
+	</div>
+
+	{{-- OPCIONAL --}}
+	{{-- Deporte --}}
+	<div class="card mb-4">
+		<div class="card-header">Deporte</div>
+		<div class="card-body">
 			<p><strong>Deporte:</strong> {{ $consultation->deporte ?? '—' }}</p>
 			<p><strong>Club:</strong> {{ $consultation->club ?? '—' }}</p>
 			<p><strong>Posición:</strong> {{ $consultation->posicion ?? '—' }}</p>
+		</div>
+	</div>
+
+	{{-- Gimnasio --}}
+	<div class="card mb-4">
+		<div class="card-header">Gimnasio</div>
+		<div class="card-body">
+			<p><strong>Horas gimnasio:</strong> {{ $consultation->horas_gimnasio ?? '—' }}</p>
+			<p><strong>Dias gimnasio:</strong> {{ $consultation->dias_gimnasio ?? '—' }}</p>
+			<p><strong>Horas gimnasio semana:</strong> {{ $consultation->horas_semana_gimnasio ?? '—' }}</p>
+		</div>
+	</div>
+
+	{{-- Entrenamiento --}}
+	<div class="card mb-4">
+	<div class="card-header">Entrenamiento</div>
+		<div class="card-body">
+			<p><strong>Horas entrenamiento:</strong> {{ $consultation->horas_entrenamiento ?? '—' }}</p>
+			<p><strong>Dias entrenamiento:</strong> {{ $consultation->dias_entrenamiento ?? '—' }}</p>
+			<p><strong>Horas entrenamiento semana:</strong> {{ $consultation->horas_semana_entrenamiento ?? '—' }}</p>
+		</div>
+	</div>
+
+	{{-- Historial medico --}}
+	<div class="card mb-4">
+	<div class="card-header">Historial medico</div>
+		<div class="card-body">
+			<p><strong>Antecedentes personales:</strong> {{ $consultation->antecedentes_personales ?? '—' }}</p>
+			<p><strong>Antecedentes familiares:</strong> {{ $consultation->antecedentes_familiares ?? '—' }}</p>
+			<p><strong>Antecedentes de lesiones:</strong> {{ $consultation->antecedentes_lesiones ?? '—' }}</p>
+		</div>
+	</div>
+
+	{{-- Historial estudios --}}
+	<div class="card mb-4">
+	<div class="card-header">Historial de estudios</div>
+		<div class="card-body">
+			<p><strong>Estudios laboratorio:</strong> {{ $consultation->estudios_laboratorio ?? '—' }}</p>
+			<p><strong>Observaciones estudios laboratorio:</strong> {{ $consultation->observaciones_estudios_laboratorio ?? '—' }}</p>
+			<p><strong>Estudios cardiologicos:</strong> {{ $consultation->estudios_cardiologicos ?? '—' }}</p>
+			<p><strong>Observaciones estudios cardiologicos:</strong> {{ $consultation->observaciones_estudios_cardiologicos ?? '—' }}</p>
+		</div>
+	</div>
+
+	{{-- Alimentacion --}}
+	<div class="card mb-4">
+	<div class="card-header">Alimentacion</div>
+		<div class="card-body">
+			<p><strong>Desayuna:</strong> {{ $consultation->desayuna ?? '—' }}</p>
+			<p><strong>Almuerza:</strong> {{ $consultation->almuerza ?? '—' }}</p>
+			<p><strong>Merienda:</strong> {{ $consultation->merienda ?? '—' }}</p>
+			<p><strong>Cena:</strong> {{ $consultation->cena ?? '—' }}</p>
+			<p><strong>Observaciones:</strong> {{ $consultation->observaciones_alimentacion ?? '—' }}</p>
+		</div>
+	</div>
+
+	{{-- Observaciones --}}
+	<div class="card mb-4">
+		<div class="card-body">
+			<p><strong>Observaciones:</strong> {{ $consultation->anotaciones ?? '—' }}</p>
 		</div>
 	</div>
 
