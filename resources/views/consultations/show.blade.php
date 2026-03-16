@@ -12,7 +12,7 @@
 			<p><strong>Talla:</strong> {{ $consultation->talla }} cm</p>
 			<p><strong>Talla sentado:</strong> {{ $examinacionAntropogenica->talla_sentado }} cm</p>
 			<p><strong>Peso:</strong> {{ $consultation->peso }} kg</p>			
-			<p><strong>Presion arterial:</strong> {{ $examinacionAntropogenica->presion_arterial }} mmHg</p>
+			<p><strong>Presion arterial:</strong> {{ $examinacionAntropogenica->presion_arterial_maxima }}/{{ $examinacionAntropogenica->presion_arterial_minima }} mmHg</p>
 
 		</div>
 	</div>

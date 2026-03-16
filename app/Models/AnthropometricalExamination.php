@@ -16,7 +16,8 @@ class AnthropometricalExamination extends Model
         'talla_paciente',
 		'talla_paciente_sentado',
         'peso_paciente',
-		'presion_arterial_paciente',
+		'presion_arterial_maxima_paciente',
+		'presion_arterial_minima_paciente',
         'pliegues_triceps',
         'pliegues_subescapular',
         'pliegues_supraespinal',
@@ -50,7 +51,8 @@ class AnthropometricalExamination extends Model
         $examination->talla_paciente = $request->input('talla_paciente');
 		$examination->talla_paciente_sentado = $request->input('talla_paciente_sentado');
         $examination->peso_paciente = $request->input('peso_paciente');
-		$examination->presion_arterial_paciente = $request->input('presion_arterial_paciente');
+		$examination->presion_arterial_maxima_paciente = $request->input('presion_arterial_maxima_paciente');
+		$examination->presion_arterial_minima_paciente = $request->input('presion_arterial_minima_paciente');
         $examination->pliegues_triceps = $request->input('pliegues_triceps');
         $examination->pliegues_subescapular = $request->input('pliegues_subescapular');
         $examination->pliegues_supraespinal = $request->input('pliegues_supraespinal');

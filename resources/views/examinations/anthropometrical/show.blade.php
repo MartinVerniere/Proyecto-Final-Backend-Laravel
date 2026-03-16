@@ -21,10 +21,10 @@
     <div class="card mb-4">
         <div class="card-header">Medidas</div>
         <div class="card-body">
-            <p><strong>Talla paciente:</strong> {{ $examinacionAntropogenica->talla_paciente }} cm</p>
-			<p><strong>Talla paciente sentado:</strong> {{ $examinacionAntropogenica->talla_paciente_sentado }} cm</p>
-            <p><strong>Peso paciente:</strong> {{ $examinacionAntropogenica->peso_paciente }} kg</p>
-			<p><strong>Presion arterial:</strong> {{ $examinacionAntropogenica->presion_arterial_paciente }} mmHg</p>
+            <p><strong>Talla paciente:</strong> {{ $examinacionAntropometrica->talla_paciente }} cm</p>
+			<p><strong>Talla paciente sentado:</strong> {{ $examinacionAntropometrica->talla_paciente_sentado }} cm</p>
+            <p><strong>Peso paciente:</strong> {{ $examinacionAntropometrica->peso_paciente }} kg</p>
+			<p><strong>Presion arterial:</strong> {{ $examinacionAntropometrica->presion_arterial_maxima_paciente }}/{{ $examinacionAntropometrica->presion_arterial_minima_paciente }} mmHg</p>
         </div>
     </div>
 

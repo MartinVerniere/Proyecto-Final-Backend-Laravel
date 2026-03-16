@@ -16,16 +16,14 @@ class PhysicalConditionExamination extends Model
         'talla_paciente',
 		'talla_paciente_sentado',
         'peso_paciente',
-		'presion_arterial_paciente',
+		'presion_arterial_maxima_paciente',
+		'presion_arterial_minima_paciente',
         'valor_fuerza_presion_manual',
         'categoria_fuerza_presion_manual',
         'valor_fuerza_explosiva',
         'categoria_fuerza_explosiva',
         'valor_mobilidad_tobillo',
         'categoria_mobilidad_tobillo',
-        #'evaluacion_sentadillas',
-        #'evaluacion_activa_pierna',
-        #'movilidad_hombros',
     ];
 
     public function consultation() {
@@ -40,16 +38,14 @@ class PhysicalConditionExamination extends Model
         $examination->talla_paciente = $request->input('talla_paciente');
 		$examination->talla_paciente_sentado = $request->input('talla_paciente_sentado');
         $examination->peso_paciente = $request->input('peso_paciente');
-		$examination->presion_arterial_paciente = $request->input('presion_arterial_paciente');
+		$examination->presion_arterial_maxima_paciente = $request->input('presion_arterial_maxima_paciente');
+		$examination->presion_arterial_minima_paciente = $request->input('presion_arterial_minima_paciente');
         $examination->valor_fuerza_presion_manual = $request->input('valor_fuerza_presion_manual');
         $examination->categoria_fuerza_presion_manual = $request->input('categoria_fuerza_presion_manual');
         $examination->valor_fuerza_explosiva = $request->input('valor_fuerza_explosiva');
         $examination->categoria_fuerza_explosiva = $request->input('categoria_fuerza_explosiva');
         $examination->valor_mobilidad_tobillo = $request->input('valor_mobilidad_tobillo');
         $examination->categoria_mobilidad_tobillo = $request->input('categoria_mobilidad_tobillo');
-        #$examination->evaluacion_sentadillas = $request->input('evaluacion_sentadillas');
-        #$examination->evaluacion_activa_pierna = $request->input('evaluacion_activa_pierna');
-        #$examination->movilidad_hombros = $request->input('movilidad_hombros');
 
         $examination->save();
 

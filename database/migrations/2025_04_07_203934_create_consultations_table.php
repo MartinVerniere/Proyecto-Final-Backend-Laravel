@@ -20,7 +20,8 @@ return new class extends Migration
             $table->float('talla');
 			$table->float('talla_sentado');
             $table->float('peso');
-            $table->float('presion_arterial');
+            $table->float('presion_arterial_maxima');
+			$table->float('presion_arterial_minima');
 
             $table->string('deporte')->nullable();
 			$table->string('club')->nullable();

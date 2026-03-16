@@ -24,7 +24,7 @@
             <p><strong>Talla paciente:</strong> {{ $examinacionAntropogenica->talla_paciente }} cm</p>
 			<p><strong>Talla paciente sentado:</strong> {{ $examinacionAntropogenica->talla_paciente_sentado }} cm</p>
             <p><strong>Peso paciente:</strong> {{ $examinacionAntropogenica->peso_paciente }} kg</p>
-			<p><strong>Presion arterial:</strong> {{ $examinacionAntropogenica->presion_arterial_paciente }} mmHg</p>
+			<p><strong>Presion arterial:</strong> {{ $examinacionAntropogenica->presion_arterial_maxima_paciente }}/{{ $examinacionAntropogenica->presion_arterial_minima_paciente }} mmHg</p>
             <p><strong>Longitud de pierna:</strong> {{ $examinacionAntropogenica->longitud_pierna }} cm</p>
         </div>
     </div>

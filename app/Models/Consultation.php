@@ -20,7 +20,8 @@ class Consultation extends Model
         'talla',
 		'talla_sentado',
         'peso',
-		'presion_arterial',
+		'presion_arterial_maxima',
+		'presion_arterial_minima',
         'deporte',
         'horas_gimnasio',
         'dias_gimnasio',
@@ -78,7 +79,8 @@ class Consultation extends Model
         $consultation->talla = $request->input('talla_paciente');
 		$consultation->talla_sentado = $request->input('talla_paciente_sentado');
         $consultation->peso = $request->input('peso_paciente');
-		$consultation->presion_arterial = $request->input('presion_arterial_paciente');
+		$consultation->presion_arterial_maxima = $request->input('presion_arterial_maxima_paciente');
+		$consultation->presion_arterial_minima = $request->input('presion_arterial_minima_paciente');
 
         $consultation->deporte = $request->input('deporte', null);
         $consultation->horas_gimnasio = $request->input('horas_gimnasio', null);

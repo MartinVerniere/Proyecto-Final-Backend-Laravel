@@ -22,7 +22,8 @@ class ConsultationResource extends JsonResource
             'Talla' => $this->talla,
 			'Talla_sentado' => $this->talla_sentado,
             'Peso' => $this->peso,
-			'Presion_arterial' => $this->presion_arterial,
+			'Presion_arterial_maxima' => $this->presion_arterial_maxima,
+			'Presion_arterial_minima' => $this->presion_arterial_minima,
             
 			'Deporte' => $this->deporte ?? null,
 			'Horas_gimnasio' => $this->horas_gimnasio ?? null,

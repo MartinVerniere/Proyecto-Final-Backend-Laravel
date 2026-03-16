@@ -21,7 +21,8 @@ return new class extends Migration
             $table->float('talla_paciente');
 			$table->float('talla_paciente_sentado');
             $table->float('peso_paciente');
-            $table->float('presion_arterial_paciente');
+            $table->float('presion_arterial_maxima_paciente');
+			$table->float('presion_arterial_minima_paciente');
 
             $table->integer('pliegues_triceps');
             $table->integer('pliegues_subescapular');

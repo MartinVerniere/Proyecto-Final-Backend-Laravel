@@ -23,7 +23,8 @@ class PostureExamination extends Model
         'talla_paciente',
 		'talla_paciente_sentado',
         'peso_paciente',
-		'presion_arterial_paciente',
+		'presion_arterial_maxima_paciente',
+		'presion_arterial_minima_paciente',
         'observaciones',
 		'imagen_frontal',
 		'imagen_lateral_derecha',
@@ -74,7 +75,8 @@ class PostureExamination extends Model
         $examination->talla_paciente = $request->input('talla_paciente');
 		$examination->talla_paciente_sentado = $request->input('talla_paciente_sentado');
         $examination->peso_paciente = $request->input('peso_paciente');
-		$examination->presion_arterial_paciente = $request->input('presion_arterial_paciente');
+		$examination->presion_arterial_maxima_paciente = $request->input('presion_arterial_maxima_paciente');
+		$examination->presion_arterial_minima_paciente = $request->input('presion_arterial_minima_paciente');
         $examination->observaciones = $request->input('observaciones', null);
 
 		$examination->keypoints_frontal = $request->input('keypoints_frontal');

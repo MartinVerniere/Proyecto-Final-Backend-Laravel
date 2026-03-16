@@ -23,7 +23,8 @@ class AnthropometricalExaminationResource extends JsonResource
             'Talla' => $this->talla_paciente,
 			'Talla_sentado' => $this->talla_paciente_sentado,
 			'Peso' => $this->peso_paciente,
-			'Presion_arterial' => $this->presion_arterial_paciente,
+			'Presion_arterial_maxima' => $this->presion_arterial_maxima_paciente,
+			'Presion_arterial_minima' => $this->presion_arterial_minima_paciente,
             
             'Pliegues_triceps' => $this->pliegues_triceps,
             'Pliegues_subescapular' => $this->pliegues_subescapular,

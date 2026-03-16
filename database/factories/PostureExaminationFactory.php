@@ -21,7 +21,8 @@ class PostureExaminationFactory extends Factory
             'talla_paciente' => $this->faker->randomFloat(1,2),
 			'talla_paciente_sentado' => $this->faker->randomFloat(1,2),
             'peso_paciente' => $this->faker->randomFloat(1,2),
-			'presion_arterial_paciente' => $this->faker->randomFloat(1,2),
+			'presion_arterial_maxima_paciente' => $this->faker->randomFloat(1,2),
+			'presion_arterial_minima_paciente' => $this->faker->randomFloat(1,2),
             'observaciones' => $this->faker->sentence(),
 			
 			// Añadir imagenes y keypoints si es necesario

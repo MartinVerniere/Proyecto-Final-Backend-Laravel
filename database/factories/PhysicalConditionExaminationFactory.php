@@ -22,7 +22,8 @@ class PhysicalConditionExaminationFactory extends Factory
             'talla_paciente' => $this->faker->randomFloat(1,2),
 			'talla_paciente_sentado' => $this->faker->randomFloat(1,2),
             'peso_paciente' => $this->faker->randomFloat(1,2),
-			'presion_arterial_paciente' => $this->faker->randomFloat(1,2),
+			'presion_arterial_maxima_paciente' => $this->faker->randomFloat(1,2),
+			'presion_arterial_minima_paciente' => $this->faker->randomFloat(1,2),
             
             'valor_fuerza_presion_manual' => $this->faker->randomFloat(1, 0, 10),
             'categoria_fuerza_presion_manual' => $this->faker->randomElement(['Muy bajo','Bajo','Medio','Alto','Muy alto']),
