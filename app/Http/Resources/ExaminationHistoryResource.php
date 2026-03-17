@@ -26,6 +26,7 @@ class ExaminationHistoryResource extends JsonResource
 		$postureExaminations = $consultations->pluck('postureExamination')->filter();
 
 		return [
+			'patient' => $this->nombre . " " . $this->apellido,
 			'anthropometrical_history' => (new AnthropometricalCollection($anthropometricalExaminations))->toArray($request),
 			'anthropogenical_history' => (new AnthropogenicalCollection($anthropogenicalExaminations))->toArray($request),
 			'physical_history' => (new PhysicalCollection($physicalExaminations))->toArray($request),
