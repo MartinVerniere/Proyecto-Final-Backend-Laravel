@@ -47,6 +47,13 @@ class Consultation extends Model
         'anotaciones',
     ];
 
+	protected $casts = [
+		'desayuna' => 'boolean',
+		'almuerza' => 'boolean',
+		'merienda' => 'boolean',
+		'cena' => 'boolean',
+	];
+
     public function anthropogenicalExamination() {
         return $this->hasOne(AnthropogenicalExamination::class, 'id_consulta');
     }
