@@ -20,21 +20,15 @@ class PostureExaminationAPIController extends Controller {
     }
 
     public function storePostureExamination(Request $request){
-		// dd([
-		// 	'has_file_imagen_cabeza' => $request->hasFile('imagen_frontal'),
-		// 	'all_files' => $request->allFiles(),
-		// 	'all_inputs' => $request->all(),
-		// ]);
-
         $validate = $this->validateNuevaExaminacionPostura($request);
 		if (!$validate) return response()->json(['error' => $validate], 400);
 
 		$consulta_asociada = Consultation::findorfail($request->id_consulta);
 		if ($consulta_asociada->postureExamination) return response()->json(['error' => 'La consulta ya tenia una examinacion de postura asociada'], 500);
 		
-		$id_examinacion_postura = PostureExamination::añadirExaminacionPostura($request);
-
 		try {
+			$id_examinacion_postura = PostureExamination::añadirExaminacionPostura($request);
+
 			HeadExamination::añadirExaminacionCabeza($this->createRequestExaminacionCabeza($request, $id_examinacion_postura));
 			ShouldersExamination::añadirExaminacionHombrosEscapular($this->createRequestExaminacionHombros($request, $id_examinacion_postura));
 			PelvisExamination::añadirExaminacionPelvis($this->createRequestExaminacionPelvis($request, $id_examinacion_postura));
@@ -42,6 +36,23 @@ class PostureExaminationAPIController extends Controller {
 			PivotExamination::añadirExaminacionPivot($this->createRequestExaminacionPivot($request, $id_examinacion_postura));
 		} catch (Exception $e) {
 			$examination_postura = PostureExamination::find($id_examinacion_postura);
+
+			if ($examination_postura->analisisCabeza) {
+				$examination_postura->analisisCabeza->delete();
+			}
+			if ($examination_postura->analisisHombrosEscapular) {
+				$examination_postura->analisisHombrosEscapular->delete();
+			}
+			if ($examination_postura->analisisPelvis) {
+				$examination_postura->analisisPelvis->delete();
+			}
+			if ($examination_postura->analisisRodilla) {
+				$examination_postura->analisisRodilla->delete();
+			}
+			if ($examination_postura->analisisPivot) {
+				$examination_postura->analisisPivot->delete();
+			}
+
         	$examination_postura->delete();
 
 			return response()->json([
