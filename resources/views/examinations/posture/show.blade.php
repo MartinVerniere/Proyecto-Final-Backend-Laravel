@@ -170,7 +170,7 @@
         <div class="card-header">Rodillas</div>
         <div class="card-body">
             <p><strong>Genu:</strong> {{ $examinacionPostura->analisisRodilla->genu }}</p>
-            <p><strong>Recurbatum:</strong> {{ $examinacionPostura->analisisRodilla->recurbatum }}</p>
+            <p><strong>Recurvatum:</strong> {{ $examinacionPostura->analisisRodilla->recurvatum }}</p>
         </div>
     </div>
     @endif

@@ -13,7 +13,7 @@ class KneeExamination extends Model
     protected $fillable = [
         'id_examinacion_postura',
         'genu',
-        'recurbatum',
+        'recurvatum',
     ];
 
     public function postureExamination() {
@@ -25,7 +25,7 @@ class KneeExamination extends Model
 
         $examination->id_examinacion_postura = $request->input('id_examinacion_postura');
         $examination->genu = $request->input('genu');
-		$examination->recurbatum = $request->input('recurbatum');
+		$examination->recurvatum = $request->input('recurvatum');
 
         $examination->save();
 
