@@ -52,8 +52,28 @@ class PhysicalConditionExamination extends Model
         return $examination->id;
     }
 
-    public static function quitarExaminacionFisica($request) {
-        $examination = $request->ExaminacionFisica;
+	public static function actualizarExaminacionFisica($request, $id_examination) {
+        $examination = PhysicalConditionExamination::find($id_examination);
+
+        $examination->fecha_realizacion = $request->input('fecha_realizacion');
+        $examination->talla_paciente = $request->input('talla_paciente');
+		$examination->talla_paciente_sentado = $request->input('talla_paciente_sentado');
+        $examination->peso_paciente = $request->input('peso_paciente');
+		$examination->presion_arterial_maxima_paciente = $request->input('presion_arterial_maxima_paciente');
+		$examination->presion_arterial_minima_paciente = $request->input('presion_arterial_minima_paciente');
+        $examination->valor_fuerza_presion_manual = $request->input('valor_fuerza_presion_manual');
+        $examination->categoria_fuerza_presion_manual = $request->input('categoria_fuerza_presion_manual');
+        $examination->valor_fuerza_explosiva = $request->input('valor_fuerza_explosiva');
+        $examination->categoria_fuerza_explosiva = $request->input('categoria_fuerza_explosiva');
+        $examination->valor_mobilidad_tobillo = $request->input('valor_mobilidad_tobillo');
+        $examination->categoria_mobilidad_tobillo = $request->input('categoria_mobilidad_tobillo');
+
+        $examination->save();
+
+        return $examination->id;
+    }
+
+    public static function quitarExaminacionFisica($id) {
         $examinationElem = PhysicalConditionExamination::find($id);
         $examinationElem->delete();
     }

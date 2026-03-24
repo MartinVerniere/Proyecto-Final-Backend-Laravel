@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('physical_condition_examinations', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('id_consulta')->constrained('consultations');
+            $table->foreignId('id_consulta')->constrained('consultations')->cascadeOnDelete();
 
             $table->date('fecha_realizacion');
 
@@ -32,10 +32,7 @@ return new class extends Migration
 
             $table->float('valor_mobilidad_tobillo');
             $table->enum('categoria_mobilidad_tobillo', ['Rigidez','Bien']);
-
-            //$table->IMAGEN('evaluacion_sentadillas');
-            //$table->IMAGEN('evaluacion_activa_pierna');
-            //$table->IMAGEN('movilidad_hombros');
+			
             $table->timestamps();
         });
     }
