@@ -38,6 +38,11 @@
             <p><strong>Abdominal:</strong> {{ $examinacionAntropometrica->pliegues_abdominal }}</p>
             <p><strong>Muslo:</strong> {{ $examinacionAntropometrica->pliegues_muslo }}</p>
             <p><strong>Pantorrilla:</strong> {{ $examinacionAntropometrica->pliegues_pantorrilla }}</p>
+			<div class="divider"></div>
+			<p>
+				<strong>Sumatoria de 6 pliegues:</strong>
+				{{ $examinacionAntropometrica->suma_pliegues }}
+			</p>
         </div>
     </div>
 
@@ -74,11 +79,6 @@
                 <strong>Índice de masa muscular:</strong>
                 {{ $examinacionAntropometrica->valor_indice_masa_muscular }}
                 ({{ $examinacionAntropometrica->categoria_indice_masa_muscular }})
-            </p>
-
-            <p>
-                <strong>Sumatoria de 6 pliegues:</strong>
-                {{ $examinacionAntropometrica->suma_pliegues }}
             </p>
         </div>
     </div>

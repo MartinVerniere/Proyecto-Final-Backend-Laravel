@@ -161,3 +161,10 @@
     box-sizing: border-box;
     text-align: center;
 }
+
+.divider {
+	width: 100%;
+	border-top: 2px dashed #000;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}

@@ -125,6 +125,17 @@
 					<a href="{{ route('consultations.anthropometrical', $consultation) }}" class="btn btn-primary btn-sm">
 						Ver
 					</a>
+					<a href="{{ route('anthropometrical.edit', $consultation->anthropometricalExamination) }}" class="btn btn-warning btn-sm">
+						Editar
+					</a>
+					<form action="{{ route('anthropometrical.destroy', $consultation->anthropometricalExamination) }}" method="POST" class="d-inline"
+						onsubmit="return confirm('¿Estás seguro que quieres eliminar esta examen?');">
+						@csrf
+						@method('DELETE')
+						<button type="submit" class="btn btn-danger btn-sm" onClick=>
+							Eliminar
+						</button>
+					</form>
 				@else
 					<button class="btn btn-secondary btn-sm" disabled>
 						No creada

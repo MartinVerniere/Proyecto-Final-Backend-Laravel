@@ -33,20 +33,36 @@ class AnthropometricalExaminationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id){}
+    public function show(string $id){
+		$examination = AnthropometricalExamination::find($id);
+        return view('examinations.anthropometrical.show', compact('examination'));
+	}
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id){}
+    public function edit(string $id){
+		$examination = AnthropometricalExamination::find($id);
+		return view('examinations.anthropometrical.edit', compact('examination'));
+	}
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id){}
+    public function update(Request $request, string $id_examination){
+		AnthropometricalExamination::actualizarExaminacionAntropometrica($request, $id_examination);
+		return redirect()
+			->route('consultations.index')
+			->with('success', 'Examinación actualizada correctamente');
+	}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id){}
+    public function destroy(string $id_examination){
+		AnthropometricalExamination::quitarExaminacionAntropometrica($id_examination);
+		return redirect()
+			->route('consultations.index')
+			->with('success', 'Examinación eliminada correctamente');
+	}
 }
