@@ -62,13 +62,7 @@ class ConsultationController extends Controller
      */
     public function destroy(string $id)
     {
-        //
-    }
-
-    public function anthropogenical($id){
-        $consulta = Consultation::find($id);
-        $examinacionAntropogenica = $consulta->anthropogenicalExamination;
-        return view('examinations.anthropogenical.show', compact('examinacionAntropogenica'));
+		//
     }
 
     public function anthropometrical($id){

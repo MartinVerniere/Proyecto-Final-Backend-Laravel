@@ -10,9 +10,9 @@
 			<p><strong>Paciente:</strong> {{ $consultation->getNombrePaciente() }}</p>
 			<p><strong>Fecha de realización:</strong> {{ $consultation->fecha_realizacion }}</p>
 			<p><strong>Talla:</strong> {{ $consultation->talla }} cm</p>
-			<p><strong>Talla sentado:</strong> {{ $examinacionAntropogenica->talla_sentado }} cm</p>
+			<p><strong>Talla sentado:</strong> {{ $consultation->talla_sentado }} cm</p>
 			<p><strong>Peso:</strong> {{ $consultation->peso }} kg</p>			
-			<p><strong>Presion arterial:</strong> {{ $examinacionAntropogenica->presion_arterial_maxima }}/{{ $examinacionAntropogenica->presion_arterial_minima }} mmHg</p>
+			<p><strong>Presion arterial:</strong> {{ $consultation->presion_arterial_maxima }}/{{ $consultation->presion_arterial_minima }} mmHg</p>
 
 		</div>
 	</div>
@@ -73,10 +73,10 @@
 	<div class="card mb-4">
 	<div class="card-header">Alimentacion</div>
 		<div class="card-body">
-			<p><strong>Desayuna:</strong> {{ $consultation->desayuna ?? '-' }}</p>
-			<p><strong>Almuerza:</strong> {{ $consultation->almuerza ?? '-' }}</p>
-			<p><strong>Merienda:</strong> {{ $consultation->merienda ?? '-' }}</p>
-			<p><strong>Cena:</strong> {{ $consultation->cena ?? '-' }}</p>
+			<p><strong>Desayuna:</strong> {{ $consultation->desayuna == 1 ? 'SI' : 'NO' }}</p>
+			<p><strong>Almuerza:</strong> {{ $consultation->almuerza == 1 ? 'SI' : 'NO' }}</p>
+			<p><strong>Merienda:</strong> {{ $consultation->merienda == 1 ? 'SI' : 'NO' }}</p>
+			<p><strong>Cena:</strong> {{ $consultation->cena == 1 ? 'SI' : 'NO' }}</p>
 			<p><strong>Observaciones:</strong> {{ $consultation->observaciones_alimentacion ?? '-' }}</p>
 		</div>
 	</div>
@@ -94,51 +94,69 @@
 			Examinaciones asociadas
 		</div>
 
-		<div class="card-body d-flex flex-wrap gap-2">
+		<div class="card-body d-flex flex-column gap-3">
+			<div class="d-flex gap-2 align-items-center">
+				<span>Examinación Antropogenical:</span>
+				@if ($consultation->anthropogenicalExamination)
+					<a href="{{ route('anthropogenical.show', $consultation->anthropogenicalExamination) }}" class="btn btn-primary btn-sm">
+						Ver
+					</a>
+					<a href="{{ route('anthropogenical.edit', $consultation->anthropogenicalExamination) }}" class="btn btn-warning btn-sm">
+						Editar
+					</a>
+					<form action="{{ route('anthropogenical.destroy', $consultation->anthropogenicalExamination) }}" method="POST" class="d-inline"
+						onsubmit="return confirm('¿Estás seguro que quieres eliminar esta examen?');">
+						@csrf
+						@method('DELETE')
+						<button type="submit" class="btn btn-danger btn-sm" onClick=>
+							Eliminar
+						</button>
+					</form>
+				@else
+					<button class="btn btn-secondary btn-sm" disabled>
+						No creada
+					</button>
+				@endif
+			</div>
 
-			@if ($consultation->anthropogenicalExamination)
-				<a href="{{ route('consultations.anthropogenical', $consultation) }}"
-				class="btn btn-primary">
-					Examinación Antropogénica
-				</a>
-			@else
-				<button class="btn btn-secondary" disabled>
-					Examinación Antropogénica
-				</button>
-			@endif
+			<div class="d-flex gap-2 align-items-center">
+				<span>Examinación Antropométrica:</span>
+				@if ($consultation->anthropometricalExamination)
+					<a href="{{ route('consultations.anthropometrical', $consultation) }}" class="btn btn-primary btn-sm">
+						Ver
+					</a>
+				@else
+					<button class="btn btn-secondary btn-sm" disabled>
+						No creada
+					</button>
+				@endif
+			</div>
 
-			@if ($consultation->anthropometricalExamination)
-				<a href="{{ route('consultations.anthropometrical', $consultation) }}"
-				class="btn btn-primary">
-					Examinación Antropométrica
-				</a>
-			@else
-				<button class="btn btn-secondary" disabled>
-					Examinación Antropométrica
-				</button>
-			@endif
+			<div class="d-flex gap-2 align-items-center">
+				<span>Examinación Física:</span>
+				@if ($consultation->physicalConditionExamination)
+					<a href="{{ route('consultations.physical', $consultation) }}" class="btn btn-primary btn-sm">
+						Ver
+					</a>
+				@else
+					<button class="btn btn-secondary btn-sm" disabled>
+						No creada
+					</button>
+				@endif
+			</div>
 
-			@if ($consultation->physicalConditionExamination)
-				<a href="{{ route('consultations.physical', $consultation) }}"
-				class="btn btn-primary">
-					Examinación Física
-				</a>
-			@else
-				<button class="btn btn-secondary" disabled>
-					Examinación Física
-				</button>
-			@endif
-
-			@if ($consultation->postureExamination)
-				<a href="{{ route('consultations.posture', $consultation) }}"
-				class="btn btn-primary">
-					Examinación Postural
-				</a>
-			@else
-				<button class="btn btn-secondary" disabled>
-					Examinación Postural
-				</button>
-			@endif
+			<div class="d-flex gap-2 align-items-center">
+				<span>Examinación Postural:</span>
+				@if ($consultation->postureExamination)
+					<a href="{{ route('consultations.posture', $consultation) }}" class="btn btn-primary btn-sm">
+						Ver
+					</a>
+				@else
+					<button class="btn btn-secondary btn-sm" disabled>
+						No creada
+					</button>
+				@endif
+			</div>
 
 		</div>
 	</div>

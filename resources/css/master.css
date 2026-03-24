@@ -17,7 +17,7 @@
 .main-navbar{
     display: flex;
     width: 100%;
-    background-color: darkslateblue;
+    background-color: #6870F0;
     justify-content: space-between;
 	align-items: center;
 }
@@ -44,7 +44,7 @@
 
 .navbar-button:hover{
     background-color: white;
-    color: darkslateblue;
+    color: #6870F0;
 }
 
 .navbar-button:active{
@@ -60,11 +60,11 @@
 }
 
 .navbar-button-text:hover{
-    color: darkslateblue;
+    color: #6870F0;
 }
 
 .navbar-button-text:active{
-    color: darkslateblue;
+    color: #6870F0;
 }
 
 .navbar-user-name{

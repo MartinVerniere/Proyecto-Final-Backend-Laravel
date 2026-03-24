@@ -9,10 +9,10 @@
     <div class="card mb-4">
         <div class="card-body">
             <p><strong>Paciente:</strong>
-                {{ $examinacionAntropogenica->consultation->getNombrePaciente() }}
+                {{ $examination->consultation->getNombrePaciente() }}
             </p>
             <p><strong>Fecha de realización:</strong>
-                {{ $examinacionAntropogenica->fecha_realizacion }}
+                {{ $examination->fecha_realizacion }}
             </p>
         </div>
     </div>
@@ -21,11 +21,11 @@
     <div class="card mb-4">
         <div class="card-header">Medidas</div>
         <div class="card-body">
-            <p><strong>Talla paciente:</strong> {{ $examinacionAntropogenica->talla_paciente }} cm</p>
-			<p><strong>Talla paciente sentado:</strong> {{ $examinacionAntropogenica->talla_paciente_sentado }} cm</p>
-            <p><strong>Peso paciente:</strong> {{ $examinacionAntropogenica->peso_paciente }} kg</p>
-			<p><strong>Presion arterial:</strong> {{ $examinacionAntropogenica->presion_arterial_maxima_paciente }}/{{ $examinacionAntropogenica->presion_arterial_minima_paciente }} mmHg</p>
-            <p><strong>Longitud de pierna:</strong> {{ $examinacionAntropogenica->longitud_pierna }} cm</p>
+            <p><strong>Talla paciente:</strong> {{ $examination->talla_paciente }} cm</p>
+			<p><strong>Talla paciente sentado:</strong> {{ $examination->talla_paciente_sentado }} cm</p>
+            <p><strong>Peso paciente:</strong> {{ $examination->peso_paciente }} kg</p>
+			<p><strong>Presion arterial:</strong> {{ $examination->presion_arterial_maxima_paciente }}/{{ $examination->presion_arterial_minima_paciente }} mmHg</p>
+            <p><strong>Longitud de pierna:</strong> {{ $examination->longitud_pierna }} cm</p>
         </div>
     </div>
 
@@ -33,11 +33,11 @@
     <div class="card mb-4">
         <div class="card-header">Tallas familiares</div>
         <div class="card-body">
-            <p><strong>Talla padre:</strong> {{ $examinacionAntropogenica->talla_padre }} cm</p>
-            <p><strong>Talla madre:</strong> {{ $examinacionAntropogenica->talla_madre }} cm</p>
-            <p><strong>Talla adulta estimada:</strong> {{ $examinacionAntropogenica->talla_adulta }} cm</p>
-            <p><strong>Talla objetiva genética:</strong> {{ $examinacionAntropogenica->talla_objetiva_genetica }} cm</p>
-            <p><strong>Talla faltante por crecer:</strong> {{ $examinacionAntropogenica->talla_falta_crecer }} cm</p>
+            <p><strong>Talla padre:</strong> {{ $examination->talla_padre }} cm</p>
+            <p><strong>Talla madre:</strong> {{ $examination->talla_madre }} cm</p>
+            <p><strong>Talla adulta estimada:</strong> {{ $examination->talla_adulta }} cm</p>
+            <p><strong>Talla objetiva genética:</strong> {{ $examination->talla_objetiva_genetica }} cm</p>
+            <p><strong>Talla faltante por crecer:</strong> {{ $examination->talla_falta_crecer }} cm</p>
         </div>
     </div>
 
@@ -47,45 +47,45 @@
         <div class="card-body">
 			<p>
                 <strong>Nivel de actividad:</strong>
-				{{ $examinacionAntropogenica->categoria_nivel_de_actividad }}
-				{{ $examinacionAntropogenica->valor_nivel_de_actividad }}
-                ({{ $examinacionAntropogenica->valor_EER }})
-				{{ $examinacionAntropogenica->tasa_metabolica_basal }}
-                ({{ $examinacionAntropogenica->gasto_energetico_total_estimado }})
+				{{ $examination->categoria_nivel_de_actividad }}
+				{{ $examination->valor_nivel_de_actividad }}
+                ({{ $examination->valor_EER }})
+				{{ $examination->tasa_metabolica_basal }}
+                ({{ $examination->gasto_energetico_total_estimado }})
             </p>
 
             <p>
                 <strong>IRMI:</strong>
-                {{ $examinacionAntropogenica->valor_IRMI }}
-                ({{ $examinacionAntropogenica->categoria_IRMI }})
+                {{ $examination->valor_IRMI }}
+                ({{ $examination->categoria_IRMI }})
             </p>
 
             <p>
                 <strong>Índice córmico:</strong>
-                {{ $examinacionAntropogenica->valor_indice_cormico }}
-                ({{ $examinacionAntropogenica->categoria_indice_cormico }})
+                {{ $examination->valor_indice_cormico }}
+                ({{ $examination->categoria_indice_cormico }})
             </p>
 
             <p>
                 <strong>IMC:</strong>
-                {{ $examinacionAntropogenica->valor_indice_masa_corporal }}
-                ({{ $examinacionAntropogenica->categoria_indice_masa_corporal }})
+                {{ $examination->valor_indice_masa_corporal }}
+                ({{ $examination->categoria_indice_masa_corporal }})
             </p>
 
             <p>
                 <strong>Estadio Tanner:</strong>
-                {{ $examinacionAntropogenica->estadio_tanner }}
+                {{ $examination->estadio_tanner }}
             </p>
 
             <p>
                 <strong>Índice madurativo:</strong>
-                {{ $examinacionAntropogenica->valor_indice_madurativo }}
+                {{ $examination->valor_indice_madurativo }}
             </p>
 
             <p>
                 <strong>Edad PHV:</strong>
-                {{ $examinacionAntropogenica->valor_edad_PHV }}
-                ({{ $examinacionAntropogenica->categoria_edad_PHV }})
+                {{ $examination->valor_edad_PHV }}
+                ({{ $examination->categoria_edad_PHV }})
             </p>
         </div>
     </div>

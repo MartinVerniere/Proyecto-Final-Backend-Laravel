@@ -82,8 +82,43 @@ class AnthropogenicalExamination extends Model
         return $examination->id;
     }
 
-    public static function quitarExaminacionAntropogenica($request) {
-        $examination = $request->ExaminacionAntropogenica;
+	public static function actualizarExaminacionAntropogenica($request, $id_examination) {
+		$examination = AnthropogenicalExamination::find($id_examination);
+
+        $examination->fecha_realizacion = $request->input('fecha_realizacion');
+        $examination->talla_paciente = $request->input('talla_paciente');
+		$examination->talla_paciente_sentado = $request->input('talla_paciente_sentado');
+        $examination->peso_paciente = $request->input('peso_paciente');
+		$examination->presion_arterial_maxima_paciente = $request->input('presion_arterial_maxima_paciente');
+		$examination->presion_arterial_minima_paciente = $request->input('presion_arterial_minima_paciente');
+        $examination->longitud_pierna = $request->input('longitud_pierna');
+		$examination->categoria_nivel_de_actividad = $request->input('categoria_nivel_de_actividad');
+		$examination->valor_nivel_de_actividad = $request->input('valor_nivel_de_actividad');
+		$examination->valor_EER = $request->input('valor_EER');
+		$examination->tasa_metabolica_basal = $request->input('tasa_metabolica_basal');
+		$examination->gasto_energetico_total_estimado = $request->input('gasto_energetico_total_estimado');
+        $examination->talla_padre = $request->input('talla_padre');
+        $examination->talla_madre = $request->input('talla_madre');
+        $examination->talla_adulta = $request->input('talla_adulta');
+        $examination->talla_objetiva_genetica = $request->input('talla_objetiva_genetica');
+        $examination->talla_falta_crecer = $request->input('talla_falta_crecer');
+        $examination->valor_IRMI = $request->input('valor_IRMI');
+        $examination->categoria_IRMI = $request->input('categoria_IRMI');
+        $examination->valor_indice_cormico = $request->input('valor_indice_cormico');    
+        $examination->categoria_indice_cormico = $request->input('categoria_indice_cormico');
+        $examination->valor_indice_masa_corporal = $request->input('valor_indice_masa_corporal');
+        $examination->categoria_indice_masa_corporal = $request->input('categoria_indice_masa_corporal');
+        $examination->estadio_tanner = $request->input('estadio_tanner');
+        $examination->valor_indice_madurativo = $request->input('valor_indice_madurativo');
+        $examination->valor_edad_PHV = $request->input('valor_edad_PHV');
+        $examination->categoria_edad_PHV = $request->input('categoria_edad_PHV');
+
+		$examination->save();
+
+        return $examination->id;
+    }
+
+    public static function quitarExaminacionAntropogenica($id) {
         $examinationElem = AnthropogenicalExamination::find($id);
         $examinationElem->delete();
     }
