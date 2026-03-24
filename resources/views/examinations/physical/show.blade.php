@@ -10,11 +10,11 @@
         <div class="card-body">
             <p>
                 <strong>Paciente:</strong>
-                {{ $examinacionFisica->consultation->getNombrePaciente() }}
+                {{ $examination->consultation->getNombrePaciente() }}
             </p>
             <p>
                 <strong>Fecha de realización:</strong>
-                {{ $examinacionFisica->fecha_realizacion }}
+                {{ $examination->fecha_realizacion }}
             </p>
         </div>
     </div>
@@ -23,10 +23,10 @@
     <div class="card mb-4">
         <div class="card-header">Medidas</div>
         <div class="card-body">
-            <p><strong>Talla paciente:</strong> {{ $examinacionFisica->talla_paciente }} cm</p>
-			<p><strong>Talla paciente sentado:</strong> {{ $examinacionFisica->talla_paciente_sentado }} cm</p>
-            <p><strong>Peso paciente:</strong> {{ $examinacionFisica->peso_paciente }} kg</p>
-			<p><strong>Presion arterial:</strong> {{ $examinacionFisica->presion_arterial_maxima_paciente }}/{{ $examinacionFisica->presion_arterial_minima_paciente }} mmHg</p>
+            <p><strong>Talla paciente:</strong> {{ $examination->talla_paciente }} cm</p>
+			<p><strong>Talla paciente sentado:</strong> {{ $examination->talla_paciente_sentado }} cm</p>
+            <p><strong>Peso paciente:</strong> {{ $examination->peso_paciente }} kg</p>
+			<p><strong>Presion arterial:</strong> {{ $examination->presion_arterial_maxima_paciente }}/{{ $examination->presion_arterial_minima_paciente }} mmHg</p>
         </div>
     </div>
 
@@ -36,14 +36,14 @@
         <div class="card-body">
             <p>
                 <strong>Fuerza de presión manual:</strong>
-                {{ $examinacionFisica->valor_fuerza_presion_manual }}
-                ({{ $examinacionFisica->categoria_fuerza_presion_manual }})
+                {{ $examination->valor_fuerza_presion_manual }}
+                ({{ $examination->categoria_fuerza_presion_manual }})
             </p>
 
             <p>
                 <strong>Fuerza explosiva:</strong>
-                {{ $examinacionFisica->valor_fuerza_explosiva }}
-                ({{ $examinacionFisica->categoria_fuerza_explosiva }})
+                {{ $examination->valor_fuerza_explosiva }}
+                ({{ $examination->categoria_fuerza_explosiva }})
             </p>
         </div>
     </div>
@@ -54,8 +54,8 @@
         <div class="card-body">
             <p>
                 <strong>Movilidad de tobillo:</strong>
-                {{ $examinacionFisica->valor_mobilidad_tobillo }}
-                ({{ $examinacionFisica->categoria_mobilidad_tobillo }})
+                {{ $examination->valor_mobilidad_tobillo }}
+                ({{ $examination->categoria_mobilidad_tobillo }})
             </p>
         </div>
     </div>
