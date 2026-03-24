@@ -26,8 +26,7 @@ class Patient extends Model
         return Patient::orderBy('id')->paginate(10);
     }
 
-    public static function añadirPaciente($request) 
-    {
+    public static function añadirPaciente($request) {
         $patient = new Patient();
 
         $patient->nombre = $request->input('nombre');
@@ -39,9 +38,21 @@ class Patient extends Model
         $patient->save();
     }
 
-    public static function quitarPaciente($request) 
-    {
-        $patient = $request->Paciente;
+    public static function actualizarPaciente($request, $id) {
+        $patient = Patient::find($id);
+
+        $patient->nombre = $request->input('nombre');
+        $patient->apellido = $request->input('apellido');
+        $patient->genero = $request->input('genero');
+        $patient->DNI = $request->input('dni');
+        $patient->fecha_nacimiento = $request->input('fecha_nacimiento');
+
+        $patient->save();
+
+		return $patient->id;
+    }
+
+    public static function quitarPaciente($id) {
         $patientElem = Patient::find($id);
         $patientElem->delete();
     }
