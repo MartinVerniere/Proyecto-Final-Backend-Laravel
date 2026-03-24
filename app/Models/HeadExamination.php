@@ -31,4 +31,15 @@ class HeadExamination extends Model
 
         return $examination->id;
     }
+
+	public static function actualizarExaminacionCabeza($request, $id) {
+        $examination = HeadExamination::find($id);
+
+        $examination->plano = $request->input('plano');
+        $examination->inclinacion = $request->input('inclinacion');
+
+		$examination->save();
+
+        return $examination->id;
+    }
 }

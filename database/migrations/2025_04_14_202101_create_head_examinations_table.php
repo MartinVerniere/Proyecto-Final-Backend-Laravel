@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('head_examinations', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('id_examinacion_postura')->constrained('posture_examinations');
+            $table->foreignId('id_examinacion_postura')->constrained('posture_examinations')->cascadeOnDelete();
             
             $table->enum('plano', ['Adelantado','Neutro','Retrasado']);
             $table->enum('inclinacion', ['Inclinacion derecha','Normal','Inclinacion izquierda']);

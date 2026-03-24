@@ -64,22 +64,4 @@ class ConsultationController extends Controller
     {
 		//
     }
-
-    public function anthropometrical($id){
-        $consulta = Consultation::find($id);
-        $examinacionAntropometrica = $consulta->anthropometricalExamination;
-        return view('examinations.anthropometrical.show', compact('examinacionAntropometrica'));
-    }
-
-	public function physical($id){
-        $consulta = Consultation::find($id);
-        $examinacionFisica = $consulta->physicalConditionExamination;
-        return view('examinations.physical.show', compact('examinacionFisica'));
-    }
-
-    public function posture($id){
-        $consulta = Consultation::find($id);
-        $examinacionPostura = $consulta->postureExamination;
-        return view('examinations.posture.show', compact('examinacionPostura'));
-    }
 }

@@ -14,12 +14,11 @@ return new class extends Migration
         Schema::create('shoulders_examinations', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('id_examinacion_postura')->constrained('posture_examinations');
+            $table->foreignId('id_examinacion_postura')->constrained('posture_examinations')->cascadeOnDelete();
             
             $table->enum('inclinacion', ['Inclinacion derecha','Normal','Inclinacion izquierda']);
-            $table->enum('escapula', ['Rotacion medial','Rotacion lateral','Aladas','Alineadas']);
+            $table->enum('escapula', ['Rotacion medial','Rotacion lateral']);
             $table->enum('hombro', ['Antepulsion','Normal','Retropulsion']);
-            //$table->enum('triangulo_de_talle', ['Normal','Aumentado']);
 
             $table->timestamps();
         });

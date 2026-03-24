@@ -122,7 +122,7 @@
 			<div class="d-flex gap-2 align-items-center">
 				<span>Examinación Antropométrica:</span>
 				@if ($consultation->anthropometricalExamination)
-					<a href="{{ route('consultations.anthropometrical', $consultation) }}" class="btn btn-primary btn-sm">
+					<a href="{{ route('anthropometrical.show', $consultation->anthropometricalExamination) }}" class="btn btn-primary btn-sm">
 						Ver
 					</a>
 					<a href="{{ route('anthropometrical.edit', $consultation->anthropometricalExamination) }}" class="btn btn-warning btn-sm">
@@ -146,7 +146,7 @@
 			<div class="d-flex gap-2 align-items-center">
 				<span>Examinación Física:</span>
 				@if ($consultation->physicalConditionExamination)
-					<a href="{{ route('consultations.physical', $consultation) }}" class="btn btn-primary btn-sm">
+					<a href="{{ route('physical.show', $consultation) }}" class="btn btn-primary btn-sm">
 						Ver
 					</a>
 					<a href="{{ route('physical.edit', $consultation->physicalConditionExamination) }}" class="btn btn-warning btn-sm">
@@ -170,9 +170,20 @@
 			<div class="d-flex gap-2 align-items-center">
 				<span>Examinación Postural:</span>
 				@if ($consultation->postureExamination)
-					<a href="{{ route('consultations.posture', $consultation) }}" class="btn btn-primary btn-sm">
+					<a href="{{ route('posture.show', $consultation->postureExamination) }}" class="btn btn-primary btn-sm">
 						Ver
 					</a>
+					<a href="{{ route('posture.edit', $consultation->postureExamination) }}" class="btn btn-warning btn-sm">
+						Editar
+					</a>
+					<form action="{{ route('posture.destroy', $consultation->postureExamination) }}" method="POST" class="d-inline"
+						onsubmit="return confirm('¿Estás seguro que quieres eliminar esta examen?');">
+						@csrf
+						@method('DELETE')
+						<button type="submit" class="btn btn-danger btn-sm" onClick=>
+							Eliminar
+						</button>
+					</form>
 				@else
 					<button class="btn btn-secondary btn-sm" disabled>
 						No creada

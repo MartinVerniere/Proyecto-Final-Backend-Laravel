@@ -8,8 +8,8 @@
     {{-- Datos generales --}}
     <div class="card mb-4">
         <div class="card-body">
-            <p><strong>Paciente:</strong> {{ $examinacionPostura->consultation->getNombrePaciente() }}</p>
-            <p><strong>Fecha:</strong> {{ $examinacionPostura->fecha_realizacion }}</p>
+            <p><strong>Paciente:</strong> {{ $examination->consultation->getNombrePaciente() }}</p>
+            <p><strong>Fecha:</strong> {{ $examination->fecha_realizacion }}</p>
         </div>
     </div>
 
@@ -17,65 +17,14 @@
     <div class="card mb-4">
         <div class="card-header">Medidas</div>
         <div class="card-body">
-            <p><strong>Talla paciente:</strong> {{ $examinacionPostura->talla_paciente }} cm</p>
-			<p><strong>Talla paciente sentado:</strong> {{ $examinacionPostura->talla_paciente_sentado }} cm</p>
-            <p><strong>Peso paciente:</strong> {{ $examinacionPostura->peso_paciente }} kg</p>
-			<p><strong>Presion arterial:</strong> {{ $examinacionPostura->presion_arterial_maxima_paciente }}/{{ $examinacionPostura->presion_arterial_minima_paciente }} mmHg</p>
+            <p><strong>Talla paciente:</strong> {{ $examination->talla_paciente }} cm</p>
+			<p><strong>Talla paciente sentado:</strong> {{ $examination->talla_paciente_sentado }} cm</p>
+            <p><strong>Peso paciente:</strong> {{ $examination->peso_paciente }} kg</p>
+			<p><strong>Presion arterial:</strong> {{ $examination->presion_arterial_maxima_paciente }}/{{ $examination->presion_arterial_minima_paciente }} mmHg</p>
         </div>
     </div>
 
-    {{-- ================= IMÁGENES + KEYPOINTS ================= --}}
-
-	@php
-		function mapKeypointsNameXY($kp) {
-			if (is_string($kp)) {
-				$kp = json_decode($kp, true);
-			}
-
-			if (!is_array($kp)) {
-				return [];
-			}
-
-			$mapped = [];
-
-			foreach ($kp as $point) {
-				if (!isset($point['name'], $point['x'], $point['y'])) {
-					continue;
-				}
-
-				$mapped[$point['name']] = [
-					'x' => $point['x'],
-					'y' => $point['y'],
-				];
-			}
-
-			return $mapped;
-		}
-
-		$imagenes = [
-			[
-				'title' => 'Frontal',
-				'img' => $examinacionPostura->imagen_frontal,
-				'kp'  => mapKeypointsNameXY($examinacionPostura->keypoints_frontal),
-			],
-			[
-				'title' => 'Lateral derecha',
-				'img' => $examinacionPostura->imagen_lateral_derecha,
-				'kp'  => mapKeypointsNameXY($examinacionPostura->keypoints_lateral_derecha),
-			],
-			[
-				'title' => 'Lateral izquierda',
-				'img' => $examinacionPostura->imagen_lateral_izquierda,
-				'kp'  => mapKeypointsNameXY($examinacionPostura->keypoints_lateral_izquierda),
-			],
-			[
-				'title' => 'Posterior',
-				'img' => $examinacionPostura->imagen_trasera,
-				'kp'  => mapKeypointsNameXY($examinacionPostura->keypoints_trasera),
-			],
-		];
-	@endphp
-
+	{{-- Imagenes --}}
 	<div class="card mb-4">
 		<div class="card-header">
 			Imágenes posturales
@@ -126,74 +75,72 @@
 		</div>
 	</div>
 
-    {{-- ================= SUBMODELOS ================= --}}
-
     {{-- Cabeza --}}
-    @if($examinacionPostura->analisisCabeza)
+    @if($examination->analisisCabeza)
     <div class="card mb-4">
         <div class="card-header">Cabeza</div>
         <div class="card-body">
-            <p><strong>Plano:</strong> {{ $examinacionPostura->analisisCabeza->plano }}</p>
-            <p><strong>Inclinación:</strong> {{ $examinacionPostura->analisisCabeza->inclinacion }}</p>
+            <p><strong>Plano:</strong> {{ $examination->analisisCabeza->plano }}</p>
+            <p><strong>Inclinación:</strong> {{ $examination->analisisCabeza->inclinacion }}</p>
         </div>
     </div>
     @endif
 
     {{-- Hombros --}}
-    @if($examinacionPostura->analisisHombrosEscapular)
+    @if($examination->analisisHombrosEscapular)
     <div class="card mb-4">
         <div class="card-header">Hombros y escápulas</div>
         <div class="card-body">
-            <p><strong>Inclinación:</strong> {{ $examinacionPostura->analisisHombrosEscapular->inclinacion }}</p>
-            <p><strong>Escápula:</strong> {{ $examinacionPostura->analisisHombrosEscapular->escapula }}</p>
-            <p><strong>Hombro:</strong> {{ $examinacionPostura->analisisHombrosEscapular->hombro }}</p>
+            <p><strong>Inclinación:</strong> {{ $examination->analisisHombrosEscapular->inclinacion }}</p>
+            <p><strong>Escápula:</strong> {{ $examination->analisisHombrosEscapular->escapula }}</p>
+            <p><strong>Hombro:</strong> {{ $examination->analisisHombrosEscapular->hombro }}</p>
         </div>
     </div>
     @endif
 
     {{-- Pelvis --}}
-    @if($examinacionPostura->analisisPelvis)
+    @if($examination->analisisPelvis)
     <div class="card mb-4">
         <div class="card-header">Pelvis</div>
         <div class="card-body">
-            <p><strong>EIAS:</strong> {{ $examinacionPostura->analisisPelvis->eias }}</p>
-            <p><strong>EIPS:</strong> {{ $examinacionPostura->analisisPelvis->eips }}</p>
-            <p><strong>Relación:</strong> {{ $examinacionPostura->analisisPelvis->relacion }}</p>
-            <p><strong>Rotación:</strong> {{ $examinacionPostura->analisisPelvis->rotacion }}</p>
+            <p><strong>EIAS:</strong> {{ $examination->analisisPelvis->eias }}</p>
+            <p><strong>EIPS:</strong> {{ $examination->analisisPelvis->eips }}</p>
+            <p><strong>Relación:</strong> {{ $examination->analisisPelvis->relacion }}</p>
+            <p><strong>Rotación:</strong> {{ $examination->analisisPelvis->rotacion }}</p>
         </div>
     </div>
     @endif
 
     {{-- Rodillas --}}
-    @if($examinacionPostura->analisisRodilla)
+    @if($examination->analisisRodilla)
     <div class="card mb-4">
         <div class="card-header">Rodillas</div>
         <div class="card-body">
-            <p><strong>Genu:</strong> {{ $examinacionPostura->analisisRodilla->genu }}</p>
-            <p><strong>Recurvatum:</strong> {{ $examinacionPostura->analisisRodilla->recurvatum }}</p>
+            <p><strong>Genu:</strong> {{ $examination->analisisRodilla->genu }}</p>
+            <p><strong>Recurvatum:</strong> {{ $examination->analisisRodilla->recurvatum }}</p>
         </div>
     </div>
     @endif
 
     {{-- Pivot --}}
-    @if($examinacionPostura->analisisPivot)
+    @if($examination->analisisPivot)
     <div class="card mb-4">
         <div class="card-header">Pivot</div>
         <div class="card-body">
-            <p><strong>Cervical:</strong> {{ $examinacionPostura->analisisPivot->cervical }}</p>
-            <p><strong>Dorsal:</strong> {{ $examinacionPostura->analisisPivot->dorsal }}</p>
-            <p><strong>Lumbar:</strong> {{ $examinacionPostura->analisisPivot->lumbar }}</p>
-            <p><strong>Raquis:</strong> {{ $examinacionPostura->analisisPivot->raquis }}</p>
+            <p><strong>Cervical:</strong> {{ $examination->analisisPivot->cervical }}</p>
+            <p><strong>Dorsal:</strong> {{ $examination->analisisPivot->dorsal }}</p>
+            <p><strong>Lumbar:</strong> {{ $examination->analisisPivot->lumbar }}</p>
+            <p><strong>Raquis:</strong> {{ $examination->analisisPivot->raquis }}</p>
         </div>
     </div>
     @endif
 
     {{-- Observaciones --}}
-    @if($examinacionPostura->observaciones)
+    @if($examination->observaciones)
     <div class="card mb-4">
         <div class="card-header">Observaciones</div>
         <div class="card-body">
-            {{ $examinacionPostura->observaciones }}
+            {{ $examination->observaciones }}
         </div>
     </div>
     @endif

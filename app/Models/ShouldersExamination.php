@@ -29,15 +29,25 @@ class ShouldersExamination extends Model
         $examination->inclinacion = $request->input('inclinacion');
         $examination->escapula = $request->input('escapula');
         $examination->hombro = $request->input('hombro');
-        //$examination->triangulo_de_talle = $request->input('triangulo_de_talle');
 
         $examination->save();
 
         return $examination->id;
     }
 
-    public static function quitarExaminacionHombrosEscapular($request) {
-        $examination = $request->ExaminacionHombrosEscapular;
+	public static function actualizarExaminacionHombrosEscapula($request,$id) {
+        $examination = ShouldersExamination::find($id);
+
+        $examination->inclinacion = $request->input('inclinacion');
+        $examination->escapula = $request->input('escapula');
+        $examination->hombro = $request->input('hombro');
+
+        $examination->save();
+
+        return $examination->id;
+    }
+
+    public static function quitarExaminacionHombrosEscapular($id) {
         $examinationElem = ShouldersExamination::find($id);
         $examinationElem->delete();
     }

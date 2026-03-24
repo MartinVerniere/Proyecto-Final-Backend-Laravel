@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pelvis_examinations', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('id_examinacion_postura')->constrained('posture_examinations');
+            $table->foreignId('id_examinacion_postura')->constrained('posture_examinations')->cascadeOnDelete();
             
             $table->enum('eias', ['Inclinacion izquierda','Normal','Inclinacion derecha']);
             $table->enum('eips', ['Inclinacion izquierda','Normal','Inclinacion derecha']);

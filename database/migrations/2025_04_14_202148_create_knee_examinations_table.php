@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('knee_examinations', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('id_examinacion_postura')->constrained('posture_examinations');
+            $table->foreignId('id_examinacion_postura')->constrained('posture_examinations')->cascadeOnDelete();
 
             $table->enum('genu', ['Varo','Valgo','Normal']);
 			$table->enum('recurvatum', ['Recurvatum','Flexo','Normal']);

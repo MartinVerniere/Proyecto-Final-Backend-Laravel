@@ -36,8 +36,20 @@ class PelvisExamination extends Model
         return $examination->id;
     }
 
-    public static function quitarExaminacionPelvis($request) {
-        $examination = $request->ExaminacionPelvis;
+	public static function actualizarExaminacionPelvis($request, $id){
+        $examination = PelvisExamination::find($id);
+
+        $examination->eias = $request->input('eias');
+        $examination->eips = $request->input('eips');
+        $examination->relacion = $request->input('relacion');
+        $examination->rotacion = $request->input('rotacion');
+
+        $examination->save();
+
+        return $examination->id;
+    }
+
+    public static function quitarExaminacionPelvis($id) {
         $examinationElem = PelvisExamination::find($id);
         $examinationElem->delete();
     }

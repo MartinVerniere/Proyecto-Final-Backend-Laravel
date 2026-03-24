@@ -133,10 +133,36 @@ class PostureExamination extends Model
         return $id;
     }
 
-    public function quitarExaminacionPostura($request) {
-        $examination = $request->ExaminacionPostura;
+	public static function actualizarExaminacionPostura($request, $id_examination) {
+        $examination = PostureExamination::find($id_examination);
+
+        $examination->fecha_realizacion = $request->input('fecha_realizacion');
+        $examination->talla_paciente = $request->input('talla_paciente');
+		$examination->talla_paciente_sentado = $request->input('talla_paciente_sentado');
+        $examination->peso_paciente = $request->input('peso_paciente');
+		$examination->presion_arterial_maxima_paciente = $request->input('presion_arterial_maxima_paciente');
+		$examination->presion_arterial_minima_paciente = $request->input('presion_arterial_minima_paciente');
+        $examination->observaciones = $request->input('observaciones', null);
+
+        $examination->save();
+
+		$id_exam_head = $examination->analisisCabeza->id;
+		$id_exam_shoulder = $examination->analisisHombrosEscapular->id;
+		$id_exam_pelvis = $examination->analisisPelvis->id;
+		$id_exam_knee = $examination->analisisRodilla->id;
+		$id_exam_pivot = $examination->analisisPivot->id;
+		
+		HeadExamination::actualizarExaminacionCabeza($request, $id_exam_head);
+		ShouldersExamination::actualizarExaminacionHombrosEscapula($request, $id_exam_shoulder);
+		PelvisExamination::actualizarExaminacionPelvis($request, $id_exam_pelvis);
+		KneeExamination::actualizarExaminacionRodilla($request, $id_exam_knee);
+		PivotExamination::actualizarExaminacionPivot($request, $id_exam_pivot);
+
+        return $examination->id;
+    }
+
+    public static function quitarExaminacionPostura($id) {
         $examinationElem = PostureExamination::find($id);
         $examinationElem->delete();
     }
-
 }

@@ -36,8 +36,20 @@ class PivotExamination extends Model
         return $examination->id;
     }
 
-    public static function eliminarExaminacionPivot($request) {
-        $examination = $request->ExaminacionPivot;
+	public static function actualizarExaminacionPivot($request, $id) {
+        $examination = PivotExamination::find($id);
+
+        $examination->cervical = $request->input('cervical');
+        $examination->dorsal = $request->input('dorsal');
+        $examination->lumbar = $request->input('lumbar');
+        $examination->raquis = $request->input('raquis');
+
+        $examination->save();
+
+        return $examination->id;
+    }
+
+    public static function eliminarExaminacionPivot($id) {
         $examination = PivotExamination::find($id);
         $examination->delete();
     }

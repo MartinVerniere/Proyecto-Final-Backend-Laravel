@@ -32,8 +32,18 @@ class KneeExamination extends Model
         return $examination->id;
     }
 
-    public static function quitarExaminacionRodilla($request) {
-        $examination = $request->ExaminacionRodilla;
+    public static function actualizarExaminacionRodilla($request, $id) {
+        $examination = KneeExamination::find($id);
+
+        $examination->genu = $request->input('genu');
+		$examination->recurvatum = $request->input('recurvatum');
+
+        $examination->save();
+
+        return $examination->id;
+    }
+
+    public static function quitarExaminacionRodilla($id) {
         $examinationElem = KneeExamination::find($id);
         $examinationElem->delete();
     }
