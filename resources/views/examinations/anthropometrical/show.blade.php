@@ -9,10 +9,10 @@
     <div class="card mb-4">
         <div class="card-body">
             <p><strong>Paciente:</strong>
-                {{ $examinacionAntropometrica->consultation->getNombrePaciente() }}
+                {{ $examination->consultation->getNombrePaciente() }}
             </p>
             <p><strong>Fecha de realización:</strong>
-                {{ $examinacionAntropometrica->fecha_realizacion }}
+                {{ $examination->fecha_realizacion }}
             </p>
         </div>
     </div>
@@ -21,10 +21,10 @@
     <div class="card mb-4">
         <div class="card-header">Medidas</div>
         <div class="card-body">
-            <p><strong>Talla paciente:</strong> {{ $examinacionAntropometrica->talla_paciente }} cm</p>
-			<p><strong>Talla paciente sentado:</strong> {{ $examinacionAntropometrica->talla_paciente_sentado }} cm</p>
-            <p><strong>Peso paciente:</strong> {{ $examinacionAntropometrica->peso_paciente }} kg</p>
-			<p><strong>Presion arterial:</strong> {{ $examinacionAntropometrica->presion_arterial_maxima_paciente }}/{{ $examinacionAntropometrica->presion_arterial_minima_paciente }} mmHg</p>
+            <p><strong>Talla paciente:</strong> {{ $examination->talla_paciente }} cm</p>
+			<p><strong>Talla paciente sentado:</strong> {{ $examination->talla_paciente_sentado }} cm</p>
+            <p><strong>Peso paciente:</strong> {{ $examination->peso_paciente }} kg</p>
+			<p><strong>Presion arterial:</strong> {{ $examination->presion_arterial_maxima_paciente }}/{{ $examination->presion_arterial_minima_paciente }} mmHg</p>
         </div>
     </div>
 
@@ -32,16 +32,16 @@
     <div class="card mb-4">
         <div class="card-header">Pliegues</div>
         <div class="card-body">
-            <p><strong>Tríceps:</strong> {{ $examinacionAntropometrica->pliegues_triceps }}</p>
-            <p><strong>Subescapular:</strong> {{ $examinacionAntropometrica->pliegues_subescapular }}</p>
-            <p><strong>Supraespinal:</strong> {{ $examinacionAntropometrica->pliegues_supraespinal }}</p>
-            <p><strong>Abdominal:</strong> {{ $examinacionAntropometrica->pliegues_abdominal }}</p>
-            <p><strong>Muslo:</strong> {{ $examinacionAntropometrica->pliegues_muslo }}</p>
-            <p><strong>Pantorrilla:</strong> {{ $examinacionAntropometrica->pliegues_pantorrilla }}</p>
+            <p><strong>Tríceps:</strong> {{ $examination->pliegues_triceps }}</p>
+            <p><strong>Subescapular:</strong> {{ $examination->pliegues_subescapular }}</p>
+            <p><strong>Supraespinal:</strong> {{ $examination->pliegues_supraespinal }}</p>
+            <p><strong>Abdominal:</strong> {{ $examination->pliegues_abdominal }}</p>
+            <p><strong>Muslo:</strong> {{ $examination->pliegues_muslo }}</p>
+            <p><strong>Pantorrilla:</strong> {{ $examination->pliegues_pantorrilla }}</p>
 			<div class="divider"></div>
 			<p>
 				<strong>Sumatoria de 6 pliegues:</strong>
-				{{ $examinacionAntropometrica->suma_pliegues }}
+				{{ $examination->suma_pliegues }}
 			</p>
         </div>
     </div>
@@ -50,12 +50,12 @@
     <div class="card mb-4">
         <div class="card-header">Perímetros</div>
         <div class="card-body">
-            <p><strong>Brazo relajado:</strong> {{ $examinacionAntropometrica->perimetro_brazo_relajado }}</p>
-            <p><strong>Brazo flexionado:</strong> {{ $examinacionAntropometrica->perimetro_brazo_flexionado }}</p>
-            <p><strong>Cintura mínima:</strong> {{ $examinacionAntropometrica->perimetro_cintura_minima }}</p>
-            <p><strong>Cadera:</strong> {{ $examinacionAntropometrica->perimetro_cadera }}</p>
-            <p><strong>Muslo:</strong> {{ $examinacionAntropometrica->perimetro_muslo }}</p>
-            <p><strong>Pantorrilla:</strong> {{ $examinacionAntropometrica->perimetro_pantorrilla }}</p>
+            <p><strong>Brazo relajado:</strong> {{ $examination->perimetro_brazo_relajado }}</p>
+            <p><strong>Brazo flexionado:</strong> {{ $examination->perimetro_brazo_flexionado }}</p>
+            <p><strong>Cintura mínima:</strong> {{ $examination->perimetro_cintura_minima }}</p>
+            <p><strong>Cadera:</strong> {{ $examination->perimetro_cadera }}</p>
+            <p><strong>Muslo:</strong> {{ $examination->perimetro_muslo }}</p>
+            <p><strong>Pantorrilla:</strong> {{ $examination->perimetro_pantorrilla }}</p>
         </div>
     </div>
 
@@ -65,20 +65,20 @@
         <div class="card-body">
             <p>
                 <strong>Índice cintura-cadera:</strong>
-                {{ $examinacionAntropometrica->valor_indice_cintura_cadera }}
-                ({{ $examinacionAntropometrica->categoria_indice_cintura_cadera }})
+                {{ $examination->valor_indice_cintura_cadera }}
+                ({{ $examination->categoria_indice_cintura_cadera }})
             </p>
 
             <p>
                 <strong>Índice de masa grasa:</strong>
-                {{ $examinacionAntropometrica->valor_indice_masa_grasa }}
-                ({{ $examinacionAntropometrica->categoria_indice_masa_grasa }})
+                {{ $examination->valor_indice_masa_grasa }}
+                ({{ $examination->categoria_indice_masa_grasa }})
             </p>
 
             <p>
                 <strong>Índice de masa muscular:</strong>
-                {{ $examinacionAntropometrica->valor_indice_masa_muscular }}
-                ({{ $examinacionAntropometrica->categoria_indice_masa_muscular }})
+                {{ $examination->valor_indice_masa_muscular }}
+                ({{ $examination->categoria_indice_masa_muscular }})
             </p>
         </div>
     </div>
