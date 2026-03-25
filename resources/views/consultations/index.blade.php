@@ -24,11 +24,20 @@
 					<td>{{ $consulta->fecha_realizacion }}</td>
                     <td>{{ $consulta->getNombrePaciente() }}</td>
 					<td class="table-acciones-list">
-                        <form action="{{ route('consultations.show', $consulta) }}" method="get">
-                            <button type="submit" class="btn btn-primary">
-								Ver detalles Consulta
+						<a href="{{ route('consultations.show', $consulta) }}" class="btn btn-primary">
+							Ver detalles consulta
+						</a>
+						<a href="{{ route('consultations.edit', $consulta) }}" class="btn btn-warning">
+							Editar
+						</a>
+						<form action="{{ route('consultations.destroy', $consulta) }}" method="POST" class="d-inline"
+						onsubmit="return confirm('¿Estás seguro que quieres eliminar esta consulta? Se ELIMINARAN todas sus examinaciones asociadas!')">
+							@csrf
+							@method('DELETE')
+							<button type="submit" class="btn btn-danger">
+								Eliminar
 							</button>
-                        </form> 
+						</form>
                     </td>
                 </tr>
             @endforeach

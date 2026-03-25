@@ -11,8 +11,7 @@ class ConsultationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
+    public function index() {
         $consultas = Consultation::index();
         return view('consultations.index', compact('consultas'));
     }
@@ -20,48 +19,49 @@ class ConsultationController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
+    public function create() {}
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        return Consultation::añadirConsulta($request);
+    public function store(Request $request) {
+        Consultation::añadirConsulta($request);
+		return redirect()
+			->route('consultations.index')
+			->with('success', 'Consulta añadida correctamente');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Consultation $consultation)
-    {
+    public function show(Consultation $consultation) {
         return view('consultations.show', compact('consultation'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
+    public function edit(Consultation $consultation) {
+        return view('consultations.edit', compact('consultation'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
+    public function update(Request $request, string $id) {
+		Consultation::actualizarConsulta($request, $id);
+		return redirect()
+			->route('consultations.index')
+			->with('success', 'Consulta actualizada correctamente');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-		//
+    public function destroy(string $id) {
+		Patient::quitarPaciente($id);
+		return redirect()
+			->route('consultations.index')
+			->with('success', 'Consulta eliminada correctamente');
     }
 }
