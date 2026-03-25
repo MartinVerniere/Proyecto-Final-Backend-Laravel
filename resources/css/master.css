@@ -169,3 +169,13 @@
 	margin-top: 30px;
 	margin-bottom: 30px;
 }
+
+/*ALERTS-----------------------------------------------------------------------------*/
+.alert-container {
+	position: fixed;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 50%;
+	z-index: 1000; 
+}

@@ -12,7 +12,7 @@ class ConsultationController extends Controller
      * Display a listing of the resource.
      */
     public function index() {
-        $consultas = Consultation::index();
+        $consultas = Consultation::all();
         return view('consultations.index', compact('consultas'));
     }
 
@@ -59,7 +59,7 @@ class ConsultationController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id) {
-		Patient::quitarPaciente($id);
+		Consultation::quitarConsulta($id);
 		return redirect()
 			->route('consultations.index')
 			->with('success', 'Consulta eliminada correctamente');

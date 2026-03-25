@@ -9,6 +9,10 @@
     </head>
     <body class="body">
         <div class="main">
+			<div class="alert-container">
+				@include('alert')
+			</div>
+			
             <div class ="main-navbar">
                 @include('navbar')    
             </div>
