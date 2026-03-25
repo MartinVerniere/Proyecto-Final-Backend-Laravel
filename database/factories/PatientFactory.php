@@ -21,7 +21,7 @@ class PatientFactory extends Factory
             'nombre' => fake()->firstName(),
             'apellido' => fake()->lastName(), 
             'genero' => fake()->randomElement(['MASCULINO', 'FEMENINO']),
-            'DNI' => fake()->randomNumber(10000000, 100000000000000),
+            'DNI' => fake()->randomNumber(8),
             'fecha_nacimiento' => fake()->date(),
         ];
     }
