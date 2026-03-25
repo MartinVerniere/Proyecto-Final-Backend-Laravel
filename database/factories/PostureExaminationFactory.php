@@ -18,11 +18,13 @@ class PostureExaminationFactory extends Factory
     {
         return [
             'fecha_realizacion' => fake()->date(),
-            'talla_paciente' => $this->faker->randomFloat(1,2),
-			'talla_paciente_sentado' => $this->faker->randomFloat(1,2),
-            'peso_paciente' => $this->faker->randomFloat(1,2),
-			'presion_arterial_maxima_paciente' => $this->faker->randomFloat(1,2),
-			'presion_arterial_minima_paciente' => $this->faker->randomFloat(1,2),
+
+            'talla_paciente' => $this->faker->randomFloat(0,100),
+			'talla_paciente_sentado' => $this->faker->randomFloat(0,100),
+            'peso_paciente' => $this->faker->randomFloat(0,40),
+			'presion_arterial_maxima_paciente' => $this->faker->randomFloat(0,60,200),
+			'presion_arterial_minima_paciente' => $this->faker->randomFloat(0,60,150),
+
             'observaciones' => $this->faker->sentence(),
 			
 			// Añadir imagenes y keypoints si es necesario

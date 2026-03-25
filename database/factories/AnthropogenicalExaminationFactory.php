@@ -19,13 +19,13 @@ class AnthropogenicalExaminationFactory extends Factory
         return [
             'fecha_realizacion' => fake()->date(),
 
-            'talla_paciente' => $this->faker->randomFloat(1,2),
-			'talla_paciente_sentado' => $this->faker->randomFloat(1,2),
-            'peso_paciente' => $this->faker->randomFloat(1,2),
-			'presion_arterial_maxima_paciente' => $this->faker->randomFloat(1,2),
-			'presion_arterial_minima_paciente' => $this->faker->randomFloat(1,2),
+            'talla_paciente' => $this->faker->randomFloat(0,100),
+			'talla_paciente_sentado' => $this->faker->randomFloat(0,100),
+            'peso_paciente' => $this->faker->randomFloat(0,40),
+			'presion_arterial_maxima_paciente' => $this->faker->randomFloat(0,60,200),
+			'presion_arterial_minima_paciente' => $this->faker->randomFloat(0,60,150),
             
-            'longitud_pierna' => $this->faker->randomFloat(1,2),
+            'longitud_pierna' => $this->faker->randomFloat(0,40),
 
 			'categoria_nivel_de_actividad' =>  $this->faker->randomElement(['Sedentaria','Liviana','Moderada','Intensa','Extremada']),
 			'valor_nivel_de_actividad' => $this->faker->randomFloat(1,2),
@@ -34,12 +34,12 @@ class AnthropogenicalExaminationFactory extends Factory
 			'tasa_metabolica_basal' => $this->faker->randomFloat(1,2),
 			'gasto_energetico_total_estimado' => $this->faker->randomFloat(1,2),
 
-            'talla_padre' => $this->faker->randomFloat(1,2),
-            'talla_madre' => $this->faker->randomFloat(1,2),
+            'talla_padre' => $this->faker->randomFloat(0,100),
+            'talla_madre' => $this->faker->randomFloat(0,100),
 
-            'talla_adulta' => $this->faker->randomFloat(1,2),
-            'talla_objetiva_genetica' => $this->faker->randomFloat(1,2),
-            'talla_falta_crecer' => $this->faker->randomFloat(1,2),
+            'talla_adulta' => $this->faker->randomFloat(0,100),
+            'talla_objetiva_genetica' => $this->faker->randomFloat(0,100),
+            'talla_falta_crecer' => $this->faker->randomFloat(0,100),
 
             'valor_IRMI' => $this->faker->randomFloat(1,2),
             'categoria_IRMI' => $this->faker->randomElement(['0','1','2']),

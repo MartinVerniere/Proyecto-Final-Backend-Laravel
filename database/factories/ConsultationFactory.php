@@ -25,12 +25,15 @@ class ConsultationFactory extends Factory
 
         return [
             'id_paciente' => $this->faker->randomElement(Patient::pluck('id')),
+
             'fecha_realizacion' => fake()->date(),
-			'talla' => $this->faker->randomFloat(1,2),
-			'talla_sentado' => $this->faker->randomFloat(1,2),
-            'peso' => $this->faker->randomFloat(1,2),
-			'presion_arterial_maxima' => $this->faker->randomFloat(1,2),
-			'presion_arterial_minima' => $this->faker->randomFloat(1,2),
+
+            'talla' => $this->faker->randomFloat(0,100),
+			'talla_sentado' => $this->faker->randomFloat(0,100),
+            'peso' => $this->faker->randomFloat(0,40),
+			'presion_arterial_maxima' => $this->faker->randomFloat(0,60,200),
+			'presion_arterial_minima' => $this->faker->randomFloat(0,60,150),
+
 			'deporte' => fake()->word(),
             'horas_gimnasio' => $horas_gimnasio,
             'dias_gimnasio' => $dias_gimnasio,

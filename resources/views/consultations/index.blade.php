@@ -25,7 +25,7 @@
                     <td>{{ $consulta->getNombrePaciente() }}</td>
 					<td class="table-acciones-list">
 						<a href="{{ route('consultations.show', $consulta) }}" class="btn btn-primary">
-							Ver detalles consulta
+							Detalles
 						</a>
 						<a href="{{ route('consultations.edit', $consulta) }}" class="btn btn-warning">
 							Editar

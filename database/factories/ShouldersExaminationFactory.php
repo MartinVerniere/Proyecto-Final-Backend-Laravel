@@ -20,7 +20,6 @@ class ShouldersExaminationFactory extends Factory
             'inclinacion' => fake()->randomElement(['Inclinacion derecha','Normal','Inclinacion izquierda']),
             'escapula' => fake()->randomElement(['Rotacion medial','Rotacion lateral','Aladas','Alineadas']),
             'hombro' => fake()->randomElement(['Antepulsion','Normal','Retropulsion']),
-            //'triangulo_de_talle' => fake()->randomElement(['Normal','Aumentado']),
         ];
     }
 }
