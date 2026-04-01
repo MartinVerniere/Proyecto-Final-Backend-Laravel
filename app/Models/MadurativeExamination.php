@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Consultation;
 
-class AnthropogenicalExamination extends Model
+class MadurativeExamination extends Model
 {
     use HasFactory;
 
@@ -45,8 +45,8 @@ class AnthropogenicalExamination extends Model
         return $this->belongsTo(Consultation::class, 'id_consulta');
     }
 
-    public static function añadirExaminacionAntropogenica($request) {
-        $examination = new AnthropogenicalExamination();
+    public static function añadirExaminacionMadurativa($request) {
+        $examination = new MadurativeExamination();
 
         $examination->id_consulta = $request->input('id_consulta');
         $examination->fecha_realizacion = $request->input('fecha_realizacion');
@@ -82,8 +82,8 @@ class AnthropogenicalExamination extends Model
         return $examination->id;
     }
 
-	public static function actualizarExaminacionAntropogenica($request, $id_examination) {
-		$examination = AnthropogenicalExamination::find($id_examination);
+	public static function actualizarExaminacionMadurativa($request, $id_examination) {
+		$examination = MadurativeExamination::find($id_examination);
 
         $examination->fecha_realizacion = $request->input('fecha_realizacion');
         $examination->talla_paciente = $request->input('talla_paciente');
@@ -118,8 +118,8 @@ class AnthropogenicalExamination extends Model
         return $examination->id;
     }
 
-    public static function quitarExaminacionAntropogenica($id) {
-        $examinationElem = AnthropogenicalExamination::find($id);
+    public static function quitarExaminacionMadurativa($id) {
+        $examinationElem = MadurativeExamination::find($id);
         $examinationElem->delete();
     }
 }

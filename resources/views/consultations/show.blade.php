@@ -96,15 +96,15 @@
 
 		<div class="card-body d-flex flex-column gap-3">
 			<div class="d-flex gap-2 align-items-center">
-				<span>Examinación Antropogenical:</span>
-				@if ($consultation->anthropogenicalExamination)
-					<a href="{{ route('anthropogenical.show', $consultation->anthropogenicalExamination) }}" class="btn btn-primary btn-sm">
+				<span>Examinación Madurativa:</span>
+				@if ($consultation->madurativeExamination)
+					<a href="{{ route('madurative.show', $consultation->madurativeExamination) }}" class="btn btn-primary btn-sm">
 						Ver
 					</a>
-					<a href="{{ route('anthropogenical.edit', $consultation->anthropogenicalExamination) }}" class="btn btn-warning btn-sm">
+					<a href="{{ route('madurative.edit', $consultation->madurativeExamination) }}" class="btn btn-warning btn-sm">
 						Editar
 					</a>
-					<form action="{{ route('anthropogenical.destroy', $consultation->anthropogenicalExamination) }}" method="POST" class="d-inline"
+					<form action="{{ route('madurative.destroy', $consultation->madurativeExamination) }}" method="POST" class="d-inline"
 						onsubmit="return confirm('¿Estás seguro que quieres eliminar esta examen?');">
 						@csrf
 						@method('DELETE')

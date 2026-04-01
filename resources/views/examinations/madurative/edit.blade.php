@@ -3,9 +3,9 @@
 @section('content')
 <div class="container py-4">
 
-    <h3 class="mb-4">Editar Examinación Antropogénica</h3>
+    <h3 class="mb-4">Editar Examinación Madurativa</h3>
 
-    <form action="{{ route('anthropogenical.update', $examination->id) }}" method="POST">
+    <form action="{{ route('madurative.update', $examination->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -82,7 +82,7 @@
 
         {{-- Índices --}}
         <div class="card mb-4">
-            <div class="card-header">Índices antropogenicos</div>
+            <div class="card-header">Índices madurativos</div>
             <div class="card-body">
                 
                 <div class="mb-3">

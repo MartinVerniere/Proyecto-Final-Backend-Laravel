@@ -49,7 +49,7 @@ class ConsultationResource extends JsonResource
 			'Observaciones_alimentacion' => $this->observaciones_alimentacion ?? null,
 			'Anotaciones' => $this->anotaciones ?? null,
 			
-			'Examinacion_antropogenica' => $this->anthropogenicalExamination?->id ?? null,
+			'Examinacion_madurativa' => $this->madurativeExamination?->id ?? null,
 			'Examinacion_antropometrica' => $this->anthropometricalExamination?->id ?? null,
 			'Examinacion_fisica' => $this->physicalConditionExamination?->id ?? null,
 			'Examinacion_postura' => $this->postureExamination?->id ?? null,			

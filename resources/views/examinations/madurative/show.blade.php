@@ -3,7 +3,7 @@
 @section('content')
 <div class="container py-4">
 
-    <h3 class="mb-4">Examinación Antropogénica</h3>
+    <h3 class="mb-4">Examinación Madurativa</h3>
 
     {{-- Datos generales --}}
     <div class="card mb-4">
@@ -43,7 +43,7 @@
 
     {{-- Índices --}}
     <div class="card mb-4">
-        <div class="card-header">Índices antropogenicos</div>
+        <div class="card-header">Índices madurativos</div>
         <div class="card-body">
 			<p>
                 <strong>Nivel de actividad:</strong>

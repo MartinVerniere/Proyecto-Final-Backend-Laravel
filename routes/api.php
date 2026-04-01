@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PatientAPIController;
 use App\Http\Controllers\Api\ConsultationAPIController;
-use App\Http\Controllers\Api\AnthropogenicalExaminationAPIController;
+use App\Http\Controllers\Api\MadurativeExaminationAPIController;
 use App\Http\Controllers\Api\AnthropometricalExaminationAPIController;
 use App\Http\Controllers\Api\PhysicalConditionExaminationAPIController;
 use App\Http\Controllers\Api\PostureExaminationAPIController;
@@ -48,9 +48,9 @@ Route::middleware('auth:sanctum')->group(function () {
 	});
 
 	Route::prefix('examinations')->group(function () {
-		Route::prefix('anthropogenical')->group(function () {
-			Route::get('{id}', [AnthropogenicalExaminationAPIController::class, 'showAnthropogenicalExamination']);
-			Route::post('create', [AnthropogenicalExaminationAPIController::class, 'storeAnthropogenicalExamination']);
+		Route::prefix('madurative')->group(function () {
+			Route::get('{id}', [MadurativeExaminationAPIController::class, 'showMadurativeExamination']);
+			Route::post('create', [MadurativeExaminationAPIController::class, 'storeMadurativeExamination']);
 		});
 		Route::prefix('anthropometrical')->group(function () {
 			Route::get('{id}', [AnthropometricalExaminationAPIController::class, 'showAnthropometricalExamination']);

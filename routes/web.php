@@ -7,7 +7,7 @@ use App\Http\Middleware\Authenticate;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\AnthropometricalExaminationController;
-use App\Http\Controllers\AnthropogenicalExaminationController;
+use App\Http\Controllers\MadurativeExaminationController;
 use App\Http\Controllers\PhysicalConditionExaminationController;
 use App\Http\Controllers\PostureExaminationController;
 
@@ -42,13 +42,13 @@ Route::middleware('auth')->group(function () {
         
 	Route::resource('consultations', ConsultationController::class);
 	Route::prefix('consultations')->group(function () {
-		Route::get('{consultation}/anthropogenical', [ConsultationController::class, 'anthropogenical'])->name('consultations.anthropogenical');
+		Route::get('{consultation}/madurative', [ConsultationController::class, 'madurative'])->name('consultations.madurative');
 		Route::get('{consultation}/anthropometrical', [ConsultationController::class, 'anthropometrical'])->name('consultations.anthropometrical');
 		Route::get('{consultation}/physical', [ConsultationController::class, 'physical'])->name('consultations.physical');
 		Route::get('{consultation}/posture', [ConsultationController::class, 'posture'])->name('consultations.posture');
 	});
 
-    Route::resource('anthropogenical', AnthropogenicalExaminationController::class);
+    Route::resource('madurative', MadurativeExaminationController::class);
     Route::resource('anthropometrical', AnthropometricalExaminationController::class);
     Route::resource('physical', PhysicalConditionExaminationController::class);
     Route::resource('posture', PostureExaminationController::class);

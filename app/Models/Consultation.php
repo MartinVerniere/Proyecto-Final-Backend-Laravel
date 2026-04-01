@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\AnthropogenicalExamination;
+use App\Models\MadurativeExamination;
 use App\Models\AnthropometricalExamination;
 use App\Models\PhysicalConditionExamination;
 use App\Models\PostureExamination;
@@ -54,8 +54,8 @@ class Consultation extends Model
 		'cena' => 'boolean',
 	];
 
-    public function anthropogenicalExamination() {
-        return $this->hasOne(AnthropogenicalExamination::class, 'id_consulta');
+    public function madurativeExamination() {
+        return $this->hasOne(MadurativeExamination::class, 'id_consulta');
     }
 
     public function anthropometricalExamination() {
@@ -168,7 +168,7 @@ class Consultation extends Model
 
     public function getFechaUltimaExaminacionRealizada() {
         $examinaciones = array_filter([ //Filtrar los elementos null
-            $this->anthropogenicalExamination,
+            $this->madurativeExamination,
             $this->anthropometricalExamination,
             $this->physicalConditionExamination,
             $this->postureExamination

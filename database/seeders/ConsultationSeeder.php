@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Consultation;
-use App\Models\AnthropogenicalExamination;
+use App\Models\MadurativeExamination;
 use App\Models\AnthropometricalExamination;
 use App\Models\PhysicalConditionExamination;
 use App\Models\PostureExamination;
@@ -28,7 +28,7 @@ class ConsultationSeeder extends Seeder
         for ($i=0; $i<$numberofConsultations;$i++){
             $consulta = Consultation::factory()->create();
 
-            AnthropogenicalExamination::factory()->create(['id_consulta' => $consulta->id]);
+            MadurativeExamination::factory()->create(['id_consulta' => $consulta->id]);
             AnthropometricalExamination::factory()->create(['id_consulta' => $consulta->id]);
             PhysicalConditionExamination::factory()->create(['id_consulta' => $consulta->id]);
 

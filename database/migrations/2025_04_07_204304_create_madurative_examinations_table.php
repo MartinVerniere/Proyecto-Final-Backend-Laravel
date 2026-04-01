@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('anthropogenical_examinations', function (Blueprint $table) {
+        Schema::create('madurative_examinations', function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('id_consulta')->constrained('consultations')->cascadeOnDelete();
@@ -63,6 +63,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('anthropogenical_examinations');
+        Schema::dropIfExists('madurative_examinations');
     }
 };
